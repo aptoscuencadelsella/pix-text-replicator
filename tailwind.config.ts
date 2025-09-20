@@ -57,11 +57,27 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        nature: {
+          green: "hsl(var(--nature-green))",
+          blue: "hsl(var(--nature-blue))",
+          forest: "hsl(var(--nature-forest))",
+          stone: "hsl(var(--nature-stone))",
+          sky: "hsl(var(--nature-sky))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      backgroundImage: {
+        "gradient-mountain": "var(--gradient-mountain)",
+        "gradient-sky": "var(--gradient-sky)",
+        "gradient-hero": "var(--gradient-hero)",
+      },
+      boxShadow: {
+        "nature": "var(--shadow-nature)",
+        "card-nature": "var(--shadow-card)",
       },
       keyframes: {
         "accordion-down": {

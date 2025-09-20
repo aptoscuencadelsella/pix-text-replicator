@@ -8,33 +8,53 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Natural Asturias color palette */
+    --background: 195 20% 96%;
+    --foreground: 210 15% 20%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 210 15% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 210 15% 20%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Mountain green as primary */
+    --primary: 120 40% 35%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* River blue as secondary */
+    --secondary: 195 65% 45%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 210 20% 94%;
+    --muted-foreground: 210 10% 50%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Forest green accent */
+    --accent: 130 50% 25%;
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 210 20% 88%;
+    --input: 210 20% 88%;
+    --ring: 120 40% 35%;
+
+    /* Custom design tokens for natural theme */
+    --nature-green: 120 40% 35%;
+    --nature-blue: 195 65% 45%;
+    --nature-forest: 130 50% 25%;
+    --nature-stone: 30 15% 70%;
+    --nature-sky: 200 60% 85%;
+    
+    /* Gradients for natural effects */
+    --gradient-mountain: linear-gradient(135deg, hsl(var(--nature-green)), hsl(var(--nature-forest)));
+    --gradient-sky: linear-gradient(180deg, hsl(var(--nature-sky)), hsl(var(--nature-blue)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--nature-blue) / 0.8), hsl(var(--nature-green) / 0.8));
+    
+    /* Shadows for depth */
+    --shadow-nature: 0 10px 30px -10px hsl(var(--nature-forest) / 0.3);
+    --shadow-card: 0 4px 20px -5px hsl(var(--nature-green) / 0.2);
 
     --radius: 0.5rem;
 
@@ -56,33 +76,47 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 210 20% 15%;
+    --foreground: 195 20% 90%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 210 20% 18%;
+    --card-foreground: 195 20% 90%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 210 20% 18%;
+    --popover-foreground: 195 20% 90%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 120 40% 50%;
+    --primary-foreground: 210 20% 15%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 195 65% 60%;
+    --secondary-foreground: 210 20% 15%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 210 20% 25%;
+    --muted-foreground: 210 10% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 130 50% 40%;
+    --accent-foreground: 210 20% 15%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 210 20% 15%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 210 20% 25%;
+    --input: 210 20% 25%;
+    --ring: 120 40% 50%;
+
+    /* Dark mode natural colors */
+    --nature-green: 120 40% 50%;
+    --nature-blue: 195 65% 60%;
+    --nature-forest: 130 50% 40%;
+    --nature-stone: 30 15% 40%;
+    --nature-sky: 200 40% 30%;
+    
+    --gradient-mountain: linear-gradient(135deg, hsl(var(--nature-green)), hsl(var(--nature-forest)));
+    --gradient-sky: linear-gradient(180deg, hsl(var(--nature-sky)), hsl(var(--nature-blue)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--nature-blue) / 0.7), hsl(var(--nature-green) / 0.7));
+    
+    --shadow-nature: 0 10px 30px -10px hsl(0 0% 0% / 0.5);
+    --shadow-card: 0 4px 20px -5px hsl(0 0% 0% / 0.3);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
