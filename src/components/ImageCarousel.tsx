@@ -23,8 +23,8 @@ const ImageCarousel = ({ images, alt }: ImageCarouselProps) => {
   };
 
   return (
-    <div className="relative w-full max-w-4xl mx-auto">
-      <div className="relative h-96 lg:h-[500px] overflow-hidden rounded-lg shadow-card-nature">
+    <div className="relative w-full max-w-6xl mx-auto">
+      <div className="relative h-[500px] lg:h-[600px] overflow-hidden rounded-lg shadow-card-nature">
         <img
           src={images[currentIndex]}
           alt={`${alt} - ${currentIndex + 1}`}
