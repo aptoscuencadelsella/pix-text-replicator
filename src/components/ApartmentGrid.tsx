@@ -54,7 +54,8 @@ const ApartmentGrid = () => {
                 <img 
                   src={arriondasImage} 
                   alt="Apartamentos Arriondas"
-                  className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-80 object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                  style={{ objectPosition: 'center 30%' }}
                 />
               </div>
               <h2 className="text-2xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors duration-300">
