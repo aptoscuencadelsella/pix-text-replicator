@@ -7,7 +7,6 @@ import cangasImage from "@/assets/cangas-de-onis.jpg";
 import cangasBedroomSingle from "@/assets/cangas-bedroom-single.jpg";
 import cangasKitchenDining from "@/assets/cangas-kitchen-dining.jpg";
 import cangasKitchenView1 from "@/assets/cangas-kitchen-view1.jpg";
-import cangasKitchenView2 from "@/assets/cangas-kitchen-view2.jpg";
 import cangasBedroomSingle2 from "@/assets/cangas-bedroom-single2.jpg";
 import cangasLivingRoom from "@/assets/cangas-living-room.jpg";
 import cangasBedroomDouble from "@/assets/cangas-bedroom-double.jpg";
@@ -22,7 +21,6 @@ const CangasApartments = () => {
     cangasBedroomDouble,
     cangasBedroomSingle,
     cangasKitchenView1,
-    cangasKitchenView2,
     cangasLivingRoom2,
     cangasBathroom,
     cangasBedroomSingle2,

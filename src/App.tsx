@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import CangasApartments from "./pages/CangasApartments";
 import ArriondasApartments from "./pages/ArriondasApartments";
 import Activities from "./pages/Activities";
+import ActividadesCuenca from "./pages/ActividadesCuenca";
 import Contacto from "./pages/Contacto";
 import NotFound from "./pages/NotFound";
 
@@ -20,6 +21,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/actividades-cuenca" element={<ActividadesCuenca />} />
           <Route path="/cangas-apartments" element={<CangasApartments />} />
           <Route path="/arriondas-apartaments" element={<ArriondasApartments />} />
           <Route path="/activities" element={<Activities />} />

@@ -9,6 +9,9 @@ const Header = () => {
           <Link to="/" className="text-foreground hover:text-primary transition-colors">
             INICIO
           </Link>
+          <Link to="/actividades-cuenca" className="text-foreground hover:text-primary transition-colors">
+            AC CUENCA
+          </Link>
           <Link to="/cangas-apartments" className="text-foreground hover:text-primary transition-colors">
             AP CANGAS
           </Link>
