@@ -9,7 +9,8 @@ const HeroSection = () => {
     >
       <div className="absolute inset-0 bg-black/20"></div>
       <div className="relative z-10 text-center px-4">
-        <h1 className="text-5xl lg:text-7xl font-bold mb-8 text-nature-green drop-shadow-2xl tracking-wide">
+        <h1 className="text-5xl lg:text-7xl font-bold mb-8 text-nature-green drop-shadow-2xl tracking-wide" 
+            style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0 0 10px rgba(0,0,0,0.5)' }}>
           CUENCA DEL SELLA
         </h1>
         <p className="text-xl lg:text-2xl text-white font-medium mb-8 drop-shadow-lg max-w-2xl mx-auto">
