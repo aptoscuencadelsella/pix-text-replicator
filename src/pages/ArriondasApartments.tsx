@@ -3,12 +3,14 @@ import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Header from "../components/Header";
 import ImageCarousel from "../components/ImageCarousel";
-import arriondasImage from "@/assets/arriondas.jpg";
-import arriondasInterior1 from "@/assets/arriondas-interior-1.jpg";
-import arriondasInterior2 from "@/assets/arriondas-interior-2.jpg";
+import arriondasBedroom1 from "@/assets/arriondas-bedroom1.jpg";
+import arriondasBedroom2 from "@/assets/arriondas-bedroom2.jpg";
 
 const ArriondasApartments = () => {
-  const images = [arriondasImage, arriondasInterior1, arriondasInterior2];
+  const images = [
+    arriondasBedroom1, 
+    arriondasBedroom2
+  ];
 
   return (
     <div className="min-h-screen bg-background">
