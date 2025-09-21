@@ -5,11 +5,17 @@ import Header from "../components/Header";
 import ImageCarousel from "../components/ImageCarousel";
 import arriondasBedroom1 from "@/assets/arriondas-bedroom1.jpg";
 import arriondasBedroom2 from "@/assets/arriondas-bedroom2.jpg";
+import arriondasBedroom3 from "@/assets/arriondas-bedroom3.jpg";
+import arriondasLivingRoom from "@/assets/arriondas-living-room.jpg";
+import arriondasKitchen from "@/assets/arriondas-kitchen.jpg";
 
 const ArriondasApartments = () => {
   const images = [
     arriondasBedroom1, 
-    arriondasBedroom2
+    arriondasBedroom2,
+    arriondasBedroom3,
+    arriondasLivingRoom,
+    arriondasKitchen
   ];
 
   return (
