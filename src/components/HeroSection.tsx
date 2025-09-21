@@ -7,7 +7,7 @@ const HeroSection = () => {
       className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${heroMountains})` }}
     >
-      <div className="absolute inset-0 bg-gradient-hero"></div>
+      <div className="absolute inset-0 bg-black/20"></div>
       <div className="relative z-10 text-center px-4">
         <h1 className="text-5xl lg:text-7xl font-bold mb-8 text-nature-green drop-shadow-2xl tracking-wide">
           CUENCA DEL SELLA
@@ -19,6 +19,10 @@ const HeroSection = () => {
           variant="secondary"
           size="lg"
           className="bg-nature-green hover:bg-nature-forest text-white border-none font-semibold px-8 py-3 text-lg shadow-nature transition-all duration-300 hover:shadow-xl hover:scale-105"
+          onClick={() => {
+            const apartmentsSection = document.getElementById('apartments-section');
+            apartmentsSection?.scrollIntoView({ behavior: 'smooth' });
+          }}
         >
           DESCUBRE MÁS
         </Button>

@@ -5,7 +5,7 @@ import activitiesImage from "@/assets/actividades-cuenca.jpg";
 
 const ApartmentGrid = () => {
   return (
-    <section className="py-16 bg-background">
+    <section id="apartments-section" className="py-16 bg-background">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
           
@@ -49,7 +49,7 @@ const ApartmentGrid = () => {
 
           {/* Actividades */}
           <div className="text-center group">
-            <Link to="/activities" className="block">
+            <Link to="/actividades-cuenca" className="block">
               <div className="mb-6 overflow-hidden rounded-lg shadow-card-nature group-hover:shadow-nature transition-all duration-300">
                 <img 
                   src={activitiesImage} 
