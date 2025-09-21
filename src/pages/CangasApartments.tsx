@@ -4,11 +4,29 @@ import { Button } from "@/components/ui/button";
 import Header from "../components/Header";
 import ImageCarousel from "../components/ImageCarousel";
 import cangasImage from "@/assets/cangas-de-onis.jpg";
-import cangasInterior1 from "@/assets/cangas-interior-1.jpg";
-import cangasInterior2 from "@/assets/cangas-interior-2.jpg";
+import cangasBedroomSingle from "@/assets/cangas-bedroom-single.jpg";
+import cangasKitchenDining from "@/assets/cangas-kitchen-dining.jpg";
+import cangasKitchenView1 from "@/assets/cangas-kitchen-view1.jpg";
+import cangasKitchenView2 from "@/assets/cangas-kitchen-view2.jpg";
+import cangasBedroomSingle2 from "@/assets/cangas-bedroom-single2.jpg";
+import cangasLivingRoom from "@/assets/cangas-living-room.jpg";
+import cangasBedroomDouble from "@/assets/cangas-bedroom-double.jpg";
+import cangasLivingRoom2 from "@/assets/cangas-living-room2.jpg";
+import cangasBathroom from "@/assets/cangas-bathroom.jpg";
 
 const CangasApartments = () => {
-  const images = [cangasImage, cangasInterior1, cangasInterior2];
+  const images = [
+    cangasImage,
+    cangasLivingRoom,
+    cangasKitchenDining,
+    cangasBedroomDouble,
+    cangasBedroomSingle,
+    cangasKitchenView1,
+    cangasKitchenView2,
+    cangasLivingRoom2,
+    cangasBathroom,
+    cangasBedroomSingle2,
+  ];
 
   return (
     <div className="min-h-screen bg-background">
