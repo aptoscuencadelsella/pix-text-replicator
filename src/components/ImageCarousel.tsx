@@ -28,7 +28,7 @@ const ImageCarousel = ({ images, alt }: ImageCarouselProps) => {
         <img
           src={images[currentIndex]}
           alt={`${alt} - ${currentIndex + 1}`}
-          className="w-full h-full object-cover transition-all duration-300"
+          className="w-full h-full object-cover object-center transition-all duration-300"
         />
         
         {images.length > 1 && (
