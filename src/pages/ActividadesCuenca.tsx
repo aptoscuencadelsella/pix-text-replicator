@@ -6,6 +6,10 @@ import Header from "../components/Header";
 import actividadesImage from "@/assets/actividades-cuenca.jpg";
 import canoeingImage from "@/assets/activity-canoeing.jpg";
 import hikingImage from "@/assets/activity-hiking.jpg";
+import puenteRomanoImage from "@/assets/puente-romano-cangas.jpg";
+import lagosCovadongaImage from "@/assets/lagos-covadonga.jpg";
+import paseoCaballoImage from "@/assets/paseo-caballo.jpg";
+import basilicaCovadongaImage from "@/assets/basilica-covadonga.jpg";
 
 const ActividadesCuenca = () => {
   const activities = [
@@ -26,7 +30,7 @@ const ActividadesCuenca = () => {
     {
       title: "Paseos a Caballo - El Dorado",
       description: "Explora los senderos de Arriondas a caballo con la empresa El Dorado. Una experiencia única para conectar con la naturaleza asturiana.",
-      image: hikingImage,
+      image: paseoCaballoImage,
       duration: "1-3 horas",
       location: "Arriondas",
       difficulty: "Fácil-Medio",
@@ -40,7 +44,7 @@ const ActividadesCuenca = () => {
     {
       title: "Visita a Covadonga",
       description: "Descubre el santuario más importante de Asturias, cuna de la Reconquista y lugar de peregrinación con una historia milenaria.",
-      image: actividadesImage,
+      image: basilicaCovadongaImage,
       duration: "2-3 horas",
       location: "Covadonga",
       difficulty: "Fácil",
@@ -54,7 +58,7 @@ const ActividadesCuenca = () => {
     {
       title: "Lagos de Covadonga",
       description: "Visita los famosos lagos glaciares: Enol y Ercina. Un paisaje de alta montaña que te dejará sin aliento, ideal para senderismo y fotografía.",
-      image: hikingImage,
+      image: lagosCovadongaImage,
       duration: "Día completo",
       location: "Parque Nacional Picos de Europa",
       difficulty: "Medio",
@@ -68,7 +72,7 @@ const ActividadesCuenca = () => {
     {
       title: "Cangas de Onís - Puntos de Interés",
       description: "Recorre la histórica capital del Reino de Asturias con sus monumentos y rincones más emblemáticos.",
-      image: actividadesImage,
+      image: puenteRomanoImage,
       duration: "2-4 horas",
       location: "Cangas de Onís",
       difficulty: "Fácil",
