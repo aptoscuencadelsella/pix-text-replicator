@@ -7,11 +7,11 @@ const ApartmentGrid = () => {
   return (
     <section id="apartments-section" className="py-16 bg-background">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-stretch">
           
           {/* Actividades de la Cuenca */}
-          <div className="text-center group">
-            <Link to="/actividades-cuenca" className="block">
+          <div className="text-center group flex flex-col h-full">
+            <Link to="/actividades-cuenca" className="block flex-shrink-0">
               <div className="mb-6 overflow-hidden rounded-lg shadow-card-nature group-hover:shadow-nature transition-all duration-300">
                 <img 
                   src={activitiesImage} 
@@ -23,14 +23,14 @@ const ApartmentGrid = () => {
                 ACTIVIDADES DE LA CUENCA
               </h2>
             </Link>
-            <p className="text-muted-foreground leading-relaxed">
-              La zona ofrece actividades para todos los gustos: desde el famoso <strong>Descenso del Sella</strong> en piragua hasta rutas por los Picos de Europa o visitas al <strong>Santuario de Covadonga</strong>. También puedes <strong>explorar cuevas</strong>, hacer <strong>barranquismo</strong>, <strong>montar a caballo</strong> o disfrutar de la <strong>gastronomía</strong> local.
+            <p className="text-muted-foreground leading-relaxed flex-grow">
+              La zona ofrece actividades para todos los gustos: desde el famoso <strong>Descenso del Sella</strong> en piragua hasta rutas por los Picos de Europa o visitas al <strong>Santuario de Covadonga</strong>.
             </p>
           </div>
 
           {/* Cangas de Onís */}
-          <div className="text-center group">
-            <Link to="/cangas-apartments" className="block">
+          <div className="text-center group flex flex-col h-full">
+            <Link to="/cangas-apartments" className="block flex-shrink-0">
               <div className="mb-6 overflow-hidden rounded-lg shadow-card-nature group-hover:shadow-nature transition-all duration-300">
                 <img 
                   src={cangasImage} 
@@ -42,14 +42,14 @@ const ApartmentGrid = () => {
                 APARTAMENTOS CANGAS DE ONÍS
               </h2>
             </Link>
-            <p className="text-muted-foreground leading-relaxed">
-              Puerta de entrada a los <strong>Picos de Europa</strong>, Cangas de Onís es uno de los destinos más emblemáticos de Asturias. Desde su <strong>puente Romano</strong> a su cercanía a los <strong>Lagos de Covadonga</strong>
+            <p className="text-muted-foreground leading-relaxed flex-grow">
+              Puerta de entrada a los <strong>Picos de Europa</strong>, Cangas de Onís es uno de los destinos más emblemáticos de Asturias. Cerca del <strong>puente Romano</strong> y los <strong>Lagos de Covadonga</strong>.
             </p>
           </div>
 
           {/* Arriondas */}
-          <div className="text-center group">
-            <Link to="/arriondas-apartaments" className="block">
+          <div className="text-center group flex flex-col h-full">
+            <Link to="/arriondas-apartaments" className="block flex-shrink-0">
               <div className="mb-6 overflow-hidden rounded-lg shadow-card-nature group-hover:shadow-nature transition-all duration-300">
                 <img 
                   src={arriondasImage} 
@@ -62,8 +62,8 @@ const ApartmentGrid = () => {
                 APARTAMENTOS ARRIONDAS
               </h2>
             </Link>
-            <p className="text-muted-foreground leading-relaxed">
-              Situada a orillas del <strong>río Sella</strong>, Arriondas es el punto de partida ideal para quienes buscan <strong>naturaleza</strong>, <strong>aventura</strong> y <strong>autenticidad</strong> asturiana. Conocida internacionalmente por ser la sede del famoso Descenso del Sella.
+            <p className="text-muted-foreground leading-relaxed flex-grow">
+              Situada a orillas del <strong>río Sella</strong>, Arriondas es el punto de partida ideal para quienes buscan <strong>naturaleza</strong>, <strong>aventura</strong> y <strong>autenticidad</strong> asturiana.
             </p>
           </div>
 
