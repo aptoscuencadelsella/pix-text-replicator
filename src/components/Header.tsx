@@ -10,7 +10,7 @@ const Header = () => {
             INICIO
           </Link>
           <Link to="/actividades-cuenca" className="text-foreground hover:text-primary transition-colors">
-            AC CUENCA
+            ACT CUENCA
           </Link>
           <Link to="/cangas-apartments" className="text-foreground hover:text-primary transition-colors">
             AP CANGAS
