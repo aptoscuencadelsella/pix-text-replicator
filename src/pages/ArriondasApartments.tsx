@@ -39,7 +39,7 @@ const ArriondasApartments = () => {
               {/* Apartment Description */}
               <div className="p-6">
                 <h2 className="text-3xl font-bold text-nature-forest mb-4">
-                  Apartamento en Arriondas
+                  Apartamento Rio Sella I
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                   [Aquí pondrás la descripción breve del apartamento que me dirás]
