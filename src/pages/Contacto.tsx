@@ -1,10 +1,44 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, Phone, Mail, MapPin } from "lucide-react";
+import { ArrowLeft, Phone, Mail, MapPin, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { useState } from "react";
 import Header from "../components/Header";
 import contactBg from "@/assets/contact-bg.jpg";
 
 const Contacto = () => {
+  const [formData, setFormData] = useState({
+    nombre: '',
+    email: '',
+    telefono: '',
+    asunto: '',
+    mensaje: ''
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    const subject = encodeURIComponent(formData.asunto || 'Consulta desde la web');
+    const body = encodeURIComponent(
+      `Nombre: ${formData.nombre}\n` +
+      `Email: ${formData.email}\n` +
+      `Teléfono: ${formData.telefono}\n\n` +
+      `Mensaje:\n${formData.mensaje}`
+    );
+    
+    window.location.href = `mailto:aptoscuencadelsella@gmail.com?subject=${subject}&body=${body}`;
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -43,79 +77,151 @@ const Contacto = () => {
           </div>
 
           {/* Contact Info */}
-          <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 mb-12">
               
-              {/* Phone */}
-              <div className="text-center p-6 bg-card rounded-lg shadow-card-nature">
-                <Phone className="w-12 h-12 mx-auto mb-4 text-nature-green" />
-                <h3 className="text-xl font-semibold mb-2 text-foreground">Teléfono</h3>
-                <p className="text-muted-foreground">
-                  <a href="tel:+34985123456" className="hover:text-primary transition-colors">
-                    +34 985 123 456
-                  </a>
-                </p>
-                <p className="text-muted-foreground">
-                  <a href="tel:+34647123456" className="hover:text-primary transition-colors">
-                    +34 647 123 456
-                  </a>
-                </p>
+              {/* Contact Information */}
+              <div>
+                <h2 className="text-2xl font-bold mb-8 text-foreground">Información de Contacto</h2>
+                
+                <div className="space-y-6">
+                  {/* Phone */}
+                  <div className="flex items-center p-4 bg-card rounded-lg shadow-card-nature">
+                    <Phone className="w-8 h-8 mr-4 text-nature-green" />
+                    <div>
+                      <h3 className="font-semibold text-foreground">Teléfono</h3>
+                      <p className="text-muted-foreground">
+                        <a href="tel:+34649505800" className="hover:text-primary transition-colors text-lg">
+                          649 505 800
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Email */}
+                  <div className="flex items-center p-4 bg-card rounded-lg shadow-card-nature">
+                    <Mail className="w-8 h-8 mr-4 text-nature-green" />
+                    <div>
+                      <h3 className="font-semibold text-foreground">Email</h3>
+                      <p className="text-muted-foreground">
+                        <a href="mailto:aptoscuencadelsella@gmail.com" className="hover:text-primary transition-colors">
+                          aptoscuencadelsella@gmail.com
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Location */}
+                  <div className="flex items-center p-4 bg-card rounded-lg shadow-card-nature">
+                    <MapPin className="w-8 h-8 mr-4 text-nature-green" />
+                    <div>
+                      <h3 className="font-semibold text-foreground">Ubicación</h3>
+                      <p className="text-muted-foreground">
+                        Cangas de Onís y Arriondas
+                      </p>
+                      <p className="text-muted-foreground">
+                        Asturias, España
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Description */}
+                <div className="mt-8 p-6 bg-nature-green/10 rounded-lg border border-nature-green/20">
+                  <h3 className="text-lg font-semibold mb-3 text-nature-forest">¿Necesitas ayuda?</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Estamos aquí para ayudarte a planificar tu estancia perfecta en los Picos de Europa. 
+                    Contáctanos para información sobre disponibilidad, precios, actividades locales y 
+                    recomendaciones para disfrutar al máximo de tu visita.
+                  </p>
+                </div>
               </div>
 
-              {/* Email */}
-              <div className="text-center p-6 bg-card rounded-lg shadow-card-nature">
-                <Mail className="w-12 h-12 mx-auto mb-4 text-nature-green" />
-                <h3 className="text-xl font-semibold mb-2 text-foreground">Email</h3>
-                <p className="text-muted-foreground">
-                  <a href="mailto:info@cuencadelsella.com" className="hover:text-primary transition-colors">
-                    info@cuencadelsella.com
-                  </a>
-                </p>
-                <p className="text-muted-foreground">
-                  <a href="mailto:reservas@cuencadelsella.com" className="hover:text-primary transition-colors">
-                    reservas@cuencadelsella.com
-                  </a>
-                </p>
-              </div>
-
-              {/* Location */}
-              <div className="text-center p-6 bg-card rounded-lg shadow-card-nature">
-                <MapPin className="w-12 h-12 mx-auto mb-4 text-nature-green" />
-                <h3 className="text-xl font-semibold mb-2 text-foreground">Ubicación</h3>
-                <p className="text-muted-foreground">
-                  Cangas de Onís
-                </p>
-                <p className="text-muted-foreground">
-                  Arriondas
-                </p>
-                <p className="text-muted-foreground">
-                  Asturias, España
-                </p>
+              {/* Contact Form */}
+              <div>
+                <h2 className="text-2xl font-bold mb-8 text-foreground">Envíanos un Mensaje</h2>
+                
+                <form onSubmit={handleSubmit} className="space-y-6 p-6 bg-card rounded-lg shadow-card-nature">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <Label htmlFor="nombre" className="text-foreground">Nombre *</Label>
+                      <Input
+                        id="nombre"
+                        name="nombre"
+                        type="text"
+                        required
+                        value={formData.nombre}
+                        onChange={handleInputChange}
+                        className="mt-1"
+                        placeholder="Tu nombre"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="telefono" className="text-foreground">Teléfono</Label>
+                      <Input
+                        id="telefono"
+                        name="telefono"
+                        type="tel"
+                        value={formData.telefono}
+                        onChange={handleInputChange}
+                        className="mt-1"
+                        placeholder="Tu teléfono"
+                      />
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <Label htmlFor="email" className="text-foreground">Email *</Label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      required
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      className="mt-1"
+                      placeholder="tu@email.com"
+                    />
+                  </div>
+                  
+                  <div>
+                    <Label htmlFor="asunto" className="text-foreground">Asunto</Label>
+                    <Input
+                      id="asunto"
+                      name="asunto"
+                      type="text"
+                      value={formData.asunto}
+                      onChange={handleInputChange}
+                      className="mt-1"
+                      placeholder="¿En qué podemos ayudarte?"
+                    />
+                  </div>
+                  
+                  <div>
+                    <Label htmlFor="mensaje" className="text-foreground">Mensaje *</Label>
+                    <Textarea
+                      id="mensaje"
+                      name="mensaje"
+                      required
+                      value={formData.mensaje}
+                      onChange={handleInputChange}
+                      className="mt-1 min-h-32"
+                      placeholder="Cuéntanos sobre tu consulta, fechas de interés, número de personas, etc."
+                    />
+                  </div>
+                  
+                  <Button 
+                    type="submit"
+                    size="lg"
+                    className="w-full bg-nature-green hover:bg-nature-forest text-white border-none font-semibold py-3 text-lg shadow-nature transition-all duration-300 hover:shadow-xl hover:scale-105"
+                  >
+                    <Send className="w-5 h-5 mr-2" />
+                    ENVIAR MENSAJE
+                  </Button>
+                </form>
               </div>
 
             </div>
-
-            {/* Description */}
-            <div className="text-center mb-12">
-              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                ¿Tienes alguna pregunta sobre nuestros apartamentos o necesitas ayuda para planificar tu visita a los Picos de Europa? No dudes en ponerte en contacto con nosotros. Nuestro equipo estará encantado de ayudarte a encontrar el alojamiento perfecto para tu estancia en Asturias.
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                También podemos proporcionarte información sobre actividades locales, rutas de senderismo, el famoso Descenso del Sella, y recomendaciones gastronómicas para que disfrutes al máximo de tu experiencia en la Cuenca del Sella.
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <Button 
-                variant="secondary"
-                size="lg"
-                className="bg-nature-green hover:bg-nature-forest text-white border-none font-semibold px-8 py-3 text-lg shadow-nature transition-all duration-300 hover:shadow-xl hover:scale-105"
-                onClick={() => window.location.href = 'mailto:info@cuencadelsella.com'}
-              >
-                ENVIAR EMAIL
-              </Button>
-            </div>
-
           </div>
 
         </div>
