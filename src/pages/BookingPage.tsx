@@ -138,12 +138,14 @@ const BookingPage = () => {
               </div>
 
               <div className="text-center">
-                <Button 
-                  variant="secondary"
-                  className="bg-nature-green hover:bg-nature-forest text-white border-none font-semibold px-8 py-3 text-lg shadow-nature transition-all duration-300 hover:shadow-lg"
-                >
-                  CONTINUAR CON LA RESERVA
-                </Button>
+                <Link to="/contacto">
+                  <Button 
+                    variant="secondary"
+                    className="bg-nature-green hover:bg-nature-forest text-white border-none font-semibold px-8 py-3 text-lg shadow-nature transition-all duration-300 hover:shadow-lg"
+                  >
+                    CONTINUAR CON LA RESERVA
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
