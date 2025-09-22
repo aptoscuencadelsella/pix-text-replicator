@@ -28,17 +28,18 @@ const ActividadesCuenca = () => {
       ]
     },
     {
-      title: "Paseos a Caballo - El Dorado",
-      description: "Explora los senderos de Arriondas a caballo con la empresa El Dorado. Una experiencia única para conectar con la naturaleza asturiana.",
+      title: "Paseos a Caballo",
+      description: "Explora los senderos de la Cuenca del Sella a caballo. Varias empresas ofrecen este servicio según la ubicación, una experiencia única para conectar con la naturaleza asturiana.",
       image: paseoCaballoImage,
       duration: "1-3 horas",
-      location: "Arriondas",
+      location: "Arriondas y alrededores",
       difficulty: "Fácil-Medio",
       highlights: [
         "Rutas adaptadas a todos los niveles",
         "Caballos dóciles y bien entrenados",
         "Guías expertos locales",
-        "Vistas panorámicas de la cuenca"
+        "Vistas panorámicas de la cuenca",
+        "Diferentes empresas según ubicación"
       ]
     },
     {
