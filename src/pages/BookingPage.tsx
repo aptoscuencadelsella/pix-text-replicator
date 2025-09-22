@@ -41,11 +41,13 @@ const BookingPage = () => {
         cangasBedroomSingle2,
       ],
       characteristics: [
-        "Totalmente equipado y amueblado",
-        "Ubicación céntrica en Cangas de Onís",
-        "Cerca del puente Romano y Lagos de Covadonga",
-        "Vistas a las montañas",
-        "[Aquí pondrás las características que me dirás]"
+        "Capacidad: 3 personas, 3 camas (2 habitaciones + sofá cama)",
+        "Cocina completamente equipada",
+        "TV, calefacción y lavadora",
+        "Colchones cómodos y ropa de cama de calidad",
+        "Kit de bienvenida con café y azúcar",
+        "Check-in: 18:00h / Check-out: 12:00h",
+        "No se admiten mascotas - Prohibido fumar"
       ]
     },
     arriondas: {
