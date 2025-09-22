@@ -1,12 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import contactBg from "@/assets/contact-bg.jpg";
+import heroMountains from "@/assets/hero-mountains.jpg";
 
 const ContactSection = () => {
   return (
     <section 
       className="py-32 bg-cover bg-center bg-no-repeat relative"
-      style={{ backgroundImage: `url(${contactBg})` }}
+      style={{ backgroundImage: `url(${heroMountains})` }}
     >
       <div className="absolute inset-0 bg-nature-forest/70"></div>
       <div className="container mx-auto px-4 relative z-10 text-center">
