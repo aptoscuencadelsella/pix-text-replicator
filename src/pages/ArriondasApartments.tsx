@@ -75,12 +75,14 @@ const ArriondasApartments = () => {
                   </ul>
                 </div>
                 
-                <Button 
-                  variant="secondary"
-                  className="bg-nature-green hover:bg-nature-forest text-white border-none font-semibold px-6 py-2 shadow-nature transition-all duration-300 hover:shadow-lg"
-                >
-                  RESERVAR AHORA
-                </Button>
+                <Link to="/booking?apartment=arriondas">
+                  <Button 
+                    variant="secondary"
+                    className="bg-nature-green hover:bg-nature-forest text-white border-none font-semibold px-6 py-2 shadow-nature transition-all duration-300 hover:shadow-lg"
+                  >
+                    RESERVAR AHORA
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

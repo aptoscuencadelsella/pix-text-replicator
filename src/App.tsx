@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import CangasApartments from "./pages/CangasApartments";
 import ArriondasApartments from "./pages/ArriondasApartments";
+import BookingPage from "./pages/BookingPage";
 import Activities from "./pages/Activities";
 import ActividadesCuenca from "./pages/ActividadesCuenca";
 import Contacto from "./pages/Contacto";
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/actividades-cuenca" element={<ActividadesCuenca />} />
           <Route path="/cangas-apartments" element={<CangasApartments />} />
           <Route path="/arriondas-apartaments" element={<ArriondasApartments />} />
+          <Route path="/booking" element={<BookingPage />} />
           <Route path="/activities" element={<Activities />} />
           <Route path="/contacto" element={<Contacto />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
