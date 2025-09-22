@@ -3,7 +3,7 @@ import { ArrowLeft, MapPin, Clock, Users, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Header from "../components/Header";
-import cuencaSellaActividades from "@/assets/cuenca-sella-actividades.jpg";
+import cuencaSellaCompleta from "@/assets/cuenca-sella-completa.jpg";
 import canoeingImage from "@/assets/activity-canoeing.jpg";
 import hikingImage from "@/assets/activity-hiking.jpg";
 import cangasNocturna from "@/assets/cangas-nocturna.png";
@@ -109,7 +109,7 @@ const ActividadesCuenca = () => {
           {/* Hero Image */}
           <div className="relative h-[400px] lg:h-[500px] overflow-hidden rounded-lg shadow-card-nature mb-12">
             <img
-              src={cuencaSellaActividades}
+              src={cuencaSellaCompleta}
               alt="Actividades Cuenca del Sella"
               className="w-full h-full object-cover"
             />
