@@ -50,7 +50,7 @@ const ArriondasApartments = () => {
                   Apartamento Rio Sella I
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  [Aquí pondrás la descripción breve del apartamento que me dirás]
+                  Apartamento espacioso en Arriondas, ideal para 4 personas. Perfectamente ubicado a orillas del río Sella con todas las comodidades para una estancia inolvidable.
                 </p>
                 
                 <div className="mb-6">
@@ -58,19 +58,39 @@ const ArriondasApartments = () => {
                   <ul className="space-y-1">
                     <li className="text-sm text-muted-foreground flex items-start">
                       <span className="text-nature-green mr-2">•</span>
-                      Totalmente equipado y amueblado
+                      Capacidad: 4 personas, 2 camas (2 habitaciones)
                     </li>
                     <li className="text-sm text-muted-foreground flex items-start">
                       <span className="text-nature-green mr-2">•</span>
-                      A orillas del río Sella
+                      WiFi, cocina completamente equipada
                     </li>
                     <li className="text-sm text-muted-foreground flex items-start">
                       <span className="text-nature-green mr-2">•</span>
-                      Punto de partida del Descenso del Sella
+                      TV, calefacción y lavadora
                     </li>
                     <li className="text-sm text-muted-foreground flex items-start">
                       <span className="text-nature-green mr-2">•</span>
-                      Vistas al río y montañas
+                      Balcón con vistas panorámicas
+                    </li>
+                    <li className="text-sm text-muted-foreground flex items-start">
+                      <span className="text-nature-green mr-2">•</span>
+                      Salón luminoso, baño limpio y moderno
+                    </li>
+                    <li className="text-sm text-muted-foreground flex items-start">
+                      <span className="text-nature-green mr-2">•</span>
+                      Colchones cómodos y ropa de cama de calidad
+                    </li>
+                    <li className="text-sm text-muted-foreground flex items-start">
+                      <span className="text-nature-green mr-2">•</span>
+                      Kit de bienvenida con café y azúcar
+                    </li>
+                    <li className="text-sm text-muted-foreground flex items-start">
+                      <span className="text-nature-green mr-2">•</span>
+                      Check-in: 18:00h / Check-out: 12:00h
+                    </li>
+                    <li className="text-sm text-muted-foreground flex items-start">
+                      <span className="text-nature-green mr-2">•</span>
+                      No se admiten mascotas - Prohibido fumar
                     </li>
                   </ul>
                 </div>

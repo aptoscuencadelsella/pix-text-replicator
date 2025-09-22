@@ -61,11 +61,15 @@ const BookingPage = () => {
         arriondasKitchen
       ],
       characteristics: [
-        "Totalmente equipado y amueblado",
-        "A orillas del río Sella",
-        "Punto de partida del Descenso del Sella",
-        "Vistas al río y montañas",
-        "[Aquí pondrás las características que me dirás]"
+        "Capacidad: 4 personas, 2 camas (2 habitaciones)",
+        "WiFi, cocina completamente equipada",
+        "TV, calefacción y lavadora",
+        "Balcón con vistas panorámicas",
+        "Salón luminoso, baño limpio y moderno",
+        "Colchones cómodos y ropa de cama de calidad",
+        "Kit de bienvenida con café y azúcar",
+        "Check-in: 18:00h / Check-out: 12:00h",
+        "No se admiten mascotas - Prohibido fumar"
       ]
     }
   };
