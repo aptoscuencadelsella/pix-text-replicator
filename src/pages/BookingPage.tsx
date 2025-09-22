@@ -138,9 +138,6 @@ const BookingPage = () => {
               </div>
 
               <div className="text-center">
-                <p className="text-lg text-muted-foreground mb-6">
-                  [Aquí irá el formulario de reserva y el sistema de pago que implementaremos después]
-                </p>
                 <Button 
                   variant="secondary"
                   className="bg-nature-green hover:bg-nature-forest text-white border-none font-semibold px-8 py-3 text-lg shadow-nature transition-all duration-300 hover:shadow-lg"
