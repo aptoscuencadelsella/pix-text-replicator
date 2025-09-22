@@ -57,7 +57,7 @@ const CangasApartments = () => {
                   Apartamento Rio Sella II
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  [Aquí pondrás la descripción breve del apartamento que me dirás]
+                  Apartamento acogedor en el corazón de Cangas de Onís, ideal para 3 personas. Completamente equipado con todas las comodidades necesarias para una estancia perfecta en los Picos de Europa.
                 </p>
                 
                 <div className="mb-6">
@@ -65,19 +65,31 @@ const CangasApartments = () => {
                   <ul className="space-y-1">
                     <li className="text-sm text-muted-foreground flex items-start">
                       <span className="text-nature-green mr-2">•</span>
-                      Totalmente equipado y amueblado
+                      Capacidad: 3 personas, 3 camas (2 habitaciones + sofá cama)
                     </li>
                     <li className="text-sm text-muted-foreground flex items-start">
                       <span className="text-nature-green mr-2">•</span>
-                      Ubicación céntrica en Cangas de Onís
+                      Cocina completamente equipada
                     </li>
                     <li className="text-sm text-muted-foreground flex items-start">
                       <span className="text-nature-green mr-2">•</span>
-                      Cerca del puente Romano y Lagos de Covadonga
+                      TV, calefacción y lavadora
                     </li>
                     <li className="text-sm text-muted-foreground flex items-start">
                       <span className="text-nature-green mr-2">•</span>
-                      Vistas a las montañas
+                      Colchones cómodos y ropa de cama de calidad
+                    </li>
+                    <li className="text-sm text-muted-foreground flex items-start">
+                      <span className="text-nature-green mr-2">•</span>
+                      Kit de bienvenida con café y azúcar
+                    </li>
+                    <li className="text-sm text-muted-foreground flex items-start">
+                      <span className="text-nature-green mr-2">•</span>
+                      Check-in: 18:00h / Check-out: 12:00h
+                    </li>
+                    <li className="text-sm text-muted-foreground flex items-start">
+                      <span className="text-nature-green mr-2">•</span>
+                      No se admiten mascotas - Prohibido fumar
                     </li>
                   </ul>
                 </div>
