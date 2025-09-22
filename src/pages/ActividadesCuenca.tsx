@@ -6,7 +6,7 @@ import Header from "../components/Header";
 import actividadesImage from "@/assets/actividades-cuenca.jpg";
 import canoeingImage from "@/assets/activity-canoeing.jpg";
 import hikingImage from "@/assets/activity-hiking.jpg";
-import puenteRef from "@/assets/puente-ref.jpg";
+import cangasNocturna from "@/assets/cangas-nocturna.png";
 import lagosCovadongaImage from "@/assets/lagos-covadonga.jpg";
 import paseoCaballoImage from "@/assets/paseo-caballo.jpg";
 import basilicaCovadongaLateral from "@/assets/basilica-covadonga-lateral.jpg";
@@ -72,7 +72,7 @@ const ActividadesCuenca = () => {
     {
       title: "Cangas de Onís - Puntos de Interés",
       description: "Recorre la histórica capital del Reino de Asturias con sus monumentos y rincones más emblemáticos.",
-      image: puenteRef,
+      image: cangasNocturna,
       duration: "2-4 horas",
       location: "Cangas de Onís",
       difficulty: "Fácil",
