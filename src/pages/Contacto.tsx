@@ -6,7 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import Header from "../components/Header";
-import lagosCovadonga from "@/assets/lagos-covadonga.jpg";
+import basilicaCovadonga from "@/assets/basilica-covadonga.jpg";
 
 const Contacto = () => {
   const [formData, setFormData] = useState({
@@ -60,7 +60,7 @@ const Contacto = () => {
           {/* Hero Image */}
           <div className="relative h-[400px] lg:h-[500px] overflow-hidden rounded-lg shadow-card-nature mb-12">
             <img
-              src={lagosCovadonga}
+              src={basilicaCovadonga}
               alt="Contacto Cuenca del Sella"
               className="w-full h-full object-cover"
             />
