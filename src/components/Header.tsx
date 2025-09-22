@@ -79,14 +79,14 @@ const Header = () => {
                 className="block py-3 px-4 text-foreground hover:text-primary hover:bg-muted rounded-lg transition-all font-medium"
                 onClick={closeMenu}
               >
-                AP CANGAS
+                APARTAMENTOS CANGAS
               </Link>
               <Link 
                 to="/arriondas-apartaments" 
                 className="block py-3 px-4 text-foreground hover:text-primary hover:bg-muted rounded-lg transition-all font-medium"
                 onClick={closeMenu}
               >
-                AP ARRIONDAS
+                APARTAMENTOS ARRIONDAS
               </Link>
               <Link 
                 to="/contacto" 
