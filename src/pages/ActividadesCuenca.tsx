@@ -9,7 +9,7 @@ import hikingImage from "@/assets/activity-hiking.jpg";
 import puenteRef from "@/assets/puente-ref.jpg";
 import lagosCovadongaImage from "@/assets/lagos-covadonga.jpg";
 import paseoCaballoImage from "@/assets/paseo-caballo.jpg";
-import basilicaCovadongaImage from "@/assets/basilica-covadonga.jpg";
+import basilicaCovadongaLateral from "@/assets/basilica-covadonga-lateral.jpg";
 
 const ActividadesCuenca = () => {
   const activities = [
@@ -44,7 +44,7 @@ const ActividadesCuenca = () => {
     {
       title: "Visita a Covadonga",
       description: "Descubre el santuario más importante de Asturias, cuna de la Reconquista y lugar de peregrinación con una historia milenaria.",
-      image: basilicaCovadongaImage,
+      image: basilicaCovadongaLateral,
       duration: "2-3 horas",
       location: "Covadonga",
       difficulty: "Fácil",
