@@ -1,0 +1,24 @@
+name: 🚀 Deploy a Hostinger
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Configurar acceso SSH
+      uses: webfactory/ssh-agent@v0.7.0
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Copiar archivos a Hostinger
+      run: |
+        rsync -avz --delete \
+        ./ u303917797@82.25.113.171:/home/USUARIO/domains/cuencadelsella.com/public_html/
