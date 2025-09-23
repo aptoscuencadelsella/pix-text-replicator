@@ -10,6 +10,7 @@ import cangasNocturna from "@/assets/cangas-nocturna.png";
 import lagosCovadongaImage from "@/assets/lagos-covadonga.jpg";
 import paseoCaballoImage from "@/assets/paseo-caballo.jpg";
 import basilicaCovadongaNueva from "@/assets/basilica-covadonga-nueva.jpg";
+import barranquismoImage from "@/assets/barranquismo-asturias.jpg";
 
 const ActividadesCuenca = () => {
   const activities = [
@@ -41,6 +42,22 @@ const ActividadesCuenca = () => {
         "Vistas panorámicas de la cuenca",
         "Diferentes empresas según ubicación"
       ]
+    },
+    {
+      title: "Barranquismo",
+      description: "Desciende barrancos y cañones con rápeles, saltos y toboganes naturales. Una experiencia única de aventura en los entornos más espectaculares de Asturias.",
+      image: barranquismoImage,
+      duration: "2-5 horas",
+      location: "Arriondas y alrededores",
+      difficulty: "Medio-Alto",
+      highlights: [
+        "Varios niveles: familiar, medio, avanzado",
+        "Equipo completo incluido",
+        "Guías titulados y experimentados",
+        "Barrancos: Rubo, Vallegón, Carangas, Viboli",
+        "Empresas especializadas certificadas"
+      ],
+      hasMoreInfo: true
     },
     {
       title: "Covadonga y sus Lagos",
@@ -177,6 +194,15 @@ const ActividadesCuenca = () => {
                           </Link>
                         ) : activity.hasMoreInfo && activity.title === "Cangas de Onís - Puntos de Interés" ? (
                           <Link to="/cangas">
+                            <Button
+                              variant="secondary"
+                              className="bg-nature-green hover:bg-nature-forest text-white border-none font-semibold px-6 py-2 shadow-nature transition-all duration-300 hover:shadow-lg"
+                            >
+                              MÁS INFORMACIÓN
+                            </Button>
+                          </Link>
+                        ) : activity.hasMoreInfo && activity.title === "Barranquismo" ? (
+                          <Link to="/barranquismo">
                             <Button
                               variant="secondary"
                               className="bg-nature-green hover:bg-nature-forest text-white border-none font-semibold px-6 py-2 shadow-nature transition-all duration-300 hover:shadow-lg"
