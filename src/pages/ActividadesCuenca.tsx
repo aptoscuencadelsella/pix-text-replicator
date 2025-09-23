@@ -29,37 +29,6 @@ const ActividadesCuenca = () => {
       ]
     },
     {
-      title: "Paseos a Caballo",
-      description: "Explora los senderos de la Cuenca del Sella a caballo. Varias empresas ofrecen este servicio según la ubicación, una experiencia única para conectar con la naturaleza asturiana.",
-      image: paseoCaballoImage,
-      duration: "1-3 horas",
-      location: "Arriondas y alrededores",
-      difficulty: "Fácil-Medio",
-      highlights: [
-        "Rutas adaptadas a todos los niveles",
-        "Caballos dóciles y bien entrenados",
-        "Guías expertos locales",
-        "Vistas panorámicas de la cuenca",
-        "Diferentes empresas según ubicación"
-      ]
-    },
-    {
-      title: "Barranquismo",
-      description: "Desciende barrancos y cañones con rápeles, saltos y toboganes naturales. Una experiencia única de aventura en los entornos más espectaculares de Asturias.",
-      image: barranquismoImage,
-      duration: "2-5 horas",
-      location: "Arriondas y alrededores",
-      difficulty: "Medio-Alto",
-      highlights: [
-        "Varios niveles: familiar, medio, avanzado",
-        "Equipo completo incluido",
-        "Guías titulados y experimentados",
-        "Barrancos: Rubo, Vallegón, Carangas, Viboli",
-        "Empresas especializadas certificadas"
-      ],
-      hasMoreInfo: true
-    },
-    {
       title: "Covadonga y sus Lagos",
       description: "Descubre el santuario más importante de Asturias y los famosos lagos glaciares. Una experiencia completa que combina historia, espiritualidad y naturaleza en los Picos de Europa.",
       image: basilicaCovadongaNueva,
@@ -92,6 +61,37 @@ const ActividadesCuenca = () => {
         "Gastronomía local en sidrerías"
       ],
       hasMoreInfo: true
+    },
+    {
+      title: "Barranquismo",
+      description: "Desciende barrancos y cañones con rápeles, saltos y toboganes naturales. Una experiencia única de aventura en los entornos más espectaculares de Asturias.",
+      image: barranquismoImage,
+      duration: "2-5 horas",
+      location: "Arriondas y alrededores",
+      difficulty: "Medio-Alto",
+      highlights: [
+        "Varios niveles: familiar, medio, avanzado",
+        "Equipo completo incluido",
+        "Guías titulados y experimentados",
+        "Barrancos: Rubo, Vallegón, Carangas, Viboli",
+        "Empresas especializadas certificadas"
+      ],
+      hasMoreInfo: true
+    },
+    {
+      title: "Paseos a Caballo",
+      description: "Explora los senderos de la Cuenca del Sella a caballo. Varias empresas ofrecen este servicio según la ubicación, una experiencia única para conectar con la naturaleza asturiana.",
+      image: paseoCaballoImage,
+      duration: "1-3 horas",
+      location: "Arriondas y alrededores",
+      difficulty: "Fácil-Medio",
+      highlights: [
+        "Rutas adaptadas a todos los niveles",
+        "Caballos dóciles y bien entrenados",
+        "Guías expertos locales",
+        "Vistas panorámicas de la cuenca",
+        "Diferentes empresas según ubicación"
+      ]
     }
   ];
 
