@@ -5,12 +5,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import Header from "../components/Header";
 import ImageCarousel from "../components/ImageCarousel";
-import basilicaImage from "@/assets/basilica-covadonga.jpg";
 import lagosImage from "@/assets/lagos-covadonga.jpg";
-import basilicaHorizontal from "@/assets/basilica-covadonga-horizontal.jpg";
+import basilicaNew from "@/assets/basilica-covadonga-lateral-new.jpg";
 
 const Covadonga = () => {
-  const images = [basilicaImage, lagosImage, basilicaHorizontal];
+  const images = [basilicaNew, lagosImage];
 
   const scheduleData = [
     { place: "Santuario (Basílica + Santa Cueva)", time: "8:00 - 20:00 todos los días" },
