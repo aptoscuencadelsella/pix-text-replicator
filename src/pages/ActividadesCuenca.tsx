@@ -43,32 +43,21 @@ const ActividadesCuenca = () => {
       ]
     },
     {
-      title: "Visita a Covadonga",
-      description: "Descubre el santuario más importante de Asturias, cuna de la Reconquista y lugar de peregrinación con una historia milenaria.",
+      title: "Covadonga y sus Lagos",
+      description: "Descubre el santuario más importante de Asturias y los famosos lagos glaciares. Una experiencia completa que combina historia, espiritualidad y naturaleza en los Picos de Europa.",
       image: basilicaCovadongaNueva,
-      duration: "2-3 horas",
-      location: "Covadonga",
-      difficulty: "Fácil",
+      duration: "Día completo",
+      location: "Covadonga - Picos de Europa",
+      difficulty: "Fácil-Medio",
       highlights: [
         "Basílica de Santa María la Real",
         "Santa Cueva con la Virgen de Covadonga",
-        "Museo de Covadonga",
-        "Historia de Don Pelayo y la Reconquista"
-      ]
-    },
-    {
-      title: "Lagos de Covadonga",
-      description: "Visita los famosos lagos glaciares: Enol y Ercina. Un paisaje de alta montaña que te dejará sin aliento, ideal para senderismo y fotografía.",
-      image: lagosCovadongaImage,
-      duration: "Día completo",
-      location: "Parque Nacional Picos de Europa",
-      difficulty: "Medio",
-      highlights: [
         "Lagos glaciares Enol y Ercina",
+        "Historia de Don Pelayo y la Reconquista",
         "Centro de Visitantes Pedro Pidal",
-        "Rutas de senderismo señalizadas",
-        "Fauna y flora de alta montaña"
-      ]
+        "Rutas de senderismo señalizadas"
+      ],
+      hasMoreInfo: true
     },
     {
       title: "Cangas de Onís - Puntos de Interés",
@@ -176,12 +165,23 @@ const ActividadesCuenca = () => {
                           </ul>
                         </div>
                         
-                        <Button
-                          variant="secondary"
-                          className="bg-nature-green hover:bg-nature-forest text-white border-none font-semibold px-6 py-2 shadow-nature transition-all duration-300 hover:shadow-lg"
-                        >
-                          MÁS INFORMACIÓN
-                        </Button>
+                        {activity.hasMoreInfo ? (
+                          <Link to="/covadonga">
+                            <Button
+                              variant="secondary"
+                              className="bg-nature-green hover:bg-nature-forest text-white border-none font-semibold px-6 py-2 shadow-nature transition-all duration-300 hover:shadow-lg"
+                            >
+                              MÁS INFORMACIÓN
+                            </Button>
+                          </Link>
+                        ) : (
+                          <Button
+                            variant="secondary"
+                            className="bg-nature-green hover:bg-nature-forest text-white border-none font-semibold px-6 py-2 shadow-nature transition-all duration-300 hover:shadow-lg"
+                          >
+                            MÁS INFORMACIÓN
+                          </Button>
+                        )}
                       </CardContent>
                     </div>
                   </div>
