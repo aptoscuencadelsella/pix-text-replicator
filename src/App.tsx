@@ -12,6 +12,7 @@ import ActividadesCuenca from "./pages/ActividadesCuenca";
 import Covadonga from "./pages/Covadonga";
 import Cangas from "./pages/Cangas";
 import Barranquismo from "./pages/Barranquismo";
+import RutasCaballo from "./pages/RutasCaballo";
 import Contacto from "./pages/Contacto";
 import NotFound from "./pages/NotFound";
 
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/covadonga" element={<Covadonga />} />
           <Route path="/cangas" element={<Cangas />} />
           <Route path="/barranquismo" element={<Barranquismo />} />
+          <Route path="/rutas-caballo" element={<RutasCaballo />} />
           <Route path="/contacto" element={<Contacto />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
