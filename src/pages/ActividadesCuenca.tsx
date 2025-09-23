@@ -96,10 +96,10 @@ const ActividadesCuenca = () => {
     },
     {
       title: "Sectores de Escalada Libre",
-      description: "Descubre los mejores sectores de escalada en roca de la Cuenca del Sella. Desde iniciación hasta nivel avanzado, disfruta de vías equipadas con las mejores vistas a los Picos de Europa.",
+      description: "Descubre los mejores sectores de escalada del oriente de Asturias. Desde iniciación hasta nivel avanzado, disfruta de vías equipadas en roca de caliza de excelente calidad.",
       image: lagosCovadongaImage,
       duration: "2-8 horas",
-      location: "Picos de Europa - Cuenca del Sella",
+      location: "Oriente de Asturias",
       difficulty: "Todos los niveles",
       highlights: [
         "Sectores: Naranjo de Bulnes, Urriellu, Peña Ubiña",
@@ -108,7 +108,7 @@ const ActividadesCuenca = () => {
         "Sectores de iniciación y perfeccionamiento",
         "Escuelas de escalada certificadas",
         "Alquiler de material especializado",
-        "Vías clásicas y deportivas"
+        "Entorno natural privilegiado"
       ]
     }
   ];
