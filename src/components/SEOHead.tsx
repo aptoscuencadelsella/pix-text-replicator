@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 const SEOHead = () => {
   return (
     <Helmet>
-      <title>Apartamentos Turísticos Cuenca del Sella - Alojamiento Rural Asturias | Picos de Europa</title>
+      <title>Apartamentos Turísticos y Turismo Activo Cuenca del Sella - Alojamiento Rural Asturias | Picos de Europa</title>
       <meta 
         name="description" 
         content="Apartamentos turísticos de calidad en la Cuenca del Sella, Asturias. Alojamiento rural en Cangas de Onís y Arriondas. Actividades turísticas, descenso del Sella, Lagos de Covadonga. Reserva tu escapada a los Picos de Europa." 
