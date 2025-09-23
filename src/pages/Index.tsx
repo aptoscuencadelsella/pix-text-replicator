@@ -2,10 +2,12 @@ import Header from "../components/Header";
 import HeroSection from "../components/HeroSection";
 import ApartmentGrid from "../components/ApartmentGrid";
 import ContactSection from "../components/ContactSection";
+import SEOHead from "../components/SEOHead";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead />
       <Header />
       <HeroSection />
       <ApartmentGrid />
@@ -21,13 +23,13 @@ const Index = () => {
             </div>
             
             <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-nature-forest">
-              Tu Guía de Confianza en la Cuenca del Sella
+              Tu Guía Completa de Turismo Rural en Asturias - Cuenca del Sella
             </h2>
             
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Somos <strong className="text-nature-green">la mejor página de información de la zona</strong>, 
-              ofreciendo datos actualizados, recomendaciones expertas y toda la información que necesitas 
-              para disfrutar al máximo de tu experiencia en los Picos de Europa.
+              Somos <strong className="text-nature-green">la mejor página de información turística de los Picos de Europa</strong>, 
+              especializada en apartamentos turísticos, actividades de turismo activo y guías completas para tus vacaciones en Asturias. 
+              Información actualizada sobre alojamiento rural, descenso del Sella, Lagos de Covadonga y mucho más.
             </p>
             
             <div className="grid md:grid-cols-3 gap-8 mt-12">
@@ -37,9 +39,9 @@ const Index = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="font-semibold text-nature-forest mb-2">Información Actualizada</h3>
+                <h3 className="font-semibold text-nature-forest mb-2">Información Turística Actualizada</h3>
                 <p className="text-sm text-muted-foreground">
-                  Horarios, precios y recomendaciones siempre al día
+                  Horarios, precios y recomendaciones de turismo rural siempre al día
                 </p>
               </div>
               
@@ -50,9 +52,9 @@ const Index = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                 </div>
-                <h3 className="font-semibold text-nature-forest mb-2">Conocimiento Local</h3>
+                <h3 className="font-semibold text-nature-forest mb-2">Expertos en Turismo Asturiano</h3>
                 <p className="text-sm text-muted-foreground">
-                  Consejos de expertos que conocen cada rincón de la zona
+                  Conocimiento local especializado en Cangas de Onís, Arriondas y Picos de Europa
                 </p>
               </div>
               
@@ -62,16 +64,16 @@ const Index = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                   </svg>
                 </div>
-                <h3 className="font-semibold text-nature-forest mb-2">Experiencia Completa</h3>
+                <h3 className="font-semibold text-nature-forest mb-2">Vacaciones Perfectas en Asturias</h3>
                 <p className="text-sm text-muted-foreground">
-                  Todo lo que necesitas para planificar tu viaje perfecto
+                  Planifica tu escapada rural ideal con nuestras guías de turismo activo
                 </p>
               </div>
             </div>
             
             <div className="mt-8 p-4 bg-nature-green/10 rounded-lg border border-nature-green/20 inline-block">
               <p className="text-sm text-nature-forest font-medium">
-                ✨ Más de <strong>10.000 visitantes</strong> confían en nuestra información cada año
+                ✨ Más de <strong>15.000 turistas</strong> eligen nuestros apartamentos turísticos cada año en los Picos de Europa
               </p>
             </div>
           </div>

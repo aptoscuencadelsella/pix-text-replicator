@@ -20,11 +20,11 @@ const ApartmentGrid = () => {
                 />
               </div>
               <h2 className="text-2xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors duration-300">
-                ACTIVIDADES DE LA CUENCA
+                TURISMO ACTIVO CUENCA DEL SELLA
               </h2>
             </Link>
             <p className="text-muted-foreground leading-relaxed flex-grow">
-              La zona ofrece actividades para todos los gustos: desde el famoso <strong>Descenso del Sella</strong> en piragua hasta rutas por los Picos de Europa o visitas al <strong>Santuario de Covadonga</strong>.
+              Descubre las mejores <strong>actividades turísticas en Asturias</strong>: desde el famoso <strong>Descenso del Sella en canoa</strong> hasta rutas de senderismo por los <strong>Picos de Europa</strong>, visitas al <strong>Santuario de Covadonga</strong> y <strong>barranquismo</strong>. Turismo activo y aventura en plena naturaleza asturiana.
             </p>
           </div>
 
@@ -43,7 +43,7 @@ const ApartmentGrid = () => {
               </h2>
             </Link>
             <p className="text-muted-foreground leading-relaxed flex-grow">
-              Puerta de entrada a los <strong>Picos de Europa</strong>, Cangas de Onís es uno de los destinos más emblemáticos de Asturias. Cerca del <strong>puente Romano</strong> y los <strong>Lagos de Covadonga</strong>.
+              <strong>Apartamentos turísticos en Cangas de Onís</strong>, puerta de entrada a los <strong>Picos de Europa</strong>. Alojamiento rural de calidad cerca del histórico <strong>Puente Romano</strong> y los famosos <strong>Lagos de Covadonga</strong>. Turismo rural en el corazón de Asturias.
             </p>
           </div>
 
@@ -63,7 +63,7 @@ const ApartmentGrid = () => {
               </h2>
             </Link>
             <p className="text-muted-foreground leading-relaxed flex-grow">
-              Situada a orillas del <strong>río Sella</strong>, Arriondas es el punto de partida ideal para quienes buscan <strong>naturaleza</strong>, <strong>aventura</strong> y <strong>autenticidad</strong> asturiana.
+              <strong>Apartamentos rurales en Arriondas</strong>, situados a orillas del <strong>río Sella</strong>. El punto de partida perfecto para el <strong>descenso del Sella</strong> y actividades de <strong>turismo de aventura</strong>. Alojamiento rural auténtico en el <strong>Oriente de Asturias</strong>.
             </p>
           </div>
 
