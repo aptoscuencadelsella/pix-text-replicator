@@ -1,4 +1,4 @@
-name: 🚀 Deploy a Hostinger
+name: 🚀 Deploy to Hostinger
 
 on:
   push:
@@ -13,12 +13,23 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v3
 
-    - name: Configurar acceso SSH
+    - name: Set up Node (if needed for build)
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build the project
+      run: npm run build
+
+    - name: Configure SSH
       uses: webfactory/ssh-agent@v0.7.0
       with:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-    - name: Copiar archivos a Hostinger
+    - name: Deploy to Hostinger via rsync
       run: |
         rsync -avz --delete \
-        ./ u303917797@82.25.113.171:/home/USUARIO/domains/cuencadelsella.com/public_html/
+        dist/ u303917797@82.25.113.171:/home/u303917797/domains/cuencadelsella.com/public_html/
