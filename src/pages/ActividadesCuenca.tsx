@@ -73,7 +73,8 @@ const ActividadesCuenca = () => {
         "Iglesia de Santa María de Cangas",
         "Mercado tradicional (domingos)",
         "Gastronomía local en sidrerías"
-      ]
+      ],
+      hasMoreInfo: true
     }
   ];
 
@@ -165,8 +166,17 @@ const ActividadesCuenca = () => {
                           </ul>
                         </div>
                         
-                        {activity.hasMoreInfo ? (
+                        {activity.hasMoreInfo && activity.title === "Covadonga y sus Lagos" ? (
                           <Link to="/covadonga">
+                            <Button
+                              variant="secondary"
+                              className="bg-nature-green hover:bg-nature-forest text-white border-none font-semibold px-6 py-2 shadow-nature transition-all duration-300 hover:shadow-lg"
+                            >
+                              MÁS INFORMACIÓN
+                            </Button>
+                          </Link>
+                        ) : activity.hasMoreInfo && activity.title === "Cangas de Onís - Puntos de Interés" ? (
+                          <Link to="/cangas">
                             <Button
                               variant="secondary"
                               className="bg-nature-green hover:bg-nature-forest text-white border-none font-semibold px-6 py-2 shadow-nature transition-all duration-300 hover:shadow-lg"
