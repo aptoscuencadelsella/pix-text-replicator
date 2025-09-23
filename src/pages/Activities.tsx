@@ -48,9 +48,21 @@ const Activities = () => {
               </div>
               
               <div>
+                <h3 className="text-xl font-semibold mb-4 text-foreground">Covadonga y sus Lagos</h3>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  Descubre el <strong>Santuario de Covadonga</strong> y los <strong>Lagos de Covadonga</strong>, dos joyas imprescindibles de Asturias. Visita la Santa Cueva, la Basílica y los lagos glaciares en los Picos de Europa.
+                </p>
+                <Link to="/covadonga">
+                  <Button variant="outline" size="sm" className="mt-2">
+                    Más información
+                  </Button>
+                </Link>
+              </div>
+              
+              <div>
                 <h3 className="text-xl font-semibold mb-4 text-foreground">Senderismo y Montaña</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4">
-                  Explora los <strong>Picos de Europa</strong> a través de rutas de senderismo que te llevarán a los <strong>Lagos de Covadonga</strong>, el <strong>Santuario de Covadonga</strong>, y miradores con vistas panorámicas impresionantes.
+                  Explora los <strong>Picos de Europa</strong> a través de rutas de senderismo con vistas panorámicas impresionantes y miradores únicos.
                 </p>
               </div>
               

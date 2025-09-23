@@ -9,6 +9,7 @@ import ArriondasApartments from "./pages/ArriondasApartments";
 import BookingPage from "./pages/BookingPage";
 import Activities from "./pages/Activities";
 import ActividadesCuenca from "./pages/ActividadesCuenca";
+import Covadonga from "./pages/Covadonga";
 import Contacto from "./pages/Contacto";
 import NotFound from "./pages/NotFound";
 
@@ -27,6 +28,7 @@ const App = () => (
           <Route path="/arriondas-apartaments" element={<ArriondasApartments />} />
           <Route path="/booking" element={<BookingPage />} />
           <Route path="/activities" element={<Activities />} />
+          <Route path="/covadonga" element={<Covadonga />} />
           <Route path="/contacto" element={<Contacto />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
