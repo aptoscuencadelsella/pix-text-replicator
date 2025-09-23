@@ -24,11 +24,11 @@ const ImageCarousel = ({ images, alt }: ImageCarouselProps) => {
 
   return (
     <div className="relative w-full max-w-6xl mx-auto">
-      <div className="relative h-[500px] lg:h-[600px] overflow-hidden rounded-lg shadow-card-nature">
+      <div className="relative aspect-[16/10] lg:aspect-[16/9] overflow-hidden rounded-lg shadow-card-nature bg-muted">
         <img
           src={images[currentIndex]}
           alt={`${alt} - ${currentIndex + 1}`}
-          className="w-full h-full object-cover object-center transition-all duration-300"
+          className="w-full h-full object-contain object-center transition-all duration-500 animate-fade-in"
         />
         
         {images.length > 1 && (
