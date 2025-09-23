@@ -73,7 +73,7 @@ const Index = () => {
             
             <div className="mt-8 p-4 bg-nature-green/10 rounded-lg border border-nature-green/20 inline-block">
               <p className="text-sm text-nature-forest font-medium">
-                ✨ Más de <strong>15.000 turistas</strong> eligen nuestra guía cada año para planificar sus vacaciones en los Picos de Europa
+                ✨ Más de <strong>15.000 turistas</strong> eligen nuestra guía cada año para planificar sus vacaciones en el Oriente de Asturias
               </p>
             </div>
           </div>
