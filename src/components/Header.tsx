@@ -58,7 +58,7 @@ const Header = () => {
 
         {/* Mobile Menu Overlay */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-background/98 backdrop-blur-md border-b border-border shadow-lg">
+          <div className="md:hidden absolute top-full left-0 right-0 bg-background border-b border-border shadow-lg backdrop-blur-sm">
             <div className="container mx-auto px-4 py-6 space-y-4">
               <Link 
                 to="/" 
