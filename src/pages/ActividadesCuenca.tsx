@@ -201,7 +201,22 @@ const ActividadesCuenca = () => {
                           </ul>
                         </div>
                         
-                        {activity.hasMoreInfo && activity.title === "Covadonga y sus Lagos" ? (
+                        {activity.title === "Sectores de Escalada Libre" ? (
+                          <div className="flex gap-3 flex-wrap">
+                            <Button
+                              variant="secondary"
+                              className="bg-nature-green hover:bg-nature-forest text-white border-none font-semibold px-6 py-2 shadow-nature transition-all duration-300 hover:shadow-lg"
+                            >
+                              ESCALADA DEPORTIVA
+                            </Button>
+                            <Button
+                              variant="secondary"
+                              className="bg-nature-forest/80 hover:bg-nature-forest text-white border-none font-semibold px-6 py-2 shadow-nature transition-all duration-300 hover:shadow-lg"
+                            >
+                              BLOQUE
+                            </Button>
+                          </div>
+                        ) : activity.hasMoreInfo && activity.title === "Covadonga y sus Lagos" ? (
                           <Link to="/covadonga">
                             <Button
                               variant="secondary"
