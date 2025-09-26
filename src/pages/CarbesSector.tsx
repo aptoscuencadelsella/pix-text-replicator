@@ -6,6 +6,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import SEOHead from "@/components/SEOHead";
 import { Helmet } from "react-helmet";
+import croquisGeneral from "@/assets/crokis/croquis_general.jpg";
+import croquisPedroses from "@/assets/crokis/img_1514.jpg";
 
 export default function CarbesSector() {
   return (
@@ -268,6 +270,81 @@ export default function CarbesSector() {
             </Card>
 
           </div>
+
+          {/* Croquis Section */}
+          <Card className="shadow-nature border-0 mb-12">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-nature-forest">
+                <Mountain className="w-5 h-5" />
+                Croquis de Carbes
+              </CardTitle>
+              <CardDescription>
+                Diagramas de todos los subsectores: Carbes Principal y Les Pedroses I y II
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-8">
+                {/* Sector Principal */}
+                <div className="bg-gradient-to-r from-green-50/50 to-nature-mint/20 rounded-xl p-6">
+                  <h4 className="text-lg font-semibold text-nature-forest mb-4 text-center">
+                    Carbes - Sector Principal
+                  </h4>
+                  <div className="relative bg-white rounded-lg p-4 shadow-lg">
+                    <img 
+                      src={croquisGeneral}
+                      alt="Croquis Carbes Sector Principal"
+                      className="w-full h-auto rounded-lg shadow-md"
+                    />
+                    <div className="mt-4 p-3 bg-green-50 rounded-lg">
+                      <p className="text-sm text-gray-700 text-center">
+                        <strong>Sector Principal:</strong> Vías clásicas de la escuela con grados V-7a. 
+                        Escalada técnica en placas y muros verticales de caliza compacta.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Les Pedroses */}
+                <div className="bg-gradient-to-r from-red-50/50 to-orange-50/50 rounded-xl p-6">
+                  <h4 className="text-lg font-semibold text-nature-forest mb-4 text-center">
+                    Les Pedroses I y II
+                  </h4>
+                  <div className="relative bg-white rounded-lg p-4 shadow-lg">
+                    <img 
+                      src={croquisPedroses}
+                      alt="Croquis Les Pedroses I y II - Carbes"
+                      className="w-full h-auto rounded-lg shadow-md"
+                    />
+                    <div className="mt-4 p-3 bg-orange-50 rounded-lg">
+                      <p className="text-sm text-gray-700 text-center">
+                        <strong>Les Pedroses:</strong> Sectores técnicos con vías hasta 8a. 
+                        Escalada exigente en desplomes y placas técnicas para escaladores avanzados.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="grid md:grid-cols-2 gap-4 text-sm text-gray-600">
+                  <div className="bg-green-50 p-4 rounded-lg">
+                    <h5 className="font-semibold text-nature-forest mb-2">Características Técnicas</h5>
+                    <ul className="space-y-1 text-xs">
+                      <li>• Escalada en placas técnicas y adherencia</li>
+                      <li>• Muros verticales con regletas pequeñas</li>
+                      <li>• Desplomes moderados en Les Pedroses</li>
+                    </ul>
+                  </div>
+                  <div className="bg-orange-50 p-4 rounded-lg">
+                    <h5 className="font-semibold text-nature-forest mb-2">Progresión Recomendada</h5>
+                    <ul className="space-y-1 text-xs">
+                      <li>• Comenzar por el sector principal</li>
+                      <li>• Progresar gradualmente a Les Pedroses</li>
+                      <li>• Adaptar el estilo según experiencia</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
 
           {/* Restrictions & Recommendations */}
           <Card className="shadow-nature border-0 mb-12">

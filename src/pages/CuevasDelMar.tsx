@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import SEOHead from "@/components/SEOHead";
 import { Helmet } from "react-helmet";
+import croquisCuevas from "@/assets/crokis/img_1514.jpg";
 
 export default function CuevasDelMar() {
   return (
@@ -213,6 +214,56 @@ export default function CuevasDelMar() {
             </Card>
 
           </div>
+
+          {/* Croquis Section */}
+          <Card className="shadow-nature border-0 mb-12">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-nature-forest">
+                <Mountain className="w-5 h-5" />
+                Croquis de Cuevas del Mar
+              </CardTitle>
+              <CardDescription>
+                Esquemas de las vías en los acantilados marinos de Llanes
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-6">
+                <div className="bg-gradient-to-r from-blue-50/50 to-cyan-50/50 rounded-xl p-6">
+                  <h4 className="text-lg font-semibold text-nature-forest mb-4 text-center">
+                    Sectores de Acantilado Marino
+                  </h4>
+                  <div className="relative bg-white rounded-lg p-4 shadow-lg">
+                    <img 
+                      src={croquisCuevas}
+                      alt="Croquis Cuevas del Mar - Acantilados de Llanes"
+                      className="w-full h-auto rounded-lg shadow-md"
+                    />
+                    <div className="mt-4 p-3 bg-cyan-50 rounded-lg">
+                      <p className="text-sm text-gray-700 text-center">
+                        <strong>Croquis detallado:</strong> Vías numeradas en acantilado marino. 
+                        20-30 rutas de IV+ a 7b+ en caliza de gran calidad junto al mar
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="grid md:grid-cols-3 gap-4 text-sm text-gray-600">
+                  <div className="bg-blue-50 p-3 rounded-lg">
+                    <h5 className="font-semibold text-nature-forest mb-1">Sector Izquierdo</h5>
+                    <p>Vías cortas y técnicas en muro vertical.</p>
+                  </div>
+                  <div className="bg-cyan-50 p-3 rounded-lg">
+                    <h5 className="font-semibold text-nature-forest mb-1">Sector Central</h5>
+                    <p>Mayor variedad de grados y estilos.</p>
+                  </div>
+                  <div className="bg-teal-50 p-3 rounded-lg">
+                    <h5 className="font-semibold text-nature-forest mb-1">Sector Derecho</h5>
+                    <p>Líneas más largas con desplomes.</p>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
 
           {/* Restrictions & Recommendations */}
           <Card className="shadow-nature border-0 mb-12">

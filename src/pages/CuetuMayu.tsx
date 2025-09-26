@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import SEOHead from "@/components/SEOHead";
 import { Helmet } from "react-helmet";
+import croquisCuetu from "@/assets/crokis/croquis_general.jpg";
 
 export default function CuetuMayu() {
   return (
@@ -149,6 +150,52 @@ export default function CuetuMayu() {
                     <Badge className="bg-nature-mint text-nature-forest">Cerca de Cangas</Badge>
                     <Badge className="bg-nature-mint text-nature-forest">Buen soleado</Badge>
                     <Badge className="bg-nature-mint text-nature-forest">Escalada técnica</Badge>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Croquis Section */}
+          <Card className="shadow-nature border-0 mb-12">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-nature-forest">
+                <Mountain className="w-5 h-5" />
+                Croquis del Cuetu Mayu
+              </CardTitle>
+              <CardDescription>
+                Diagramas de las vías en la zona de escalada del Cuetu Mayu
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-6">
+                <div className="bg-gradient-to-r from-purple-50/50 to-blue-50/50 rounded-xl p-6">
+                  <h4 className="text-lg font-semibold text-nature-forest mb-4 text-center">
+                    Sector Cuetu Mayu
+                  </h4>
+                  <div className="relative bg-white rounded-lg p-4 shadow-lg">
+                    <img 
+                      src={croquisCuetu}
+                      alt="Croquis Cuetu Mayu - Zona de escalada cerca de Cangas"
+                      className="w-full h-auto rounded-lg shadow-md"
+                    />
+                    <div className="mt-4 p-3 bg-purple-50 rounded-lg">
+                      <p className="text-sm text-gray-700 text-center">
+                        <strong>Croquis Cuetu Mayu:</strong> Vías de escalada deportiva en zona 
+                        de gran belleza natural cerca de Cangas de Onís.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="grid md:grid-cols-2 gap-4 text-sm text-gray-600">
+                  <div className="bg-purple-50 p-4 rounded-lg">
+                    <h5 className="font-semibold text-nature-forest mb-2">Características</h5>
+                    <p>Escalada técnica en caliza con vistas panorámicas excepcionales a los Picos de Europa.</p>
+                  </div>
+                  <div className="bg-blue-50 p-4 rounded-lg">
+                    <h5 className="font-semibold text-nature-forest mb-2">Accesibilidad</h5>
+                    <p>Fácil acceso desde Cangas de Onís con aproximación moderada por sendero.</p>
                   </div>
                 </div>
               </div>

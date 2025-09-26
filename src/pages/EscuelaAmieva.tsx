@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import SEOHead from "@/components/SEOHead";
 import { Helmet } from "react-helmet";
+import croquisGeneral from "@/assets/crokis/croquis_general.jpg";
 
 export default function EscuelaAmieva() {
   return (
@@ -228,6 +229,52 @@ export default function EscuelaAmieva() {
             </Card>
 
           </div>
+
+          {/* Croquis Section */}
+          <Card className="shadow-nature border-0 mb-12">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-nature-forest">
+                <Mountain className="w-5 h-5" />
+                Croquis de la Escuela
+              </CardTitle>
+              <CardDescription>
+                Diagramas detallados de las vías de escalada con grados y nombres
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-6">
+                <div className="bg-gradient-to-r from-nature-mint/20 to-nature-green/10 rounded-xl p-6">
+                  <h4 className="text-lg font-semibold text-nature-forest mb-4 text-center">
+                    Sectores El Serrón & Tres Agujas
+                  </h4>
+                  <div className="relative bg-white rounded-lg p-4 shadow-lg">
+                    <img 
+                      src={croquisGeneral}
+                      alt="Croquis Escuela de Escalada de Amieva - Sectores Serrón y Tres Agujas"
+                      className="w-full h-auto rounded-lg shadow-md"
+                    />
+                    <div className="mt-4 p-3 bg-nature-mint/10 rounded-lg">
+                      <p className="text-sm text-gray-700 text-center">
+                        <strong>Croquis oficial:</strong> Rutas numeradas con grados y nombres. 
+                        Serrón (izquierda) y Tres Agujas (derecha) - 17 vías de IV+ a 7b
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="grid md:grid-cols-2 gap-4 text-sm text-gray-600">
+                  <div className="bg-blue-50 p-4 rounded-lg">
+                    <h5 className="font-semibold text-nature-forest mb-2">El Serrón</h5>
+                    <p>Sector principal con vías clásicas de escalada técnica en placa y muro vertical.</p>
+                  </div>
+                  <div className="bg-green-50 p-4 rounded-lg">
+                    <h5 className="font-semibold text-nature-forest mb-2">Tres Agujas</h5>
+                    <p>Sector complementario con líneas variadas y mayor diversidad de movimientos.</p>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
 
           {/* Restrictions & Recommendations */}
           <Card className="shadow-nature border-0 mb-12">

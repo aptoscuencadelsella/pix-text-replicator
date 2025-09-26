@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import SEOHead from "@/components/SEOHead";
 import { Helmet } from "react-helmet";
+import croquisTrincherona from "@/assets/crokis/img_1514.jpg";
 
 export default function TrincheronaNFitu() {
   return (
@@ -171,6 +172,56 @@ export default function TrincheronaNFitu() {
                     <Badge className="bg-nature-mint text-nature-forest">Escalada fresca</Badge>
                     <Badge className="bg-nature-mint text-nature-forest">Caliza de calidad</Badge>
                     <Badge className="bg-nature-mint text-nature-forest">Cerca del Fitu</Badge>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Croquis Section */}
+          <Card className="shadow-nature border-0 mb-12">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-nature-forest">
+                <Mountain className="w-5 h-5" />
+                Croquis de Trincherona N'Fitu
+              </CardTitle>
+              <CardDescription>
+                Diagramas de escalada en la Sierra del Sueve con vistas panorámicas
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-6">
+                <div className="bg-gradient-to-r from-emerald-50/50 to-teal-50/50 rounded-xl p-6">
+                  <h4 className="text-lg font-semibold text-nature-forest mb-4 text-center">
+                    Sector Trincherona N'Fitu - Sierra del Sueve
+                  </h4>
+                  <div className="relative bg-white rounded-lg p-4 shadow-lg">
+                    <img 
+                      src={croquisTrincherona}
+                      alt="Croquis Trincherona N'Fitu - Sierra del Sueve"
+                      className="w-full h-auto rounded-lg shadow-md"
+                    />
+                    <div className="mt-4 p-3 bg-emerald-50 rounded-lg">
+                      <p className="text-sm text-gray-700 text-center">
+                        <strong>Zona Privilegiada:</strong> Escalada en caliza con vistas únicas 
+                        a los Picos de Europa y la costa cantábrica.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="grid md:grid-cols-3 gap-4 text-sm text-gray-600">
+                  <div className="bg-emerald-50 p-3 rounded-lg">
+                    <h5 className="font-semibold text-nature-forest mb-1">Vistas a Picos</h5>
+                    <p>Panorámica única de los Picos de Europa desde la Sierra del Sueve.</p>
+                  </div>
+                  <div className="bg-teal-50 p-3 rounded-lg">
+                    <h5 className="font-semibold text-nature-forest mb-1">Vista Costera</h5>
+                    <p>Amplias vistas de la costa cantábrica y el mar.</p>
+                  </div>
+                  <div className="bg-cyan-50 p-3 rounded-lg">
+                    <h5 className="font-semibold text-nature-forest mb-1">Escalada Natural</h5>
+                    <p>Roca caliza en entorno natural preservado.</p>
                   </div>
                 </div>
               </div>
