@@ -8,9 +8,18 @@ const corsHeaders = {
 function slugToName(slug: string) {
   return slug
     .replace(/\.ics$/i, "")
-    .split("-")
-    .map((w) => (w.length <= 2 ? w.toUpperCase() : w.charAt(0).toUpperCase() + w.slice(1)))
-    .join(" ");
+  .split("-")
+  .map((w) => (w.length <= 2 ? w.toUpperCase() : w.charAt(0).toUpperCase() + w.slice(1)))
+  .join(" ");
+}
+
+function escapeICSText(input: string) {
+  return input
+    .replace(/\\/g, "\\\\")
+    .replace(/\n/g, "\\n")
+    .replace(/\r/g, "")
+    .replace(/,/g, "\\,")
+    .replace(/;/g, "\\;");
 }
 
 function formatDateToICal(dateStr: string) {
@@ -40,14 +49,14 @@ function buildICS(apartmentName: string, reservations: any[]) {
     lines.push(`DTSTAMP:${now}`);
     lines.push(`DTSTART;VALUE=DATE:${dtStart}`);
     lines.push(`DTEND;VALUE=DATE:${dtEnd}`);
-    lines.push(`SUMMARY:OCUPADO - ${r.guest_name ? String(r.guest_name).replace(/\r?\n/g, " ") : "Reserva"}`);
+    lines.push(`SUMMARY:${escapeICSText(`OCUPADO - ${r.guest_name ? String(r.guest_name) : "Reserva"}`)}`);
     const parts: string[] = [
       `Apartamento: ${apartmentName}`,
       r.apartment_location ? `Ubicación: ${r.apartment_location}` : undefined,
       r.booking_source ? `Origen: ${r.booking_source}` : undefined,
     ].filter(Boolean) as string[];
-    const desc = parts.join("\\n");
-    lines.push(`DESCRIPTION:${desc}`);
+    const desc = parts.join("\n");
+    lines.push(`DESCRIPTION:${escapeICSText(desc)}`);
     lines.push("TRANSP:OPAQUE");
     lines.push("STATUS:CONFIRMED");
     lines.push("END:VEVENT");
@@ -101,8 +110,9 @@ serve(async (req) => {
       {
         headers: {
           Authorization: `Bearer ${SUPABASE_SERVICE_ROLE_KEY}`,
+          apikey: SUPABASE_SERVICE_ROLE_KEY,
           "Content-Type": "application/json",
-          Prefer: "return=representation",
+          Accept: "application/json",
         },
       },
     );
