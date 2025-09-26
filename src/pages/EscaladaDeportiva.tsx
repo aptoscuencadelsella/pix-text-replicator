@@ -67,6 +67,26 @@ const climbingZones = [
     ],
     image: "/src/assets/carbes-escalada.jpg",
     detailPage: "/carbes-sector"
+  },
+  {
+    id: 4,
+    name: "Cuetu Mayu",
+    location: "Cangas de Onís, Asturias",
+    description: "Escuela muy frecuentada por su cercanía a Cangas de Onís. Situada cerca del pueblo de Nieda, ofrece escalada técnica en muros de caliza gris y naranja con placas y desplomes.",
+    routes: "40-50 vías",
+    grades: "IV+ a 8a",
+    orientation: "Sur/Sureste",
+    approach: "5-10 minutos",
+    rockType: "Caliza gris y naranja",
+    features: [
+      "Muy accesible desde Cangas",
+      "Escalada técnica en placa",
+      "Pasos de fuerza en desplomes", 
+      "Sol buena parte del día",
+      "Vías de 10-25m"
+    ],
+    image: "/src/assets/cuetu-mayu.jpg",
+    detailPage: "/cuetu-mayu"
   }
 ];
 

@@ -14,6 +14,7 @@ import EscaladaDeportiva from "./pages/EscaladaDeportiva";
 import EscuelaAmieva from "./pages/EscuelaAmieva";
 import CuevasDelMar from "./pages/CuevasDelMar";
 import CarbesSector from "./pages/CarbesSector";
+import CuetuMayu from "./pages/CuetuMayu";
 import Covadonga from "./pages/Covadonga";
 import Cangas from "./pages/Cangas";
 import Barranquismo from "./pages/Barranquismo";
@@ -37,6 +38,7 @@ const App = () => (
           <Route path="/escuela-amieva" element={<EscuelaAmieva />} />
           <Route path="/cuevas-del-mar" element={<CuevasDelMar />} />
           <Route path="/carbes-sector" element={<CarbesSector />} />
+          <Route path="/cuetu-mayu" element={<CuetuMayu />} />
           <Route path="/cangas-apartments" element={<CangasApartments />} />
           <Route path="/arriondas-apartaments" element={<ArriondasApartments />} />
           <Route path="/booking" element={<BookingPage />} />
