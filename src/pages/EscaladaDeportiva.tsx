@@ -165,91 +165,9 @@ export default function EscaladaDeportiva() {
           {/* Interactive Map */}
           <section className="mb-12">
             <h2 className="text-3xl font-bold text-nature-forest mb-8 text-center">
-              Mapa de Zonas de Escalada
-            </h2>
-            <ClimbingZonesMap zones={climbingZones} />
-          </section>
-
-          {/* Climbing Zones */}
-          <section className="mb-12">
-            <h2 className="text-3xl font-bold text-nature-forest mb-8 text-center">
               Zonas de Escalada
             </h2>
-            
-            <div className="grid gap-8 md:gap-12">
-              {climbingZones.map((zone) => (
-                <Card key={zone.id} className="overflow-hidden shadow-nature border-0">
-                  <div className="grid md:grid-cols-2 gap-0">
-                    {/* Image Section */}
-                    <div className="relative h-64 md:h-full min-h-[300px]">
-                      <div className="absolute inset-0 bg-gradient-to-br from-nature-green/20 to-nature-forest/30 flex items-center justify-center">
-                        <div className="text-center text-white">
-                          <h3 className="text-2xl font-bold mb-2">Imagen próximamente</h3>
-                          <p className="text-sm opacity-90">{zone.name}</p>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Content Section */}
-                    <div className="p-6 md:p-8">
-                      <CardHeader className="p-0 mb-4">
-                        <CardTitle className="text-2xl text-nature-forest mb-2">
-                          {zone.name}
-                        </CardTitle>
-                        <CardDescription className="text-base text-gray-600 flex items-center gap-2">
-                          📍 {zone.location}
-                        </CardDescription>
-                      </CardHeader>
-                      
-                      <CardContent className="p-0">
-                        <p className="text-gray-700 mb-6 leading-relaxed">
-                          {zone.description}
-                        </p>
-                        
-                         {/* Zone Info Grid */}
-                         <div className="grid grid-cols-2 gap-4 mb-6">
-                           <div className="space-y-3">
-                             <div>
-                               <span className="font-semibold text-nature-forest">Rutas:</span>
-                               <p className="text-gray-700">{zone.routes}</p>
-                             </div>
-                             <div>
-                               <span className="font-semibold text-nature-forest">Grados:</span>
-                               <p className="text-gray-700">{zone.grades}</p>
-                             </div>
-                             <div>
-                               <span className="font-semibold text-nature-forest">Orientación:</span>
-                               <p className="text-gray-700">{zone.orientation}</p>
-                             </div>
-                           </div>
-                           <div className="space-y-3">
-                             <div>
-                               <span className="font-semibold text-nature-forest">Aproximación:</span>
-                               <p className="text-gray-700">{zone.approach}</p>
-                             </div>
-                             <div>
-                               <span className="font-semibold text-nature-forest">Roca:</span>
-                               <p className="text-gray-700">{zone.rockType}</p>
-                             </div>
-                           </div>
-                         </div>
-                         
-                         <div className="mt-6">
-                           <Link to={zone.detailPage || "/escuela-amieva"}>
-                             <Button 
-                               variant="secondary"
-                               className="bg-nature-forest hover:bg-nature-green text-white border-none font-semibold px-6 py-2 shadow-nature transition-all duration-300 hover:shadow-lg w-full"
-                             >
-                               VER FICHA COMPLETA
-                             </Button>
-                           </Link>
-                         </div>
-                      </CardContent>
-                    </div>
-                  </div>
-                </Card>
-              ))}
-            </div>
+            <ClimbingZonesMap zones={climbingZones} />
           </section>
 
           {/* More Zones Coming Soon */}
