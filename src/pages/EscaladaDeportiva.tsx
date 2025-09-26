@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import SEOHead from "@/components/SEOHead";
 import { Helmet } from "react-helmet";
+import ClimbingZonesMap from "@/components/ClimbingZonesMap";
 
 const climbingZones = [
   {
@@ -18,6 +19,7 @@ const climbingZones = [
     orientation: "Sur/Suroeste",
     approach: "5-10 minutos",
     rockType: "Caliza",
+    coordinates: { lat: 43.2891, lng: -4.9463 },
     features: [
       "Ideal para iniciación",
       "Vías bien equipadas",
@@ -38,6 +40,7 @@ const climbingZones = [
     orientation: "Variada",
     approach: "2-5 minutos",
     rockType: "Caliza marina",
+    coordinates: { lat: 43.4197, lng: -4.7558 },
     features: [
       "Acantilados marinos",
       "Vías cortas (10-20m)",
@@ -58,6 +61,7 @@ const climbingZones = [
     orientation: "Sur/Sureste",
     approach: "10-15 minutos",
     rockType: "Caliza compacta",
+    coordinates: { lat: 43.3506, lng: -5.1631 },
     features: [
       "Múltiples subsectores",
       "Placas técnicas",
@@ -78,6 +82,7 @@ const climbingZones = [
     orientation: "Sur/Sureste",
     approach: "5-10 minutos",
     rockType: "Caliza gris y naranja",
+    coordinates: { lat: 43.3648, lng: -5.1310 },
     features: [
       "Muy accesible desde Cangas",
       "Escalada técnica en placa",
@@ -98,6 +103,7 @@ const climbingZones = [
     orientation: "Oeste/Suroeste",
     approach: "10-15 minutos",
     rockType: "Caliza compacta",
+    coordinates: { lat: 43.4520, lng: -5.2400 },
     features: [
       "Vistas espectaculares",
       "Sierra del Sueve",
@@ -155,6 +161,14 @@ export default function EscaladaDeportiva() {
               Rutas equipadas para todos los niveles en entornos naturales espectaculares.
             </p>
           </header>
+
+          {/* Interactive Map */}
+          <section className="mb-12">
+            <h2 className="text-3xl font-bold text-nature-forest mb-8 text-center">
+              Mapa de Zonas de Escalada
+            </h2>
+            <ClimbingZonesMap zones={climbingZones} />
+          </section>
 
           {/* Climbing Zones */}
           <section className="mb-12">
