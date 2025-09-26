@@ -33,7 +33,7 @@ export default function CuevasDelMar() {
         
         <main className="container mx-auto px-4 py-8">
           {/* Back Navigation */}
-          <div className="mb-6">
+          <div className="mb-6 flex items-center justify-between">
             <Link 
               to="/escalada-deportiva" 
               className="inline-flex items-center gap-2 text-nature-forest hover:text-nature-green transition-colors duration-200"
@@ -41,6 +41,17 @@ export default function CuevasDelMar() {
               <ArrowLeft className="w-4 h-4" />
               <span className="font-medium">Volver a Escalada Deportiva</span>
             </Link>
+            
+            <Button 
+              asChild
+              variant="outline" 
+              className="border-nature-forest text-nature-forest hover:bg-nature-forest hover:text-white"
+            >
+              <Link to="/escalada-deportiva">
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Atrás
+              </Link>
+            </Button>
           </div>
 
           {/* Page Header */}
@@ -327,14 +338,26 @@ export default function CuevasDelMar() {
                 Contacta con nosotros para más información sobre condiciones actuales, 
                 alojamiento cercano o recomendaciones para tu visita a Llanes.
               </p>
-              <Link to="/contacto">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link to="/contacto">
+                  <Button 
+                    variant="secondary"
+                    className="bg-nature-green hover:bg-nature-forest text-white border-none font-semibold px-8 py-3 shadow-nature transition-all duration-300 hover:shadow-lg"
+                  >
+                    CONTACTAR
+                  </Button>
+                </Link>
                 <Button 
-                  variant="secondary"
-                  className="bg-nature-green hover:bg-nature-forest text-white border-none font-semibold px-8 py-3 shadow-nature transition-all duration-300 hover:shadow-lg"
+                  asChild
+                  variant="outline"
+                  className="border-nature-forest text-nature-forest hover:bg-nature-forest hover:text-white font-semibold px-8 py-3"
                 >
-                  CONTACTAR
+                  <Link to="/escalada-deportiva">
+                    <ArrowLeft className="w-4 h-4 mr-2" />
+                    Volver a Escalada
+                  </Link>
                 </Button>
-              </Link>
+              </div>
             </div>
           </section>
         </main>
