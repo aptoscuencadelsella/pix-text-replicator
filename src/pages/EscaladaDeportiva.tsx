@@ -47,6 +47,26 @@ const climbingZones = [
     ],
     image: "/src/assets/cuevas-del-mar.jpg",
     detailPage: "/cuevas-del-mar"
+  },
+  {
+    id: 3,
+    name: "Carbes",
+    location: "Cangas de Onís, Asturias",
+    description: "Una de las escuelas de escalada más conocidas de la zona con varios subsectores. Ofrece desde vías clásicas accesibles hasta líneas técnicas de alto nivel en caliza compacta.",
+    routes: "70-90 vías",
+    grades: "IV+ a 8a",
+    orientation: "Sur/Sureste",
+    approach: "10-15 minutos",
+    rockType: "Caliza compacta",
+    features: [
+      "Múltiples subsectores",
+      "Placas técnicas",
+      "Muros verticales",
+      "Escuela clásica",
+      "Alto nivel técnico"
+    ],
+    image: "/src/assets/carbes-escalada.jpg",
+    detailPage: "/carbes-sector"
   }
 ];
 
