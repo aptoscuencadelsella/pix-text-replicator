@@ -40,7 +40,7 @@ const mapOptions = {
 export default function ClimbingZonesMap({ zones }: ClimbingZonesMapProps) {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY || 'AIzaSyBFw0Qbyq9zTFTd-tUY6dO7o3T3GE-o4ec' // Placeholder key
+    googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY || 'AIzaSyBFw0Qbyq9zTFTd-tUY6dO7o3T3GE-o4ec' // Demo key - replace with your own
   });
 
   const [selectedZone, setSelectedZone] = useState<ClimbingZone | null>(null);
