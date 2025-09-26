@@ -111,60 +111,44 @@ export default function EscaladaDeportiva() {
                           {zone.description}
                         </p>
                         
-                        {/* Zone Info Grid */}
-                        <div className="grid grid-cols-2 gap-4 mb-6">
-                          <div className="space-y-3">
-                            <div>
-                              <span className="font-semibold text-nature-forest">Rutas:</span>
-                              <p className="text-gray-700">{zone.routes}</p>
-                        </div>
-                        
-                        <div className="mt-6">
-                          <Link to="/escuela-amieva">
-                            <Button 
-                              variant="secondary"
-                              className="bg-nature-forest hover:bg-nature-green text-white border-none font-semibold px-6 py-2 shadow-nature transition-all duration-300 hover:shadow-lg w-full"
-                            >
-                              VER FICHA COMPLETA
-                            </Button>
-                          </Link>
-                        </div>
-                            <div>
-                              <span className="font-semibold text-nature-forest">Grados:</span>
-                              <p className="text-gray-700">{zone.grades}</p>
-                            </div>
-                            <div>
-                              <span className="font-semibold text-nature-forest">Orientación:</span>
-                              <p className="text-gray-700">{zone.orientation}</p>
-                            </div>
-                          </div>
-                          <div className="space-y-3">
-                            <div>
-                              <span className="font-semibold text-nature-forest">Aproximación:</span>
-                              <p className="text-gray-700">{zone.approach}</p>
-                            </div>
-                            <div>
-                              <span className="font-semibold text-nature-forest">Roca:</span>
-                              <p className="text-gray-700">{zone.rockType}</p>
-                            </div>
-                          </div>
-                        </div>
-                        
-                        {/* Features */}
-                        <div className="mb-6">
-                          <span className="font-semibold text-nature-forest mb-3 block">Características:</span>
-                          <div className="flex flex-wrap gap-2">
-                            {zone.features.map((feature, index) => (
-                              <Badge 
-                                key={index} 
-                                variant="secondary" 
-                                className="bg-nature-mint text-nature-forest hover:bg-nature-green hover:text-white transition-colors"
-                              >
-                                {feature}
-                              </Badge>
-                            ))}
-                          </div>
-                        </div>
+                         {/* Zone Info Grid */}
+                         <div className="grid grid-cols-2 gap-4 mb-6">
+                           <div className="space-y-3">
+                             <div>
+                               <span className="font-semibold text-nature-forest">Rutas:</span>
+                               <p className="text-gray-700">{zone.routes}</p>
+                             </div>
+                             <div>
+                               <span className="font-semibold text-nature-forest">Grados:</span>
+                               <p className="text-gray-700">{zone.grades}</p>
+                             </div>
+                             <div>
+                               <span className="font-semibold text-nature-forest">Orientación:</span>
+                               <p className="text-gray-700">{zone.orientation}</p>
+                             </div>
+                           </div>
+                           <div className="space-y-3">
+                             <div>
+                               <span className="font-semibold text-nature-forest">Aproximación:</span>
+                               <p className="text-gray-700">{zone.approach}</p>
+                             </div>
+                             <div>
+                               <span className="font-semibold text-nature-forest">Roca:</span>
+                               <p className="text-gray-700">{zone.rockType}</p>
+                             </div>
+                           </div>
+                         </div>
+                         
+                         <div className="mt-6">
+                           <Link to="/escuela-amieva">
+                             <Button 
+                               variant="secondary"
+                               className="bg-nature-forest hover:bg-nature-green text-white border-none font-semibold px-6 py-2 shadow-nature transition-all duration-300 hover:shadow-lg w-full"
+                             >
+                               VER FICHA COMPLETA
+                             </Button>
+                           </Link>
+                         </div>
                       </CardContent>
                     </div>
                   </div>
