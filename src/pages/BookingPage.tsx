@@ -3,6 +3,7 @@ import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Header from "../components/Header";
 import ImageCarousel from "../components/ImageCarousel";
+import BookingCalendar from "../components/BookingCalendar";
 
 // Import Cangas images
 import cangasLivingRoom from "@/assets/cangas-living-room.jpg";
@@ -137,16 +138,25 @@ const BookingPage = () => {
                 </ul>
               </div>
 
-              <div className="text-center">
-                <Link to="/contacto">
-                  <Button 
-                    variant="secondary"
-                    className="bg-nature-green hover:bg-nature-forest text-white border-none font-semibold px-8 py-3 text-lg shadow-nature transition-all duration-300 hover:shadow-lg"
-                  >
-                    CONTINUAR CON LA RESERVA
-                  </Button>
-                </Link>
-              </div>
+            </div>
+
+            {/* Calendario de Reservas */}
+            <div className="max-w-4xl mx-auto mt-8">
+              <BookingCalendar 
+                apartmentName={currentApartment.name}
+                apartmentLocation={currentApartment.location}
+              />
+            </div>
+
+            <div className="max-w-4xl mx-auto mt-8 text-center">
+              <Link to="/contacto">
+                <Button 
+                  variant="secondary"
+                  className="bg-nature-green hover:bg-nature-forest text-white border-none font-semibold px-8 py-3 text-lg shadow-nature transition-all duration-300 hover:shadow-lg"
+                >
+                  CONTINUAR CON LA RESERVA
+                </Button>
+              </Link>
             </div>
           </div>
 
