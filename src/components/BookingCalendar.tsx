@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import { format, addDays } from "date-fns";
+import React, { useState, useEffect } from "react";
+import { format, addDays, parseISO, isWithinInterval } from "date-fns";
 import { es } from "date-fns/locale";
 import { CalendarIcon, Download } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
@@ -18,12 +19,66 @@ interface BookingCalendarProps {
   apartmentLocation: string;
 }
 
+interface Reservation {
+  id: string;
+  check_in_date: string;
+  check_out_date: string;
+  booking_source: string;
+  status: string;
+}
+
 const BookingCalendar: React.FC<BookingCalendarProps> = ({
   apartmentName,
   apartmentLocation,
 }) => {
   const [checkInDate, setCheckInDate] = useState<Date>();
   const [checkOutDate, setCheckOutDate] = useState<Date>();
+  const [reservations, setReservations] = useState<Reservation[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch existing reservations
+  useEffect(() => {
+    const fetchReservations = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('reservations')
+          .select('id, check_in_date, check_out_date, booking_source, status')
+          .eq('apartment_name', apartmentName)
+          .eq('apartment_location', apartmentLocation)
+          .eq('status', 'confirmed');
+
+        if (error) {
+          console.error('Error fetching reservations:', error);
+          toast({
+            title: "Error",
+            description: "No se pudieron cargar las reservas existentes",
+            variant: "destructive",
+          });
+        } else {
+          setReservations(data || []);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchReservations();
+  }, [apartmentName, apartmentLocation]);
+
+  // Check if a date is blocked (has an existing reservation)
+  const isDateBlocked = (date: Date) => {
+    return reservations.some(reservation => {
+      const checkIn = parseISO(reservation.check_in_date);
+      const checkOut = parseISO(reservation.check_out_date);
+      
+      return isWithinInterval(date, {
+        start: checkIn,
+        end: addDays(checkOut, -1) // Exclude checkout date
+      });
+    });
+  };
 
   const generateICalEvent = () => {
     if (!checkInDate || !checkOutDate) {
@@ -136,7 +191,7 @@ END:VCALENDAR`;
                   mode="single"
                   selected={checkInDate}
                   onSelect={setCheckInDate}
-                  disabled={(date) => date < new Date()}
+                  disabled={(date) => date < new Date() || isDateBlocked(date)}
                   initialFocus
                   className={cn("p-3 pointer-events-auto")}
                 />
@@ -172,7 +227,9 @@ END:VCALENDAR`;
                   selected={checkOutDate}
                   onSelect={setCheckOutDate}
                   disabled={(date) => 
-                    date < new Date() || (checkInDate && date <= checkInDate)
+                    date < new Date() || 
+                    (checkInDate && date <= checkInDate) ||
+                    isDateBlocked(date)
                   }
                   initialFocus
                   className={cn("p-3 pointer-events-auto")}
@@ -222,6 +279,26 @@ END:VCALENDAR`;
             Limpiar Fechas
           </Button>
         </div>
+
+        {/* Información sobre fechas ocupadas */}
+        {loading ? (
+          <div className="text-sm text-muted-foreground text-center">
+            Cargando disponibilidad...
+          </div>
+        ) : reservations.length > 0 && (
+          <div className="text-xs text-muted-foreground bg-orange-50 dark:bg-orange-950/20 rounded p-3 border border-orange-200 dark:border-orange-800">
+            <p className="mb-1">
+              <strong>Fechas no disponibles:</strong>
+            </p>
+            <p className="mb-2">
+              Las fechas marcadas en gris ya están ocupadas por otras reservas 
+              {reservations.some(r => r.booking_source === 'booking_com') && ' (incluyendo reservas de Booking.com)'}.
+            </p>
+            <p className="text-xs">
+              Última sincronización: {new Date().toLocaleString('es-ES')}
+            </p>
+          </div>
+        )}
 
         <div className="text-xs text-muted-foreground text-center bg-muted/50 rounded p-3">
           <p className="mb-1">
