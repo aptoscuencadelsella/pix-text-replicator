@@ -117,7 +117,18 @@ export default function EscaladaDeportiva() {
                             <div>
                               <span className="font-semibold text-nature-forest">Rutas:</span>
                               <p className="text-gray-700">{zone.routes}</p>
-                            </div>
+                        </div>
+                        
+                        <div className="mt-6">
+                          <Link to="/escuela-amieva">
+                            <Button 
+                              variant="secondary"
+                              className="bg-nature-forest hover:bg-nature-green text-white border-none font-semibold px-6 py-2 shadow-nature transition-all duration-300 hover:shadow-lg w-full"
+                            >
+                              VER FICHA COMPLETA
+                            </Button>
+                          </Link>
+                        </div>
                             <div>
                               <span className="font-semibold text-nature-forest">Grados:</span>
                               <p className="text-gray-700">{zone.grades}</p>
