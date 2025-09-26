@@ -9,6 +9,7 @@ import ArriondasApartments from "./pages/ArriondasApartments";
 import BookingPage from "./pages/BookingPage";
 import Activities from "./pages/Activities";
 import ActividadesCuenca from "./pages/ActividadesCuenca";
+import EscaladaDeportiva from "./pages/EscaladaDeportiva";
 import Covadonga from "./pages/Covadonga";
 import Cangas from "./pages/Cangas";
 import Barranquismo from "./pages/Barranquismo";
@@ -27,6 +28,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/actividades-cuenca" element={<ActividadesCuenca />} />
+          <Route path="/escalada-deportiva" element={<EscaladaDeportiva />} />
           <Route path="/cangas-apartments" element={<CangasApartments />} />
           <Route path="/arriondas-apartaments" element={<ArriondasApartments />} />
           <Route path="/booking" element={<BookingPage />} />
