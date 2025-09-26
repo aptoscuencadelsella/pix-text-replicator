@@ -25,7 +25,28 @@ const climbingZones = [
       "Ambiente familiar",
       "Vistas panorámicas"
     ],
-    image: "/src/assets/escalada-amieva.jpg"
+    image: "/src/assets/escalada-amieva.jpg",
+    detailPage: "/escuela-amieva"
+  },
+  {
+    id: 2,
+    name: "Cuevas del Mar",
+    location: "Llanes, Asturias",
+    description: "Escalada en acantilados de caliza marina junto a la playa. Zona de gran valor paisajístico con vías deportivas cortas en un entorno espectacular entre Nueva de Llanes y Villanueva.",
+    routes: "20-30 vías",
+    grades: "IV+ a 7b+",
+    orientation: "Variada",
+    approach: "2-5 minutos",
+    rockType: "Caliza marina",
+    features: [
+      "Acantilados marinos",
+      "Vías cortas (10-20m)",
+      "Entorno paisajístico",
+      "Desplomes y fisuras",
+      "Zona turística"
+    ],
+    image: "/src/assets/cuevas-del-mar.jpg",
+    detailPage: "/cuevas-del-mar"
   }
 ];
 
@@ -140,7 +161,7 @@ export default function EscaladaDeportiva() {
                          </div>
                          
                          <div className="mt-6">
-                           <Link to="/escuela-amieva">
+                           <Link to={zone.detailPage || "/escuela-amieva"}>
                              <Button 
                                variant="secondary"
                                className="bg-nature-forest hover:bg-nature-green text-white border-none font-semibold px-6 py-2 shadow-nature transition-all duration-300 hover:shadow-lg w-full"
