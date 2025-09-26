@@ -87,6 +87,26 @@ const climbingZones = [
     ],
     image: "/src/assets/cuetu-mayu.jpg",
     detailPage: "/cuetu-mayu"
+  },
+  {
+    id: 5,
+    name: "Trincherona y Fitu",
+    location: "Parres, Sierra del Sueve",
+    description: "Escalada en la Sierra del Sueve cerca del mirador del Fitu. Situado a media altura con vistas espectaculares a Picos de Europa y la costa. Escalada técnica en caliza compacta.",
+    routes: "25-35 vías",
+    grades: "V a 7c",
+    orientation: "Oeste/Suroeste",
+    approach: "10-15 minutos",
+    rockType: "Caliza compacta",
+    features: [
+      "Vistas espectaculares",
+      "Sierra del Sueve",
+      "Escalada en placa técnica",
+      "Muros verticales",
+      "Altitud intermedia (600m)"
+    ],
+    image: "/src/assets/trincherona-fitu.jpg",
+    detailPage: "/trincherona-fitu"
   }
 ];
 
