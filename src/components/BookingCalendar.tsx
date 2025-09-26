@@ -115,7 +115,7 @@ const BookingCalendar: React.FC<BookingCalendarProps> = ({
   // Generate our iCal URL
   const getOurICalUrl = () => {
     const apartmentSlug = apartmentName.toLowerCase().replace(/\s+/g, '-');
-    return `https://zrotjwlerjlowtxmzabz.supabase.co/functions/v1/ical-feed/${apartmentSlug}`;
+    return `https://zrotjwlerjlowtxmzabz.supabase.co/functions/v1/ical-feed/${apartmentSlug}.ics`;
   };
 
   // Sync with Booking.com
