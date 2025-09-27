@@ -27,7 +27,6 @@ const climbingZones = [
       "Ambiente familiar",
       "Vistas panorámicas"
     ],
-    image: "/src/assets/escalada-amieva.jpg",
     detailPage: "/escuela-amieva"
   },
   {
@@ -48,7 +47,6 @@ const climbingZones = [
       "Desplomes y fisuras",
       "Zona turística"
     ],
-    image: "/src/assets/cuevas-del-mar.jpg",
     detailPage: "/cuevas-del-mar"
   },
   {
@@ -69,7 +67,6 @@ const climbingZones = [
       "Escuela clásica",
       "Alto nivel técnico"
     ],
-    image: "/src/assets/carbes-escalada.jpg",
     detailPage: "/carbes-sector"
   },
   {
@@ -90,7 +87,6 @@ const climbingZones = [
       "Sol buena parte del día",
       "Vías de 10-25m"
     ],
-    image: "/src/assets/cuetu-mayu.jpg",
     detailPage: "/cuetu-mayu"
   },
   {
@@ -111,7 +107,6 @@ const climbingZones = [
       "Muros verticales",
       "Altitud intermedia (600m)"
     ],
-    image: "/src/assets/trincherona-fitu.jpg",
     detailPage: "/trincherona-fitu"
   }
 ];
