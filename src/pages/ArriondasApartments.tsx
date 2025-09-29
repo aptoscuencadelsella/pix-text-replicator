@@ -3,6 +3,7 @@ import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Header from "../components/Header";
 import ImageCarousel from "../components/ImageCarousel";
+import BookingCalendar from "../components/BookingCalendar";
 import arriondasBedroom1 from "@/assets/arriondas-bedroom1.jpg";
 import arriondasBedroom2 from "@/assets/arriondas-bedroom2.jpg";
 import arriondasBedroom3 from "@/assets/arriondas-bedroom3.jpg";
@@ -105,6 +106,14 @@ const ArriondasApartments = () => {
                 </Link>
               </div>
             </div>
+          </div>
+
+          {/* Booking Calendar */}
+          <div className="max-w-4xl mx-auto mb-12">
+            <BookingCalendar 
+              apartmentName="Apartamento Rio Sella I"
+              apartmentLocation="Arriondas"
+            />
           </div>
 
           {/* Additional Information */}

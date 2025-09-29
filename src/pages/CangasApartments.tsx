@@ -3,6 +3,7 @@ import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Header from "../components/Header";
 import ImageCarousel from "../components/ImageCarousel";
+import BookingCalendar from "../components/BookingCalendar";
 import cangasImage from "@/assets/cangas-de-onis.jpg";
 import cangasBedroomSingle from "@/assets/cangas-bedroom-single.jpg";
 import cangasKitchenDining from "@/assets/cangas-kitchen-dining.jpg";
@@ -104,6 +105,14 @@ const CangasApartments = () => {
                 </Link>
               </div>
             </div>
+          </div>
+
+          {/* Booking Calendar */}
+          <div className="max-w-4xl mx-auto mb-12">
+            <BookingCalendar 
+              apartmentName="Apartamento Rio Sella II"
+              apartmentLocation="Cangas de Onís"
+            />
           </div>
 
           {/* Additional Information */}
