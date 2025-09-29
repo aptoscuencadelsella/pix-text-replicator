@@ -14,6 +14,33 @@ export type Database = {
   }
   public: {
     Tables: {
+      apartment_ical_urls: {
+        Row: {
+          apartment_location: string
+          apartment_name: string
+          created_at: string
+          ical_url: string
+          id: string
+          updated_at: string
+        }
+        Insert: {
+          apartment_location: string
+          apartment_name: string
+          created_at?: string
+          ical_url: string
+          id?: string
+          updated_at?: string
+        }
+        Update: {
+          apartment_location?: string
+          apartment_name?: string
+          created_at?: string
+          ical_url?: string
+          id?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           created_at: string
