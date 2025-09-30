@@ -393,7 +393,7 @@ const BookingCalendar: React.FC<BookingCalendarProps> = ({
                   className="inline-flex items-center gap-2 text-xl font-bold text-nature-green hover:text-nature-forest transition-colors"
                 >
                   <Phone className="w-5 h-5" />
-                  649 505 800
+                  +34 649 505 800
                 </a>
               </div>
             </div>
