@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { format, addDays, parseISO, isWithinInterval, isSameDay, startOfMonth, endOfMonth, eachDayOfInterval, startOfWeek, endOfWeek } from "date-fns";
 import { es } from "date-fns/locale";
-import { CalendarIcon, RefreshCw } from "lucide-react";
+import { CalendarIcon, RefreshCw, Settings, Save } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { useAuth } from "@/contexts/AuthContext";
+import { toast } from "@/hooks/use-toast";
 
 interface BookingCalendarProps {
   apartmentName: string;
@@ -24,10 +28,15 @@ const BookingCalendar: React.FC<BookingCalendarProps> = ({
   apartmentName,
   apartmentLocation,
 }) => {
+  const { user } = useAuth();
   const [reservations, setReservations] = useState<Reservation[]>([]);
   const [loading, setLoading] = useState(true);
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [refreshing, setRefreshing] = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
+  const [icalUrl, setIcalUrl] = useState('');
+  const [savingUrl, setSavingUrl] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   // Fetch existing reservations
   const fetchReservations = async () => {
@@ -53,6 +62,47 @@ const BookingCalendar: React.FC<BookingCalendarProps> = ({
     }
   };
 
+  // Check if user is admin
+  useEffect(() => {
+    const checkAdmin = async () => {
+      if (!user) {
+        setIsAdmin(false);
+        return;
+      }
+      
+      const { data } = await supabase
+        .from('user_roles')
+        .select('role')
+        .eq('user_id', user.id)
+        .in('role', ['admin', 'manager'])
+        .single();
+      
+      setIsAdmin(!!data);
+    };
+    
+    checkAdmin();
+  }, [user]);
+
+  // Fetch iCal URL
+  useEffect(() => {
+    const fetchIcalUrl = async () => {
+      if (!isAdmin) return;
+      
+      const { data } = await supabase
+        .from('apartment_ical_urls')
+        .select('ical_url')
+        .eq('apartment_name', apartmentName)
+        .eq('apartment_location', apartmentLocation)
+        .single();
+      
+      if (data) {
+        setIcalUrl(data.ical_url);
+      }
+    };
+    
+    fetchIcalUrl();
+  }, [apartmentName, apartmentLocation, isAdmin]);
+
   useEffect(() => {
     fetchReservations();
     
@@ -76,6 +126,76 @@ const BookingCalendar: React.FC<BookingCalendarProps> = ({
   };
 
 
+  // Save iCal URL
+  const saveIcalUrl = async () => {
+    if (!icalUrl.trim()) {
+      toast({
+        title: "Error",
+        description: "Por favor ingresa una URL válida",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setSavingUrl(true);
+    try {
+      const { error } = await supabase
+        .from('apartment_ical_urls')
+        .upsert({
+          apartment_name: apartmentName,
+          apartment_location: apartmentLocation,
+          ical_url: icalUrl,
+        }, {
+          onConflict: 'apartment_name,apartment_location'
+        });
+
+      if (error) throw error;
+
+      toast({
+        title: "¡Guardado!",
+        description: "La URL de iCal se sincronizará automáticamente cada 30 minutos",
+      });
+      
+      setShowSettings(false);
+    } catch (error) {
+      console.error('Error saving iCal URL:', error);
+      toast({
+        title: "Error",
+        description: "No se pudo guardar la URL",
+        variant: "destructive",
+      });
+    } finally {
+      setSavingUrl(false);
+    }
+  };
+
+  // Manual sync
+  const manualSync = async () => {
+    setRefreshing(true);
+    try {
+      const { error } = await supabase.functions.invoke('sync-ical-calendars');
+      
+      if (error) throw error;
+
+      toast({
+        title: "¡Sincronizado!",
+        description: "El calendario se ha actualizado correctamente",
+      });
+      
+      // Refresh reservations
+      await fetchReservations();
+    } catch (error) {
+      console.error('Error syncing:', error);
+      toast({
+        title: "Error",
+        description: "No se pudo sincronizar el calendario",
+        variant: "destructive",
+      });
+    } finally {
+      setRefreshing(false);
+    }
+  };
+
   // Generate calendar days
   const generateCalendarDays = () => {
     const start = startOfWeek(startOfMonth(currentMonth), { weekStartsOn: 1 });
@@ -96,15 +216,62 @@ const BookingCalendar: React.FC<BookingCalendarProps> = ({
               <CalendarIcon className="w-6 h-6" />
               Disponibilidad - {apartmentName}
             </CardTitle>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={fetchReservations}
-              disabled={refreshing}
-            >
-              <RefreshCw className={cn("w-4 h-4", refreshing && "animate-spin")} />
-            </Button>
+            <div className="flex gap-2">
+              {isAdmin && (
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setShowSettings(!showSettings)}
+                >
+                  <Settings className="w-4 h-4" />
+                </Button>
+              )}
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={isAdmin ? manualSync : fetchReservations}
+                disabled={refreshing}
+              >
+                <RefreshCw className={cn("w-4 h-4", refreshing && "animate-spin")} />
+              </Button>
+            </div>
           </div>
+          
+          {isAdmin && showSettings && (
+            <div className="mt-4 p-4 border rounded-lg bg-muted/50 space-y-4">
+              <div>
+                <Label className="text-sm font-medium">URL de iCal de Booking.com</Label>
+                <p className="text-xs text-muted-foreground mb-2">
+                  Encuentra este enlace en tu panel de Booking.com → Calendario → iCal
+                </p>
+                <Input
+                  placeholder="https://admin.booking.com/hotel/hoteladmin/ical/..."
+                  value={icalUrl}
+                  onChange={(e) => setIcalUrl(e.target.value)}
+                />
+              </div>
+              <div className="flex gap-2">
+                <Button
+                  onClick={saveIcalUrl}
+                  disabled={savingUrl || !icalUrl.trim()}
+                  size="sm"
+                >
+                  <Save className="w-4 h-4 mr-2" />
+                  {savingUrl ? 'Guardando...' : 'Guardar URL'}
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setShowSettings(false)}
+                >
+                  Cancelar
+                </Button>
+              </div>
+              <p className="text-xs text-muted-foreground">
+                Una vez guardado, el calendario se sincronizará automáticamente cada 30 minutos
+              </p>
+            </div>
+          )}
         </CardHeader>
         <CardContent className="space-y-6">
           {/* Navegación del mes */}
@@ -195,12 +362,17 @@ const BookingCalendar: React.FC<BookingCalendarProps> = ({
                 {reservations.length} reserva(s) confirmada(s)
               </p>
               {reservations.some(r => r.booking_source === 'booking_com') && (
-                <p className="text-xs">
+                <p className="text-xs mb-2">
                   Incluye {reservations.filter(r => r.booking_source === 'booking_com').length} reserva(s) sincronizada(s) desde Booking.com
                 </p>
               )}
-              <p className="text-xs mt-2 opacity-70">
-                Se actualiza automáticamente cada 5 minutos
+              {icalUrl && isAdmin && (
+                <p className="text-xs mb-2 text-green-600 dark:text-green-400">
+                  ✓ Sincronización automática activada (cada 30 minutos)
+                </p>
+              )}
+              <p className="text-xs opacity-70">
+                {isAdmin ? 'Última actualización manual' : 'Se actualiza automáticamente cada 5 minutos'}
               </p>
             </div>
           )}
