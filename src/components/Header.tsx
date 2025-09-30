@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import AuthButton from "./AuthButton";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -35,7 +34,6 @@ const Header = () => {
           <Link to="/contacto" className="text-foreground hover:text-primary transition-colors font-medium">
             CONTACTO
           </Link>
-          <AuthButton />
         </div>
 
         {/* Mobile Navigation */}
@@ -97,9 +95,6 @@ const Header = () => {
               >
                 CONTACTO
               </Link>
-              <div className="py-3 px-4">
-                <AuthButton />
-              </div>
             </div>
           </div>
         )}

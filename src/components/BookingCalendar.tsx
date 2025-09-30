@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { format, addDays, parseISO, isWithinInterval, isSameDay, startOfMonth, endOfMonth, eachDayOfInterval, startOfWeek, endOfWeek } from "date-fns";
 import { es } from "date-fns/locale";
-import { CalendarIcon, RefreshCw, Settings, Save } from "lucide-react";
+import { CalendarIcon, RefreshCw, Settings, Save, Phone } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -376,6 +376,28 @@ const BookingCalendar: React.FC<BookingCalendarProps> = ({
               </p>
             </div>
           )}
+
+          {/* Contact Info */}
+          <div className="mt-6 p-6 bg-nature-green/10 rounded-lg border border-nature-green/20">
+            <div className="flex items-start gap-4">
+              <Phone className="w-6 h-6 text-nature-green flex-shrink-0 mt-1" />
+              <div>
+                <h4 className="font-semibold text-nature-forest mb-2">
+                  ¿Quieres reservar? ¡Llámanos!
+                </h4>
+                <p className="text-muted-foreground mb-3 text-sm">
+                  Para confirmar tu reserva o consultar disponibilidad adicional, contáctanos directamente:
+                </p>
+                <a 
+                  href="tel:+34649505800" 
+                  className="inline-flex items-center gap-2 text-xl font-bold text-nature-green hover:text-nature-forest transition-colors"
+                >
+                  <Phone className="w-5 h-5" />
+                  649 505 800
+                </a>
+              </div>
+            </div>
+          </div>
         </CardContent>
       </Card>
     </div>
