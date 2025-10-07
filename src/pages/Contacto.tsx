@@ -60,30 +60,29 @@ const Contacto = () => {
     setErrors({});
     
     // Validate form data
-    try {
-      contactSchema.parse(formData);
-      
-      // If validation passes, proceed with mailto
-      const subject = encodeURIComponent(formData.asunto || 'Consulta desde la web');
-      const body = encodeURIComponent(
-        `Nombre: ${formData.nombre}\n` +
-        `Email: ${formData.email}\n` +
-        `Teléfono: ${formData.telefono}\n\n` +
-        `Mensaje:\n${formData.mensaje}`
-      );
-      
-      window.location.href = `mailto:aptoscuencadelsella@gmail.com?subject=${subject}&body=${body}`;
-    } catch (error) {
-      if (error instanceof z.ZodError) {
-        const newErrors: Record<string, string> = {};
-        error.errors.forEach((err) => {
-          if (err.path[0]) {
-            newErrors[err.path[0] as string] = err.message;
-          }
-        });
-        setErrors(newErrors);
-      }
+    const result = contactSchema.safeParse(formData);
+    
+    if (!result.success) {
+      const newErrors: Record<string, string> = {};
+      result.error.issues.forEach((err) => {
+        if (err.path[0]) {
+          newErrors[err.path[0] as string] = err.message;
+        }
+      });
+      setErrors(newErrors);
+      return;
     }
+    
+    // If validation passes, proceed with mailto
+    const subject = encodeURIComponent(formData.asunto || 'Consulta desde la web');
+    const body = encodeURIComponent(
+      `Nombre: ${formData.nombre}\n` +
+      `Email: ${formData.email}\n` +
+      `Teléfono: ${formData.telefono}\n\n` +
+      `Mensaje:\n${formData.mensaje}`
+    );
+    
+    window.location.href = `mailto:aptoscuencadelsella@gmail.com?subject=${subject}&body=${body}`;
   };
 
   return (
