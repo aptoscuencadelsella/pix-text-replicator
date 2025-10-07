@@ -7,6 +7,32 @@ import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import Header from "../components/Header";
 import naranjoRealistic from "@/assets/naranjo-bulnes-realistic.jpg";
+import { z } from "zod";
+
+const contactSchema = z.object({
+  nombre: z.string()
+    .trim()
+    .min(2, 'El nombre debe tener al menos 2 caracteres')
+    .max(100, 'El nombre debe tener menos de 100 caracteres'),
+  email: z.string()
+    .trim()
+    .email('Email inválido')
+    .max(255, 'El email debe tener menos de 255 caracteres'),
+  telefono: z.string()
+    .trim()
+    .max(20, 'El teléfono debe tener menos de 20 caracteres')
+    .optional()
+    .or(z.literal('')),
+  asunto: z.string()
+    .trim()
+    .max(200, 'El asunto debe tener menos de 200 caracteres')
+    .optional()
+    .or(z.literal('')),
+  mensaje: z.string()
+    .trim()
+    .min(10, 'El mensaje debe tener al menos 10 caracteres')
+    .max(2000, 'El mensaje debe tener menos de 2000 caracteres')
+});
 
 const Contacto = () => {
   const [formData, setFormData] = useState({
@@ -16,6 +42,8 @@ const Contacto = () => {
     asunto: '',
     mensaje: ''
   });
+
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -28,15 +56,34 @@ const Contacto = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    const subject = encodeURIComponent(formData.asunto || 'Consulta desde la web');
-    const body = encodeURIComponent(
-      `Nombre: ${formData.nombre}\n` +
-      `Email: ${formData.email}\n` +
-      `Teléfono: ${formData.telefono}\n\n` +
-      `Mensaje:\n${formData.mensaje}`
-    );
+    // Clear previous errors
+    setErrors({});
     
-    window.location.href = `mailto:aptoscuencadelsella@gmail.com?subject=${subject}&body=${body}`;
+    // Validate form data
+    try {
+      contactSchema.parse(formData);
+      
+      // If validation passes, proceed with mailto
+      const subject = encodeURIComponent(formData.asunto || 'Consulta desde la web');
+      const body = encodeURIComponent(
+        `Nombre: ${formData.nombre}\n` +
+        `Email: ${formData.email}\n` +
+        `Teléfono: ${formData.telefono}\n\n` +
+        `Mensaje:\n${formData.mensaje}`
+      );
+      
+      window.location.href = `mailto:aptoscuencadelsella@gmail.com?subject=${subject}&body=${body}`;
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        const newErrors: Record<string, string> = {};
+        error.errors.forEach((err) => {
+          if (err.path[0]) {
+            newErrors[err.path[0] as string] = err.message;
+          }
+        });
+        setErrors(newErrors);
+      }
+    }
   };
 
   return (
@@ -152,9 +199,12 @@ const Contacto = () => {
                         required
                         value={formData.nombre}
                         onChange={handleInputChange}
-                        className="mt-1"
+                        className={`mt-1 ${errors.nombre ? 'border-red-500' : ''}`}
                         placeholder="Tu nombre"
                       />
+                      {errors.nombre && (
+                        <p className="text-red-500 text-sm mt-1">{errors.nombre}</p>
+                      )}
                     </div>
                     <div>
                       <Label htmlFor="telefono" className="text-foreground">Teléfono</Label>
@@ -164,9 +214,12 @@ const Contacto = () => {
                         type="tel"
                         value={formData.telefono}
                         onChange={handleInputChange}
-                        className="mt-1"
+                        className={`mt-1 ${errors.telefono ? 'border-red-500' : ''}`}
                         placeholder="Tu teléfono"
                       />
+                      {errors.telefono && (
+                        <p className="text-red-500 text-sm mt-1">{errors.telefono}</p>
+                      )}
                     </div>
                   </div>
                   
@@ -179,9 +232,12 @@ const Contacto = () => {
                       required
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="mt-1"
+                      className={`mt-1 ${errors.email ? 'border-red-500' : ''}`}
                       placeholder="tu@email.com"
                     />
+                    {errors.email && (
+                      <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                    )}
                   </div>
                   
                   <div>
@@ -192,9 +248,12 @@ const Contacto = () => {
                       type="text"
                       value={formData.asunto}
                       onChange={handleInputChange}
-                      className="mt-1"
+                      className={`mt-1 ${errors.asunto ? 'border-red-500' : ''}`}
                       placeholder="¿En qué podemos ayudarte?"
                     />
+                    {errors.asunto && (
+                      <p className="text-red-500 text-sm mt-1">{errors.asunto}</p>
+                    )}
                   </div>
                   
                   <div>
@@ -205,9 +264,12 @@ const Contacto = () => {
                       required
                       value={formData.mensaje}
                       onChange={handleInputChange}
-                      className="mt-1 min-h-32"
+                      className={`mt-1 min-h-32 ${errors.mensaje ? 'border-red-500' : ''}`}
                       placeholder="Cuéntanos sobre tu consulta, fechas de interés, número de personas, etc."
                     />
+                    {errors.mensaje && (
+                      <p className="text-red-500 text-sm mt-1">{errors.mensaje}</p>
+                    )}
                   </div>
                   
                   <Button 
