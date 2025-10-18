@@ -29,12 +29,14 @@ const CangasApartments = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4">
-          
           {/* Back Button */}
-          <Link to="/" className="inline-flex items-center mb-8 text-muted-foreground hover:text-primary transition-colors">
+          <Link
+            to="/"
+            className="inline-flex items-center mb-8 text-muted-foreground hover:text-primary transition-colors"
+          >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Volver al inicio
           </Link>
@@ -51,16 +53,15 @@ const CangasApartments = () => {
               <div className="relative h-96 md:h-full">
                 <ImageCarousel images={images} alt="Apartamentos Cangas de Onís" />
               </div>
-              
+
               {/* Apartment Description */}
               <div className="p-6">
-                <h2 className="text-3xl font-bold text-nature-forest mb-4">
-                  Apartamento Rio Sella II
-                </h2>
+                <h2 className="text-3xl font-bold text-nature-forest mb-4">Apartamento Rio Sella II</h2>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  Apartamento acogedor en el corazón de Cangas de Onís, ideal para 3 personas. Completamente equipado con todas las comodidades necesarias para una estancia perfecta en los Picos de Europa.
+                  Apartamento acogedor en el corazón de Cangas de Onís, ideal para 3 personas. Completamente equipado
+                  con todas las comodidades necesarias para una estancia perfecta en los Picos de Europa.
                 </p>
-                
+
                 <div className="mb-6">
                   <h3 className="font-semibold text-foreground mb-2">Características:</h3>
                   <ul className="space-y-1">
@@ -94,9 +95,9 @@ const CangasApartments = () => {
                     </li>
                   </ul>
                 </div>
-                
+
                 <Link to="/booking?apartment=cangas">
-                  <Button 
+                  <Button
                     variant="secondary"
                     className="bg-nature-green hover:bg-nature-forest text-white border-none font-semibold px-6 py-2 shadow-nature transition-all duration-300 hover:shadow-lg"
                   >
@@ -108,29 +109,34 @@ const CangasApartments = () => {
           </div>
 
           {/* Booking Calendar */}
-          <div className="max-w-4xl mx-auto mb-12">
-            <BookingCalendar 
-              apartmentName="Apartamento Rio Sella II"
-              apartmentLocation="Cangas de Onís"
-            />
-          </div>
+          <div data-tockify-component="calendar" data-tockify-calendar="cangas"></div>
+          <script
+            data-cfasync="false"
+            data-tockify-script="embed"
+            src="https://public.tockify.com/browser/embed.js"
+          ></script>
 
           {/* Additional Information */}
           <div className="max-w-4xl mx-auto text-center">
-            <h3 className="text-2xl font-bold mb-6 text-nature-forest">
-              Descubre Cangas de Onís
-            </h3>
+            <h3 className="text-2xl font-bold mb-6 text-nature-forest">Descubre Cangas de Onís</h3>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              Descubre nuestros encantadores apartamentos en el corazón de Cangas de Onís, la puerta de entrada a los majestuosos <strong>Picos de Europa</strong>. Ubicados estratégicamente cerca del emblemático <strong>puente Romano</strong> y a pocos minutos de los famosos <strong>Lagos de Covadonga</strong>, nuestros apartamentos ofrecen la base perfecta para explorar uno de los destinos más espectaculares de Asturias.
+              Descubre nuestros encantadores apartamentos en el corazón de Cangas de Onís, la puerta de entrada a los
+              majestuosos <strong>Picos de Europa</strong>. Ubicados estratégicamente cerca del emblemático{" "}
+              <strong>puente Romano</strong> y a pocos minutos de los famosos <strong>Lagos de Covadonga</strong>,
+              nuestros apartamentos ofrecen la base perfecta para explorar uno de los destinos más espectaculares de
+              Asturias.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              Cada apartamento está cuidadosamente equipado con todas las comodidades modernas mientras mantiene el encanto tradicional asturiano. Disfruta de vistas impresionantes a las montañas, espacios amplios y luminosos, y la tranquilidad que solo puede ofrecer este entorno natural único.
+              Cada apartamento está cuidadosamente equipado con todas las comodidades modernas mientras mantiene el
+              encanto tradicional asturiano. Disfruta de vistas impresionantes a las montañas, espacios amplios y
+              luminosos, y la tranquilidad que solo puede ofrecer este entorno natural único.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Desde aquí podrás acceder fácilmente a rutas de senderismo, visitar el Santuario de Covadonga, explorar cuevas prehistóricas como las Cuevas de Buxu, o simplemente relajarte y disfrutar de la auténtica gastronomía asturiana en los restaurantes locales.
+              Desde aquí podrás acceder fácilmente a rutas de senderismo, visitar el Santuario de Covadonga, explorar
+              cuevas prehistóricas como las Cuevas de Buxu, o simplemente relajarte y disfrutar de la auténtica
+              gastronomía asturiana en los restaurantes locales.
             </p>
           </div>
-
         </div>
       </main>
     </div>
