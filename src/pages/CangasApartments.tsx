@@ -135,6 +135,21 @@ const CangasApartments = () => {
                 name: "Miguel",
                 country: "España",
                 comment: "Ubicación excelente en pleno centro de la ciudad. Acogedor y limpio, con todos los servicios necesarios. Muy buena atención y trato por parte del dueño."
+              },
+              {
+                name: "Laura",
+                country: "España",
+                comment: "Perfecto para visitar Covadonga y los Picos de Europa. El apartamento está en pleno centro, muy cómodo y bien equipado."
+              },
+              {
+                name: "Carlos",
+                country: "España",
+                comment: "Muy buen apartamento, limpio y acogedor. La ubicación es ideal para conocer Cangas y hacer excursiones por la zona."
+              },
+              {
+                name: "Ana",
+                country: "España",
+                comment: "Apartamento céntrico y tranquilo. Los propietarios muy atentos y amables. Volveremos sin duda."
               }
             ]}
             categories={[

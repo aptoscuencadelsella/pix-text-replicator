@@ -128,6 +128,11 @@ const ArriondasApartments = () => {
                 comment: "Limpieza, ubicación y sobretodo los dueños que son muy agradables y amables"
               },
               {
+                name: "Merino",
+                country: "España",
+                comment: "Alojamiento muy céntrico en Arriondas. Limpieza excelente y muy bien equipado."
+              },
+              {
                 name: "Nuria",
                 country: "España",
                 comment: "La ubicación sin duda, para hacer el Descenso del Sella, es fantástica, puedes ir andando a muchas de las empresas que lo organizan. El bloque es muy tranquilo y el apartamento para 4 personas es ideal."
