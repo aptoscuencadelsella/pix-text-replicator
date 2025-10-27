@@ -54,14 +54,9 @@ const BookingReviews = ({ rating, totalReviews, reviews, categories, bookingUrl 
         {reviews.map((review, index) => (
           <Card key={index} className="border-border hover:shadow-lg transition-shadow">
             <CardContent className="p-6">
-              <div className="flex items-start justify-between mb-3">
-                <div>
-                  <h3 className="font-semibold text-foreground">{review.name}</h3>
-                  <p className="text-sm text-muted-foreground">{review.country}</p>
-                </div>
-                <div className="flex items-center gap-1">
-                  <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                </div>
+              <div className="mb-3">
+                <h3 className="font-semibold text-foreground">{review.name}</h3>
+                <p className="text-sm text-muted-foreground">{review.country}</p>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 "{review.comment}"
