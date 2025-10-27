@@ -1,10 +1,1 @@
 project_id = "zrotjwlerjlowtxmzabz"
-
-[functions.sync-booking-com]
-verify_jwt = false
-
-[functions.ical-feed]
-verify_jwt = false
-
-[functions.sync-ical-calendars]
-verify_jwt = false
