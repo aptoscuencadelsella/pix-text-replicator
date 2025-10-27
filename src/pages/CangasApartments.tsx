@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import Header from "../components/Header";
 import ImageCarousel from "../components/ImageCarousel";
 import BookingCalendar from "../components/BookingCalendar";
+import BookingReviews from "../components/BookingReviews";
 import cangasImage from "@/assets/cangas-de-onis.jpg";
 import cangasBedroomSingle from "@/assets/cangas-bedroom-single.jpg";
 import cangasKitchenDining from "@/assets/cangas-kitchen-dining.jpg";
@@ -115,8 +116,40 @@ const CangasApartments = () => {
             src="https://public.tockify.com/browser/embed.js"
           ></script>
 
+          {/* Booking Reviews */}
+          <BookingReviews 
+            rating={9.0}
+            totalReviews={15}
+            reviews={[
+              {
+                name: "Maria",
+                country: "España",
+                comment: "Todo en su conjunto. El trato excepcional. Nos informaron de todo lo que preguntamos e incluso nos enviaron información de donde comer. Repetiremos."
+              },
+              {
+                name: "Esther",
+                country: "España",
+                comment: "La ubicación, la limpieza de la casa impecable, la dueña muy amable."
+              },
+              {
+                name: "Miguel",
+                country: "España",
+                comment: "Ubicación excelente en pleno centro de la ciudad. Acogedor y limpio, con todos los servicios necesarios. Muy buena atención y trato por parte del dueño."
+              }
+            ]}
+            categories={[
+              { name: "Personal", score: 9.7 },
+              { name: "Instalaciones", score: 8.7 },
+              { name: "Limpieza", score: 9.5 },
+              { name: "Confort", score: 8.5 },
+              { name: "Calidad-precio", score: 9.0 },
+              { name: "Ubicación", score: 10 }
+            ]}
+            bookingUrl="https://www.booking.com/hotel/es/apartamento-rio-sella-2.es.html"
+          />
+
           {/* Additional Information */}
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-4xl mx-auto text-center mt-12">
             <h3 className="text-2xl font-bold mb-6 text-nature-forest">Qué Ver en Cangas de Onís - Turismo y Actividades</h3>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
               Nuestros <strong>apartamentos en Cangas de Onís</strong> son la puerta de entrada perfecta a los majestuosos <strong>Picos de Europa</strong>. Este <strong>pueblo de Cangas de Onís en Asturias</strong> es famoso por su histórico <strong>Puente Romano</strong> y su cercanía a los espectaculares <strong>Lagos de Covadonga</strong>. Ideal para <strong>vacaciones en Cangas de Onís</strong> y <strong>turismo en la cuenca del Sella</strong>.

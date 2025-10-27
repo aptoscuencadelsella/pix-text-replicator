@@ -7,44 +7,20 @@ interface Review {
   comment: string;
 }
 
-const reviews: Review[] = [
-  {
-    name: "Mercedes",
-    country: "España",
-    comment: "Limpieza, ubicación y sobretodo los dueños que son muy agradables y amables"
-  },
-  {
-    name: "Nuria",
-    country: "España",
-    comment: "La ubicación sin duda, para hacer el Descenso del Sella, es fantástica, puedes ir andando a muchas de las empresas que lo organizan. El bloque es muy tranquilo y el apartamento para 4 personas es ideal."
-  },
-  {
-    name: "Dolores",
-    country: "España",
-    comment: "Las vistas a los picos de europa. El trato genial, y sobre todo la información que nos facilitó para hacer visita turística"
-  },
-  {
-    name: "Yasu",
-    country: "España",
-    comment: "Todo maravilloso, la dueña super amable y hemos estado como en casa, las vistas a picos de Europa son maravillosas"
-  },
-  {
-    name: "Fernandez",
-    country: "España",
-    comment: "El apartamento es pequeño pero muy bien aprovechado. Apto para que 4 personas estén cómodamente. Limpio y con todo lo necesario tanto en cocina como en baño. En el centro de Arriondas pero zona muy tranquila."
-  }
-];
+interface Category {
+  name: string;
+  score: number;
+}
 
-const categories = [
-  { name: "Personal", score: 9.6 },
-  { name: "Instalaciones", score: 9.1 },
-  { name: "Limpieza", score: 9.2 },
-  { name: "Confort", score: 8.8 },
-  { name: "Calidad-precio", score: 8.9 },
-  { name: "Ubicación", score: 9.5 }
-];
+interface BookingReviewsProps {
+  rating: number;
+  totalReviews: number;
+  reviews: Review[];
+  categories: Category[];
+  bookingUrl: string;
+}
 
-const BookingReviews = () => {
+const BookingReviews = ({ rating, totalReviews, reviews, categories, bookingUrl }: BookingReviewsProps) => {
   return (
     <div className="max-w-6xl mx-auto py-12">
       <div className="text-center mb-8">
@@ -57,10 +33,10 @@ const BookingReviews = () => {
               <Star key={star} className="w-6 h-6 fill-yellow-400 text-yellow-400" />
             ))}
           </div>
-          <span className="text-4xl font-bold text-foreground">9.1</span>
+          <span className="text-4xl font-bold text-foreground">{rating}</span>
           <span className="text-lg text-muted-foreground">Fantástico</span>
         </div>
-        <p className="text-muted-foreground">Basado en 43 comentarios verificados de Booking.com</p>
+        <p className="text-muted-foreground">Basado en {totalReviews} comentarios verificados de Booking.com</p>
       </div>
 
       {/* Categorías de puntuación */}
@@ -97,7 +73,7 @@ const BookingReviews = () => {
 
       <div className="text-center mt-8">
         <a 
-          href="https://www.booking.com/hotel/es/apartamento-rio-sella.es.html" 
+          href={bookingUrl} 
           target="_blank" 
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 text-nature-green hover:text-nature-forest transition-colors font-medium"

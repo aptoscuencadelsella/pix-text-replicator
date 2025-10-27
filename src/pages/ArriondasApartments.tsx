@@ -118,7 +118,46 @@ const ArriondasApartments = () => {
           </div>
 
           {/* Booking Reviews */}
-          <BookingReviews />
+          <BookingReviews 
+            rating={9.1}
+            totalReviews={43}
+            reviews={[
+              {
+                name: "Mercedes",
+                country: "España",
+                comment: "Limpieza, ubicación y sobretodo los dueños que son muy agradables y amables"
+              },
+              {
+                name: "Nuria",
+                country: "España",
+                comment: "La ubicación sin duda, para hacer el Descenso del Sella, es fantástica, puedes ir andando a muchas de las empresas que lo organizan. El bloque es muy tranquilo y el apartamento para 4 personas es ideal."
+              },
+              {
+                name: "Dolores",
+                country: "España",
+                comment: "Las vistas a los picos de europa. El trato genial, y sobre todo la información que nos facilitó para hacer visita turística"
+              },
+              {
+                name: "Yasu",
+                country: "España",
+                comment: "Todo maravilloso, la dueña super amable y hemos estado como en casa, las vistas a picos de Europa son maravillosas"
+              },
+              {
+                name: "Fernandez",
+                country: "España",
+                comment: "El apartamento es pequeño pero muy bien aprovechado. Apto para que 4 personas estén cómodamente. Limpio y con todo lo necesario tanto en cocina como en baño. En el centro de Arriondas pero zona muy tranquila."
+              }
+            ]}
+            categories={[
+              { name: "Personal", score: 9.6 },
+              { name: "Instalaciones", score: 9.1 },
+              { name: "Limpieza", score: 9.2 },
+              { name: "Confort", score: 8.8 },
+              { name: "Calidad-precio", score: 8.9 },
+              { name: "Ubicación", score: 9.5 }
+            ]}
+            bookingUrl="https://www.booking.com/hotel/es/apartamento-rio-sella.es.html"
+          />
 
           {/* Additional Information */}
           <div className="max-w-4xl mx-auto text-center mt-12">
