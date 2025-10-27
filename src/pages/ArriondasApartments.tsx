@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import Header from "../components/Header";
 import ImageCarousel from "../components/ImageCarousel";
 import BookingCalendar from "../components/BookingCalendar";
+import BookingReviews from "../components/BookingReviews";
 import arriondasBedroom1 from "@/assets/arriondas-bedroom1.jpg";
 import arriondasBedroom2 from "@/assets/arriondas-bedroom2.jpg";
 import arriondasBedroom3 from "@/assets/arriondas-bedroom3.jpg";
@@ -116,8 +117,11 @@ const ArriondasApartments = () => {
             />
           </div>
 
+          {/* Booking Reviews */}
+          <BookingReviews />
+
           {/* Additional Information */}
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-4xl mx-auto text-center mt-12">
             <h3 className="text-2xl font-bold mb-6 text-nature-forest">
               Turismo en Arriondas - Descenso del Sella y Actividades
             </h3>
