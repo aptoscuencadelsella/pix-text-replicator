@@ -14,16 +14,6 @@ const reviews: Review[] = [
     comment: "Limpieza, ubicación y sobretodo los dueños que son muy agradables y amables"
   },
   {
-    name: "Merino",
-    country: "España",
-    comment: "Alojamiento muy céntrico en Arriondas. Limpieza excelente y muy bien equipado."
-  },
-  {
-    name: "Caballero",
-    country: "España",
-    comment: "La anfitriona muy maja, lo facilita todo! El apartamento estaba muy limpio y era cómodo!!"
-  },
-  {
     name: "Nuria",
     country: "España",
     comment: "La ubicación sin duda, para hacer el Descenso del Sella, es fantástica, puedes ir andando a muchas de las empresas que lo organizan. El bloque es muy tranquilo y el apartamento para 4 personas es ideal."
@@ -32,11 +22,6 @@ const reviews: Review[] = [
     name: "Dolores",
     country: "España",
     comment: "Las vistas a los picos de europa. El trato genial, y sobre todo la información que nos facilitó para hacer visita turística"
-  },
-  {
-    name: "Elena",
-    country: "España",
-    comment: "Buena ubicación y estaba en perfectas condiciones."
   },
   {
     name: "Yasu",
