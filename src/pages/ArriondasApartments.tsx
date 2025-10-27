@@ -51,9 +51,7 @@ const ArriondasApartments = () => {
                   Apartamento Río Sella I - Alojamiento en Arriondas
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  <strong>Apartamento turístico en Arriondas</strong> para 4 personas, junto al <strong>río Sella</strong>. 
-                  <strong>Alojamiento</strong> perfecto para el <strong>descenso del Sella desde Arriondas</strong>, 
-                  <strong>turismo activo en la cuenca del Sella</strong> y disfrutar de la <strong>naturaleza asturiana</strong>.
+                  <strong>Apartamento turístico en Arriondas</strong> para 4 personas, junto al <strong>río Sella</strong>. <strong>Alojamiento</strong> perfecto para el <strong>descenso del Sella desde Arriondas</strong>, <strong>turismo activo en la cuenca del Sella</strong> y disfrutar de la <strong>naturaleza asturiana</strong>.
                 </p>
                 
                 <div className="mb-6">
@@ -124,22 +122,13 @@ const ArriondasApartments = () => {
               Turismo en Arriondas - Descenso del Sella y Actividades
             </h3>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              Nuestros <strong>apartamentos en Arriondas</strong> están situados a orillas del cristalino <strong>río Sella</strong>. 
-              Este <strong>pueblo de Arriondas en Asturias</strong> es el punto de salida oficial del legendario <strong>descenso del Sella</strong>, 
-              una aventura que atrae cada año a miles de visitantes. Ideal para <strong>vacaciones en Arriondas</strong> 
-              y <strong>actividades en Arriondas cuenca del sella</strong>.
+              Nuestros <strong>apartamentos en Arriondas</strong> están situados a orillas del cristalino <strong>río Sella</strong>. Este <strong>pueblo de Arriondas en Asturias</strong> es el punto de salida oficial del legendario <strong>descenso del Sella</strong>, una aventura que atrae cada año a miles de visitantes. Ideal para <strong>vacaciones en Arriondas</strong> y <strong>actividades en Arriondas cuenca del sella</strong>.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              Tu <strong>alojamiento en Arriondas</strong> es perfecto para practicar <strong>piragüismo en el Sella</strong>, 
-              <strong>kayak río Sella</strong>, <strong>rafting río Sella</strong> y otras <strong>actividades turismo activo</strong>. 
-              También podrás hacer <strong>senderismo cuenca del sella</strong>, visitar los <strong>Lagos de Covadonga</strong> 
-              y disfrutar de una <strong>escapada fin de semana en Arriondas</strong> llena de naturaleza.
+              Tu <strong>alojamiento en Arriondas</strong> es perfecto para practicar <strong>piragüismo en el Sella</strong>, <strong>kayak río Sella</strong>, <strong>rafting río Sella</strong> y otras <strong>actividades turismo activo</strong>. También podrás hacer <strong>senderismo cuenca del sella</strong>, visitar los <strong>Lagos de Covadonga</strong> y disfrutar de una <strong>escapada fin de semana en Arriondas</strong> llena de naturaleza.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Desde tu <strong>alojamiento Arriondas naturaleza Sella</strong> podrás explorar pueblos cercanos como Llanes o Ribadesella, 
-              degustar sidra asturiana y disfrutar de <strong>deportes acuáticos río Sella</strong>. 
-              Nuestros <strong>apartamentos vacacionales cuenca del sella</strong> son ideales para <strong>turismo familiar en Arriondas</strong> 
-              y vivir la auténtica experiencia del <strong>valle del Sella, Asturias</strong>.
+              Desde tu <strong>alojamiento Arriondas naturaleza Sella</strong> podrás explorar pueblos cercanos como Llanes o Ribadesella, degustar sidra asturiana y disfrutar de <strong>deportes acuáticos río Sella</strong>. Nuestros <strong>apartamentos vacacionales cuenca del sella</strong> son ideales para <strong>turismo familiar en Arriondas</strong> y vivir la auténtica experiencia del <strong>valle del Sella, Asturias</strong>.
             </p>
           </div>
 

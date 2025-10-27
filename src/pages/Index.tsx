@@ -27,10 +27,7 @@ const Index = () => {
             </h2>
             
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Somos <strong className="text-nature-green">especialistas en apartamentos cuenca del sella y turismo activo en Asturias</strong>. 
-              Encuentra el mejor <strong>alojamiento en Cangas de Onís y Arriondas</strong>, información sobre el <strong>descenso del Sella</strong>, 
-              rutas por los <strong>Lagos de Covadonga</strong>, actividades en los <strong>Picos de Europa</strong> y todo lo que necesitas 
-              para tus <strong>vacaciones en la cuenca del sella</strong>.
+              Somos <strong className="text-nature-green">especialistas en apartamentos cuenca del sella y turismo activo en Asturias</strong>. Encuentra el mejor <strong>alojamiento en Cangas de Onís y Arriondas</strong>, información sobre el <strong>descenso del Sella</strong>, rutas por los <strong>Lagos de Covadonga</strong>, actividades en los <strong>Picos de Europa</strong> y todo lo que necesitas para tus <strong>vacaciones en la cuenca del sella</strong>.
             </p>
             
             <div className="grid md:grid-cols-3 gap-8 mt-12">

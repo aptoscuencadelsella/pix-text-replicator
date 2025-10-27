@@ -14,7 +14,7 @@ const ContactSection = () => {
           RESERVA TU APARTAMENTO EN LA CUENCA DEL SELLA
         </h2>
         <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
-          Encuentra tu <strong>alojamiento perfecto en Cangas de Onís y Arriondas</strong>. <strong>Apartamentos turísticos</strong> ideales para el <strong>descenso del Sella</strong>, visitar los <strong>Lagos de Covadonga</strong> y disfrutar del <strong>turismo activo</strong> en los <strong>Picos de Europa</strong>. Alquiler vacacional en el corazón del <strong>valle del Sella, Asturias</strong>.
+          Encuentra tu <strong>alojamiento perfecto en Cangas de Onís y Arriondas</strong>. <strong>Apartamentos turísticos</strong> ideales para el <strong>descenso del Sella</strong>, visitar los <strong>Lagos de Covadonga</strong> y disfrutar del <strong>turismo activo</strong> en los <strong>Picos de Europa</strong>. Alquiler vacacional en el corazón del <strong>valle del Sella</strong>, Asturias.
         </p>
         <Link to="/contacto">
           <Button 

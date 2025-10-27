@@ -24,10 +24,7 @@ const ApartmentGrid = () => {
               </h2>
             </Link>
             <p className="text-muted-foreground leading-relaxed flex-grow">
-              Descubre las mejores <strong>actividades cuenca del sella</strong>: <strong>descenso del Sella en piragua</strong> desde Arriondas, 
-              <strong>kayak y rafting en el río Sella</strong>, senderismo en los <strong>Picos de Europa</strong>, 
-              visitar los <strong>Lagos de Covadonga</strong>, <strong>barranquismo</strong> y rutas por la naturaleza asturiana. 
-              <strong>Turismo activo</strong> y aventura para toda la familia.
+              Descubre las mejores <strong>actividades cuenca del sella</strong>: <strong>descenso del Sella en piragua</strong> desde Arriondas, <strong>kayak y rafting en el río Sella</strong>, senderismo en los <strong>Picos de Europa</strong>, visitar los <strong>Lagos de Covadonga</strong>, <strong>barranquismo</strong> y rutas por la naturaleza asturiana. <strong>Turismo activo</strong> y aventura para toda la familia.
             </p>
           </div>
 
@@ -46,10 +43,7 @@ const ApartmentGrid = () => {
               </h2>
             </Link>
             <p className="text-muted-foreground leading-relaxed flex-grow">
-              <strong>Alojamiento en Cangas de Onís</strong>, puerta de entrada a los <strong>Picos de Europa</strong>. 
-              <strong>Apartamentos turísticos</strong> cerca del <strong>Puente Romano</strong>, los <strong>Lagos de Covadonga</strong> 
-              y el inicio del <strong>descenso del Sella</strong>. Perfecto para <strong>vacaciones en Cangas de Onís</strong> 
-              y <strong>turismo activo cuenca del sella</strong>.
+              <strong>Alojamiento en Cangas de Onís</strong>, puerta de entrada a los <strong>Picos de Europa</strong>. <strong>Apartamentos turísticos</strong> cerca del <strong>Puente Romano</strong>, los <strong>Lagos de Covadonga</strong> y el inicio del <strong>descenso del Sella</strong>. Perfecto para <strong>vacaciones en Cangas de Onís</strong> y <strong>turismo activo cuenca del sella</strong>.
             </p>
           </div>
 
@@ -69,10 +63,7 @@ const ApartmentGrid = () => {
               </h2>
             </Link>
             <p className="text-muted-foreground leading-relaxed flex-grow">
-              <strong>Alojamiento en Arriondas</strong> junto al <strong>río Sella</strong>. 
-              <strong>Apartamentos turísticos</strong> ideales para el <strong>descenso del Sella</strong>, 
-              <strong>piragüismo</strong> y <strong>turismo activo</strong>. 
-              Punto de partida perfecto para <strong>actividades en Arriondas</strong> y <strong>vacaciones en la naturaleza del valle del Sella</strong>.
+              <strong>Alojamiento en Arriondas</strong> junto al <strong>río Sella</strong>. <strong>Apartamentos turísticos</strong> ideales para el <strong>descenso del Sella</strong>, <strong>piragüismo</strong> y <strong>turismo activo</strong>. Punto de partida perfecto para <strong>actividades en Arriondas</strong> y <strong>vacaciones en la naturaleza del valle del Sella</strong>.
             </p>
           </div>
 

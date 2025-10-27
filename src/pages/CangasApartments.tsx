@@ -58,10 +58,7 @@ const CangasApartments = () => {
               <div className="p-6">
                 <h2 className="text-3xl font-bold text-nature-forest mb-4">Apartamento Río Sella II - Alojamiento en Cangas de Onís</h2>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  <strong>Apartamento turístico en Cangas de Onís</strong>, ideal para 3 personas. 
-                  <strong>Alojamiento</strong> completamente equipado en el corazón de la <strong>cuenca del Sella</strong>, 
-                  perfecto para explorar los <strong>Picos de Europa</strong>, los <strong>Lagos de Covadonga</strong> 
-                  y disfrutar del <strong>turismo activo</strong> en Asturias.
+                  <strong>Apartamento turístico en Cangas de Onís</strong>, ideal para 3 personas. <strong>Alojamiento</strong> completamente equipado en el corazón de la <strong>cuenca del Sella</strong>, perfecto para explorar los <strong>Picos de Europa</strong>, los <strong>Lagos de Covadonga</strong> y disfrutar del <strong>turismo activo</strong> en Asturias.
                 </p>
 
                 <div className="mb-6">
@@ -122,21 +119,13 @@ const CangasApartments = () => {
           <div className="max-w-4xl mx-auto text-center">
             <h3 className="text-2xl font-bold mb-6 text-nature-forest">Qué Ver en Cangas de Onís - Turismo y Actividades</h3>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              Nuestros <strong>apartamentos en Cangas de Onís</strong> son la puerta de entrada perfecta a los 
-              majestuosos <strong>Picos de Europa</strong>. Este <strong>pueblo de Cangas de Onís en Asturias</strong> 
-              es famoso por su histórico <strong>Puente Romano</strong> y su cercanía a los espectaculares <strong>Lagos de Covadonga</strong>. 
-              Ideal para <strong>vacaciones en Cangas de Onís</strong> y <strong>turismo en la cuenca del Sella</strong>.
+              Nuestros <strong>apartamentos en Cangas de Onís</strong> son la puerta de entrada perfecta a los majestuosos <strong>Picos de Europa</strong>. Este <strong>pueblo de Cangas de Onís en Asturias</strong> es famoso por su histórico <strong>Puente Romano</strong> y su cercanía a los espectaculares <strong>Lagos de Covadonga</strong>. Ideal para <strong>vacaciones en Cangas de Onís</strong> y <strong>turismo en la cuenca del Sella</strong>.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              Desde tu <strong>alojamiento en Cangas de Onís</strong> podrás realizar el <strong>descenso del Sella</strong>, 
-              explorar rutas de <strong>senderismo en los Picos de Europa</strong>, visitar el <strong>Santuario de Covadonga</strong>, 
-              practicar <strong>turismo activo</strong> y disfrutar de la naturaleza asturiana. 
-              Perfecto para una <strong>escapada fin de semana en Cangas de Onís</strong>.
+              Desde tu <strong>alojamiento en Cangas de Onís</strong> podrás realizar el <strong>descenso del Sella</strong>, explorar rutas de <strong>senderismo en los Picos de Europa</strong>, visitar el <strong>Santuario de Covadonga</strong>, practicar <strong>turismo activo</strong> y disfrutar de la naturaleza asturiana. Perfecto para una <strong>escapada fin de semana en Cangas de Onís</strong>.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Disfruta de <strong>actividades en Cangas de Onís</strong> como barranquismo, rutas a caballo, espeleología en las Cuevas de Buxu, 
-              y la auténtica gastronomía asturiana. Nuestros <strong>apartamentos turísticos cuenca del sella</strong> 
-              son tu base perfecta para <strong>turismo familiar en Cangas de Onís</strong> y explorar el <strong>valle del Sella, Asturias</strong>.
+              Disfruta de <strong>actividades en Cangas de Onís</strong> como barranquismo, rutas a caballo, espeleología en las Cuevas de Buxu y la auténtica gastronomía asturiana. Nuestros <strong>apartamentos turísticos cuenca del sella</strong> son tu base perfecta para <strong>turismo familiar en Cangas de Onís</strong> y explorar el <strong>valle del Sella, Asturias</strong>.
             </p>
           </div>
         </div>
