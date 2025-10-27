@@ -11,10 +11,10 @@ const HeroSection = () => {
       <div className="relative z-10 text-center px-4">
         <h1 className="text-5xl lg:text-7xl font-bold mb-8 text-nature-green drop-shadow-2xl tracking-wide" 
             style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0 0 10px rgba(0,0,0,0.5)' }}>
-          APARTAMENTOS TURÍSTICOS Y TURISMO ACTIVO CUENCA DEL SELLA
+          APARTAMENTOS CUENCA DEL SELLA - CANGAS DE ONÍS Y ARRIONDAS
         </h1>
         <p className="text-xl lg:text-2xl text-white font-medium mb-8 drop-shadow-lg max-w-2xl mx-auto">
-          Alojamiento rural de calidad en Asturias - Picos de Europa. Descubre Cangas de Onís, Arriondas y los mejores destinos turísticos de la región
+          Alojamiento turístico en el corazón de Asturias. Descenso del Sella, Lagos de Covadonga y turismo activo en los Picos de Europa. Tu escapada perfecta al río Sella.
         </p>
         <Button 
           variant="secondary"
@@ -25,7 +25,7 @@ const HeroSection = () => {
             apartmentsSection?.scrollIntoView({ behavior: 'smooth' });
           }}
         >
-          RESERVA TU ESCAPADA RURAL
+          RESERVA TU APARTAMENTO EN LA CUENCA DEL SELLA
         </Button>
       </div>
     </section>

@@ -23,13 +23,14 @@ const Index = () => {
             </div>
             
             <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-nature-forest">
-              Tu Guía Completa de Turismo Rural en Asturias - Cuenca del Sella
+              Tu Guía de Turismo en la Cuenca del Sella - Cangas de Onís y Arriondas
             </h2>
             
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Somos <strong className="text-nature-green">la mejor página de información turística de los Picos de Europa</strong>, 
-              especializada en apartamentos turísticos, actividades de turismo activo y guías completas para tus vacaciones en Asturias. 
-              Información actualizada sobre alojamiento rural, descenso del Sella, Lagos de Covadonga y mucho más.
+              Somos <strong className="text-nature-green">especialistas en apartamentos cuenca del sella y turismo activo en Asturias</strong>. 
+              Encuentra el mejor <strong>alojamiento en Cangas de Onís y Arriondas</strong>, información sobre el <strong>descenso del Sella</strong>, 
+              rutas por los <strong>Lagos de Covadonga</strong>, actividades en los <strong>Picos de Europa</strong> y todo lo que necesitas 
+              para tus <strong>vacaciones en la cuenca del sella</strong>.
             </p>
             
             <div className="grid md:grid-cols-3 gap-8 mt-12">
@@ -41,7 +42,7 @@ const Index = () => {
                 </div>
                 <h3 className="font-semibold text-nature-forest mb-2">Información Turística Actualizada</h3>
                 <p className="text-sm text-muted-foreground">
-                  Horarios, precios y recomendaciones de turismo rural siempre al día
+                  Apartamentos turísticos, actividades cuenca del sella y precios siempre actualizados
                 </p>
               </div>
               
@@ -52,9 +53,9 @@ const Index = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                 </div>
-                <h3 className="font-semibold text-nature-forest mb-2">Expertos en Turismo Asturiano</h3>
+                <h3 className="font-semibold text-nature-forest mb-2">Expertos Locales en Turismo Cuenca del Sella</h3>
                 <p className="text-sm text-muted-foreground">
-                  Conocimiento local especializado en Cangas de Onís, Arriondas y Picos de Europa
+                  Conocemos cada rincón: desde el descenso del Sella hasta los Lagos de Covadonga
                 </p>
               </div>
               
@@ -64,16 +65,16 @@ const Index = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                   </svg>
                 </div>
-                <h3 className="font-semibold text-nature-forest mb-2">Vacaciones Perfectas en Asturias</h3>
+                <h3 className="font-semibold text-nature-forest mb-2">Vacaciones y Escapadas en el Valle del Sella</h3>
                 <p className="text-sm text-muted-foreground">
-                  Planifica tu escapada rural ideal con nuestras guías de turismo activo
+                  Fin de semana o vacaciones: planifica tu aventura perfecta en la naturaleza asturiana
                 </p>
               </div>
             </div>
             
             <div className="mt-8 p-4 bg-nature-green/10 rounded-lg border border-nature-green/20 inline-block">
               <p className="text-sm text-nature-forest font-medium">
-                ✨ Más de <strong>15.000 turistas</strong> eligen nuestra guía cada año para planificar sus vacaciones en el Oriente de Asturias
+                ✨ Más de <strong>15.000 turistas</strong> cada año confían en nuestra información para sus <strong>vacaciones en Cangas de Onís, Arriondas y la cuenca del Sella</strong>
               </p>
             </div>
           </div>

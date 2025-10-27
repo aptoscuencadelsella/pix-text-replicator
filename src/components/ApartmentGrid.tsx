@@ -15,16 +15,19 @@ const ApartmentGrid = () => {
               <div className="mb-6 overflow-hidden rounded-lg shadow-card-nature group-hover:shadow-nature transition-all duration-300">
                 <img 
                   src={activitiesImage} 
-                  alt="Actividades de la Cuenca"
+                  alt="Actividades cuenca del sella - descenso del Sella, kayak río Sella y turismo activo en Asturias"
                   className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
               <h2 className="text-2xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors duration-300">
-                TURISMO ACTIVO CUENCA DEL SELLA
+                ACTIVIDADES Y TURISMO ACTIVO CUENCA DEL SELLA
               </h2>
             </Link>
             <p className="text-muted-foreground leading-relaxed flex-grow">
-              Descubre las mejores <strong>actividades turísticas en Asturias</strong>: desde el famoso <strong>Descenso del Sella en canoa</strong> hasta rutas de senderismo por los <strong>Picos de Europa</strong>, visitas al <strong>Santuario de Covadonga</strong> y <strong>barranquismo</strong>. Turismo activo y aventura en plena naturaleza asturiana.
+              Descubre las mejores <strong>actividades cuenca del sella</strong>: <strong>descenso del Sella en piragua</strong> desde Arriondas, 
+              <strong>kayak y rafting en el río Sella</strong>, senderismo en los <strong>Picos de Europa</strong>, 
+              visitar los <strong>Lagos de Covadonga</strong>, <strong>barranquismo</strong> y rutas por la naturaleza asturiana. 
+              <strong>Turismo activo</strong> y aventura para toda la familia.
             </p>
           </div>
 
@@ -34,16 +37,19 @@ const ApartmentGrid = () => {
               <div className="mb-6 overflow-hidden rounded-lg shadow-card-nature group-hover:shadow-nature transition-all duration-300">
                 <img 
                   src={cangasImage} 
-                  alt="Apartamentos Cangas de Onís"
+                  alt="Apartamentos en Cangas de Onís - alojamiento turístico cerca Lagos de Covadonga y Picos de Europa"
                   className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
               <h2 className="text-2xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors duration-300">
-                APARTAMENTOS CANGAS DE ONÍS
+                APARTAMENTOS EN CANGAS DE ONÍS
               </h2>
             </Link>
             <p className="text-muted-foreground leading-relaxed flex-grow">
-              <strong>Apartamentos turísticos en Cangas de Onís</strong>, puerta de entrada a los <strong>Picos de Europa</strong>. Alojamiento rural de calidad cerca del histórico <strong>Puente Romano</strong> y los famosos <strong>Lagos de Covadonga</strong>. Turismo rural en el corazón de Asturias.
+              <strong>Alojamiento en Cangas de Onís</strong>, puerta de entrada a los <strong>Picos de Europa</strong>. 
+              <strong>Apartamentos turísticos</strong> cerca del <strong>Puente Romano</strong>, los <strong>Lagos de Covadonga</strong> 
+              y el inicio del <strong>descenso del Sella</strong>. Perfecto para <strong>vacaciones en Cangas de Onís</strong> 
+              y <strong>turismo activo cuenca del sella</strong>.
             </p>
           </div>
 
@@ -53,17 +59,20 @@ const ApartmentGrid = () => {
               <div className="mb-6 overflow-hidden rounded-lg shadow-card-nature group-hover:shadow-nature transition-all duration-300">
                 <img 
                   src={arriondasImage} 
-                  alt="Apartamentos Arriondas"
+                  alt="Apartamentos en Arriondas - alojamiento río Sella para descenso del Sella y turismo activo cuenca del sella"
                   className="w-full h-80 object-cover object-center group-hover:scale-105 transition-transform duration-300"
                   style={{ objectPosition: 'center 30%' }}
                 />
               </div>
               <h2 className="text-2xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors duration-300">
-                APARTAMENTOS ARRIONDAS
+                APARTAMENTOS EN ARRIONDAS
               </h2>
             </Link>
             <p className="text-muted-foreground leading-relaxed flex-grow">
-              <strong>Apartamentos rurales en Arriondas</strong>, situados a orillas del <strong>río Sella</strong>. El punto de partida perfecto para el <strong>descenso del Sella</strong> y actividades de <strong>turismo de aventura</strong>. Alojamiento rural auténtico en el <strong>Oriente de Asturias</strong>.
+              <strong>Alojamiento en Arriondas</strong> junto al <strong>río Sella</strong>. 
+              <strong>Apartamentos turísticos</strong> ideales para el <strong>descenso del Sella</strong>, 
+              <strong>piragüismo</strong> y <strong>turismo activo</strong>. 
+              Punto de partida perfecto para <strong>actividades en Arriondas</strong> y <strong>vacaciones en la naturaleza del valle del Sella</strong>.
             </p>
           </div>
 

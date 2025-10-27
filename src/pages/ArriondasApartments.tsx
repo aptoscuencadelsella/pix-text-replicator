@@ -34,7 +34,7 @@ const ArriondasApartments = () => {
 
           {/* Title */}
           <h1 className="text-4xl lg:text-5xl font-bold text-center mb-12 text-foreground">
-            APARTAMENTOS ARRIONDAS
+            APARTAMENTOS EN ARRIONDAS - ALOJAMIENTO RÍO SELLA
           </h1>
 
           {/* Apartment Layout - Similar to Activities */}
@@ -42,16 +42,18 @@ const ArriondasApartments = () => {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               {/* Image Carousel */}
               <div className="relative h-96 md:h-full">
-                <ImageCarousel images={images} alt="Apartamentos Arriondas" />
+                <ImageCarousel images={images} alt="Apartamentos en Arriondas - alojamiento río Sella para descenso del Sella y turismo activo" />
               </div>
               
               {/* Apartment Description */}
               <div className="p-6">
                 <h2 className="text-3xl font-bold text-nature-forest mb-4">
-                  Apartamento Rio Sella I
+                  Apartamento Río Sella I - Alojamiento en Arriondas
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  Apartamento espacioso en Arriondas, ideal para 4 personas. Perfectamente ubicado a orillas del río Sella con todas las comodidades para una estancia inolvidable.
+                  <strong>Apartamento turístico en Arriondas</strong> para 4 personas, junto al <strong>río Sella</strong>. 
+                  <strong>Alojamiento</strong> perfecto para el <strong>descenso del Sella desde Arriondas</strong>, 
+                  <strong>turismo activo en la cuenca del Sella</strong> y disfrutar de la <strong>naturaleza asturiana</strong>.
                 </p>
                 
                 <div className="mb-6">
@@ -119,16 +121,25 @@ const ArriondasApartments = () => {
           {/* Additional Information */}
           <div className="max-w-4xl mx-auto text-center">
             <h3 className="text-2xl font-bold mb-6 text-nature-forest">
-              Descubre Arriondas
+              Turismo en Arriondas - Descenso del Sella y Actividades
             </h3>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              Sumérgete en la auténtica experiencia asturiana en nuestros apartamentos de Arriondas, situada a orillas del cristalino <strong>río Sella</strong>. Este encantador pueblo es mundialmente reconocido como el punto de partida del legendario <strong>Descenso del Sella</strong>, una tradición que atrae cada año a miles de aventureros en busca de naturaleza y emoción.
+              Nuestros <strong>apartamentos en Arriondas</strong> están situados a orillas del cristalino <strong>río Sella</strong>. 
+              Este <strong>pueblo de Arriondas en Asturias</strong> es el punto de salida oficial del legendario <strong>descenso del Sella</strong>, 
+              una aventura que atrae cada año a miles de visitantes. Ideal para <strong>vacaciones en Arriondas</strong> 
+              y <strong>actividades en Arriondas cuenca del sella</strong>.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              Nuestros apartamentos ofrecen el equilibrio perfecto entre comodidad moderna y autenticidad local. Con vistas privilegiadas al río y las montañas circundantes, cada estancia está diseñada para proporcionarte la máxima relajación después de un día lleno de aventuras en la naturaleza asturiana.
+              Tu <strong>alojamiento en Arriondas</strong> es perfecto para practicar <strong>piragüismo en el Sella</strong>, 
+              <strong>kayak río Sella</strong>, <strong>rafting río Sella</strong> y otras <strong>actividades turismo activo</strong>. 
+              También podrás hacer <strong>senderismo cuenca del sella</strong>, visitar los <strong>Lagos de Covadonga</strong> 
+              y disfrutar de una <strong>escapada fin de semana en Arriondas</strong> llena de naturaleza.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Desde Arriondas podrás embarcarte en el famoso descenso en piragua, explorar rutas de senderismo por los valles cercanos, descubrir pueblos con encanto como Llanes o Ribadesella, o simplemente disfrutar de la tranquilidad del río mientras saboreas la excelente sidra y gastronomía local.
+              Desde tu <strong>alojamiento Arriondas naturaleza Sella</strong> podrás explorar pueblos cercanos como Llanes o Ribadesella, 
+              degustar sidra asturiana y disfrutar de <strong>deportes acuáticos río Sella</strong>. 
+              Nuestros <strong>apartamentos vacacionales cuenca del sella</strong> son ideales para <strong>turismo familiar en Arriondas</strong> 
+              y vivir la auténtica experiencia del <strong>valle del Sella, Asturias</strong>.
             </p>
           </div>
 

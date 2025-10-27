@@ -43,7 +43,7 @@ const CangasApartments = () => {
 
           {/* Title */}
           <h1 className="text-4xl lg:text-5xl font-bold text-center mb-12 text-foreground">
-            APARTAMENTOS CANGAS DE ONÍS
+            APARTAMENTOS EN CANGAS DE ONÍS - ALOJAMIENTO CUENCA DEL SELLA
           </h1>
 
           {/* Apartment Layout - Similar to Activities */}
@@ -51,15 +51,17 @@ const CangasApartments = () => {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               {/* Image Carousel */}
               <div className="relative h-96 md:h-full">
-                <ImageCarousel images={images} alt="Apartamentos Cangas de Onís" />
+                <ImageCarousel images={images} alt="Apartamentos en Cangas de Onís - alojamiento turístico cuenca del sella cerca Lagos Covadonga" />
               </div>
 
               {/* Apartment Description */}
               <div className="p-6">
-                <h2 className="text-3xl font-bold text-nature-forest mb-4">Apartamento Rio Sella II</h2>
+                <h2 className="text-3xl font-bold text-nature-forest mb-4">Apartamento Río Sella II - Alojamiento en Cangas de Onís</h2>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  Apartamento acogedor en el corazón de Cangas de Onís, ideal para 3 personas. Completamente equipado
-                  con todas las comodidades necesarias para una estancia perfecta en los Picos de Europa.
+                  <strong>Apartamento turístico en Cangas de Onís</strong>, ideal para 3 personas. 
+                  <strong>Alojamiento</strong> completamente equipado en el corazón de la <strong>cuenca del Sella</strong>, 
+                  perfecto para explorar los <strong>Picos de Europa</strong>, los <strong>Lagos de Covadonga</strong> 
+                  y disfrutar del <strong>turismo activo</strong> en Asturias.
                 </p>
 
                 <div className="mb-6">
@@ -118,23 +120,23 @@ const CangasApartments = () => {
 
           {/* Additional Information */}
           <div className="max-w-4xl mx-auto text-center">
-            <h3 className="text-2xl font-bold mb-6 text-nature-forest">Descubre Cangas de Onís</h3>
+            <h3 className="text-2xl font-bold mb-6 text-nature-forest">Qué Ver en Cangas de Onís - Turismo y Actividades</h3>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              Descubre nuestros encantadores apartamentos en el corazón de Cangas de Onís, la puerta de entrada a los
-              majestuosos <strong>Picos de Europa</strong>. Ubicados estratégicamente cerca del emblemático{" "}
-              <strong>puente Romano</strong> y a pocos minutos de los famosos <strong>Lagos de Covadonga</strong>,
-              nuestros apartamentos ofrecen la base perfecta para explorar uno de los destinos más espectaculares de
-              Asturias.
+              Nuestros <strong>apartamentos en Cangas de Onís</strong> son la puerta de entrada perfecta a los 
+              majestuosos <strong>Picos de Europa</strong>. Este <strong>pueblo de Cangas de Onís en Asturias</strong> 
+              es famoso por su histórico <strong>Puente Romano</strong> y su cercanía a los espectaculares <strong>Lagos de Covadonga</strong>. 
+              Ideal para <strong>vacaciones en Cangas de Onís</strong> y <strong>turismo en la cuenca del Sella</strong>.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              Cada apartamento está cuidadosamente equipado con todas las comodidades modernas mientras mantiene el
-              encanto tradicional asturiano. Disfruta de vistas impresionantes a las montañas, espacios amplios y
-              luminosos, y la tranquilidad que solo puede ofrecer este entorno natural único.
+              Desde tu <strong>alojamiento en Cangas de Onís</strong> podrás realizar el <strong>descenso del Sella</strong>, 
+              explorar rutas de <strong>senderismo en los Picos de Europa</strong>, visitar el <strong>Santuario de Covadonga</strong>, 
+              practicar <strong>turismo activo</strong> y disfrutar de la naturaleza asturiana. 
+              Perfecto para una <strong>escapada fin de semana en Cangas de Onís</strong>.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Desde aquí podrás acceder fácilmente a rutas de senderismo, visitar el Santuario de Covadonga, explorar
-              cuevas prehistóricas como las Cuevas de Buxu, o simplemente relajarte y disfrutar de la auténtica
-              gastronomía asturiana en los restaurantes locales.
+              Disfruta de <strong>actividades en Cangas de Onís</strong> como barranquismo, rutas a caballo, espeleología en las Cuevas de Buxu, 
+              y la auténtica gastronomía asturiana. Nuestros <strong>apartamentos turísticos cuenca del sella</strong> 
+              son tu base perfecta para <strong>turismo familiar en Cangas de Onís</strong> y explorar el <strong>valle del Sella, Asturias</strong>.
             </p>
           </div>
         </div>
