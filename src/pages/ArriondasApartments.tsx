@@ -97,20 +97,22 @@ const ArriondasApartments = () => {
                   </ul>
                 </div>
                 
-                <Link to="/booking?apartment=arriondas">
-                  <Button 
-                    variant="secondary"
-                    className="bg-nature-green hover:bg-nature-forest text-white border-none font-semibold px-6 py-2 shadow-nature transition-all duration-300 hover:shadow-lg"
-                  >
-                    RESERVAR AHORA
-                  </Button>
-                </Link>
+                <Button 
+                  variant="secondary"
+                  className="bg-nature-green hover:bg-nature-forest text-white border-none font-semibold px-6 py-2 shadow-nature transition-all duration-300 hover:shadow-lg"
+                  onClick={() => {
+                    const bookingSection = document.getElementById('booking-section');
+                    bookingSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }}
+                >
+                  RESERVAR AHORA
+                </Button>
               </div>
             </div>
           </div>
 
           {/* Booking Calendar */}
-          <div className="max-w-4xl mx-auto mb-12">
+          <div id="booking-section" className="max-w-4xl mx-auto mb-12">
             <BookingCalendar 
               apartmentName="Apartamento Rio Sella I"
               apartmentLocation="Arriondas"

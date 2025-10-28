@@ -96,25 +96,29 @@ const CangasApartments = () => {
                   </ul>
                 </div>
 
-                <Link to="/booking?apartment=cangas">
-                  <Button
-                    variant="secondary"
-                    className="bg-nature-green hover:bg-nature-forest text-white border-none font-semibold px-6 py-2 shadow-nature transition-all duration-300 hover:shadow-lg"
-                  >
-                    RESERVAR AHORA
-                  </Button>
-                </Link>
+                <Button
+                  variant="secondary"
+                  className="bg-nature-green hover:bg-nature-forest text-white border-none font-semibold px-6 py-2 shadow-nature transition-all duration-300 hover:shadow-lg"
+                  onClick={() => {
+                    const bookingSection = document.getElementById('booking-section');
+                    bookingSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }}
+                >
+                  RESERVAR AHORA
+                </Button>
               </div>
             </div>
           </div>
 
           {/* Booking Calendar */}
-          <div data-tockify-component="calendar" data-tockify-calendar="cangas"></div>
-          <script
-            data-cfasync="false"
-            data-tockify-script="embed"
-            src="https://public.tockify.com/browser/embed.js"
-          ></script>
+          <div id="booking-section" className="max-w-4xl mx-auto mb-12">
+            <div data-tockify-component="calendar" data-tockify-calendar="cangas"></div>
+            <script
+              data-cfasync="false"
+              data-tockify-script="embed"
+              src="https://public.tockify.com/browser/embed.js"
+            ></script>
+          </div>
 
           {/* Booking Reviews */}
           <BookingReviews 
