@@ -82,7 +82,7 @@ const Contacto = () => {
       `Mensaje:\n${formData.mensaje}`
     );
     
-    window.location.href = `mailto:aptoscuencadelsella@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:info@cuencadelsella.com?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -150,8 +150,8 @@ const Contacto = () => {
                     <div>
                       <h3 className="font-semibold text-foreground">Email</h3>
                       <p className="text-muted-foreground">
-                        <a href="mailto:aptoscuencadelsella@gmail.com" className="hover:text-primary transition-colors">
-                          aptoscuencadelsella@gmail.com
+                        <a href="mailto:info@cuencadelsella.com" className="hover:text-primary transition-colors">
+                          info@cuencadelsella.com
                         </a>
                       </p>
                     </div>
