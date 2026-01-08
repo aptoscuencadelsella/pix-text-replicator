@@ -1,123 +1,102 @@
-import React, { useEffect, useRef } from "react";
+import React, { useMemo } from "react";
 import { Phone } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface PlanyoCalendarProps {
   apartmentName: string;
-  calendarId: string;
+  /** The full jsonp_url from Planyo embed code (the part after "url:" in the config) */
   jsonpUrl: string;
 }
 
 const PlanyoCalendar: React.FC<PlanyoCalendarProps> = ({ 
   apartmentName, 
-  calendarId,
   jsonpUrl 
 }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    // Add CSS links
-    const cssLinks = [
-      'https://www.planyo.com/libs/fullcalendar-scheduler/lib/fullcalendar.min.css',
-      'https://www.planyo.com/libs/fullcalendar-scheduler/scheduler.min.css',
-      'https://www.planyo.com/planyonet/planyo.net.css'
-    ];
-
-    cssLinks.forEach(href => {
-      if (!document.querySelector(`link[href="${href}"]`)) {
-        const link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.href = href;
-        document.head.appendChild(link);
-      }
-    });
-
-    // Initialize Planyo configuration for this specific calendar
-    if (!(document as any).cp_instances) {
-      (document as any).cp_instances = [];
+  // Build the full HTML that Planyo expects, exactly as they provide it
+  const iframeSrcDoc = useMemo(() => {
+    return `
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://www.planyo.com/libs/fullcalendar-scheduler/lib/fullcalendar.min.css" rel="stylesheet" />
+  <link href="https://www.planyo.com/libs/fullcalendar-scheduler/scheduler.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://www.planyo.com/planyonet/planyo.net.css" type="text/css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 8px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: transparent;
     }
+    .cp_calendar {
+      width: 100%;
+    }
+    .cp_pb {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="cpcal_planyonet" class="cp_calendar cp_units_30"></div>
+  <a title="Calendar powered by Planyo" href="http://www.planyo.net" target="_blank" class="cp_pb">calendar</a>
+  <div id="cp_fetch_cpcal_planyonet" class="cp_fetching" style="position:absolute;left:200px;top:10px;display:none;z-index:999;">
+    <img src="https://www.planyo.com/images/hourglass.gif" />
+  </div>
 
-    // Check if this calendar instance already exists
-    const existingIndex = (document as any).cp_instances.findIndex(
-      (instance: any) => instance.element_id === calendarId
-    );
-    
-    const calendarConfig = {
+  <script>
+    if(!document.cp_instances) document.cp_instances = new Array();
+    document.cp_instances.push({
       'all_views': 'custMonth',
       'def_view': 'custMonth',
       'time_unit': 1440,
-      'resources': [{ "id": "Resource_1", "title": "Resource 1", "granulation": "1440", "click_url": null }],
+      'resources': [{"id":"Resource_1","title":"Resource 1","granulation":"1440","click_url":null}],
       'resource_id': "Resource_1",
-      'jsonp_url': { url: jsonpUrl, cache: false },
+      'jsonp_url': {url: "${jsonpUrl}", cache: false},
       'timezone': 'site',
       'tz_offset': 0,
       'min_hour': '8:00:00',
       'max_hour': '20:00:00',
       'open_frame': "_top",
-      'element_id': calendarId,
-      'fetching_id': `cp_fetch_${calendarId}`,
+      'element_id': 'cpcal_planyonet',
+      'fetching_id': 'cp_fetch_cpcal_planyonet',
       'lng': 'es'
+    });
+    document.cp_time_format = 'HH:mm';
+    document.cp_title_format = 'dddd, MMMM Do, YYYY';
+    document.cp_title_format_short = 'ddd, MMM Do';
+    document.cp_s_day = "day";
+    document.cp_s_days = "days";
+    document.cp_s_vert_day = "vertical day";
+    document.cp_s_month = "month";
+    document.cp_s_week = "week";
+    document.cp_s_weeks = "weeks";
+    document.cp_s_agenda = "agenda";
+
+    var scr0 = document.createElement('script');
+    scr0.onload = function () {
+      var scr1 = document.createElement('script');
+      scr1.onload = function () {
+        var scr2 = document.createElement('script');
+        scr2.onload = function() {
+          var scr3 = document.createElement('script');
+          scr3.src = "https://www.planyo.com/embed-schedule.js";
+          document.head.appendChild(scr3);
+        };
+        scr2.src = "https://www.planyo.com/libs/fullcalendar/locale/es.js";
+        document.head.appendChild(scr2);
+      };
+      scr1.src = "https://www.planyo.com/libs/planyonet-fc.js";
+      document.head.appendChild(scr1);
     };
-
-    if (existingIndex >= 0) {
-      (document as any).cp_instances[existingIndex] = calendarConfig;
-    } else {
-      (document as any).cp_instances.push(calendarConfig);
-    }
-
-    (document as any).cp_time_format = 'HH:mm';
-    (document as any).cp_title_format = 'dddd, MMMM Do, YYYY';
-    (document as any).cp_title_format_short = 'ddd, MMM Do';
-    (document as any).cp_s_day = "day";
-    (document as any).cp_s_days = "days";
-    (document as any).cp_s_vert_day = "vertical day";
-    (document as any).cp_s_month = "month";
-    (document as any).cp_s_week = "week";
-    (document as any).cp_s_weeks = "weeks";
-    (document as any).cp_s_agenda = "agenda";
-
-    // Load scripts in order
-    const loadScript = (src: string): Promise<void> => {
-      return new Promise((resolve, reject) => {
-        const existingScript = document.querySelector(`script[src="${src}"]`);
-        if (existingScript) {
-          resolve();
-          return;
-        }
-        const script = document.createElement('script');
-        script.src = src;
-        script.onload = () => resolve();
-        script.onerror = reject;
-        document.head.appendChild(script);
-      });
-    };
-
-    const initCalendar = async () => {
-      try {
-        console.log('[Planyo] init', { calendarId, jsonpUrl });
-
-        await loadScript('https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js');
-        await loadScript('https://www.planyo.com/libs/planyonet-fc.js');
-        await loadScript('https://www.planyo.com/libs/fullcalendar/locale/es.js');
-
-        // Force embed script to execute (SPA navigation + React StrictMode)
-        const embedScript = document.createElement('script');
-        embedScript.src = `https://www.planyo.com/embed-schedule.js?ts=${Date.now()}`;
-        embedScript.onload = () => console.log('[Planyo] embed loaded', calendarId);
-        embedScript.onerror = () => console.error('[Planyo] embed failed to load');
-        document.head.appendChild(embedScript);
-      } catch (error) {
-        console.error('Error loading Planyo scripts:', error);
-      }
-    };
-
-    initCalendar();
-
-    return () => {
-      // NOTE: Avoid aggressive cleanup here because React 18 StrictMode mounts/unmounts twice in dev,
-      // and Planyo's embed script can execute async.
-    };
-  }, [calendarId, jsonpUrl]);
+    scr0.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js";
+    document.head.appendChild(scr0);
+  </script>
+</body>
+</html>
+    `.trim();
+  }, [jsonpUrl]);
 
   return (
     <div className="w-full">
@@ -129,26 +108,14 @@ const PlanyoCalendar: React.FC<PlanyoCalendarProps> = ({
         </CardHeader>
 
         <CardContent className="space-y-6">
-          {/* Planyo Calendar Container */}
-          <div ref={containerRef}>
-            <div id={calendarId} className="cp_calendar cp_units_30 w-full min-h-[520px]"></div>
-            <a 
-              title="Calendar powered by Planyo" 
-              href="http://www.planyo.net" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="cp_pb text-xs text-muted-foreground"
-            >
-              calendar
-            </a>
-            <div 
-              id={`cp_fetch_${calendarId}`} 
-              className="cp_fetching" 
-              style={{ position: 'absolute', left: '200px', top: '10px', display: 'none', zIndex: 999 }}
-            >
-              <img src="https://www.planyo.com/images/hourglass.gif" alt="Loading..." />
-            </div>
-          </div>
+          {/* Planyo Calendar in iframe - isolated from React */}
+          <iframe
+            srcDoc={iframeSrcDoc}
+            title={`Calendario de disponibilidad - ${apartmentName}`}
+            className="w-full border-0 rounded-lg"
+            style={{ minHeight: '500px', height: '520px' }}
+            sandbox="allow-scripts allow-same-origin"
+          />
 
           {/* Contact Info Section */}
           <div className="mt-6 p-6 bg-nature-green/10 rounded-lg border border-nature-green/20">
