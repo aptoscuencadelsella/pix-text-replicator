@@ -94,19 +94,17 @@ const PlanyoCalendar: React.FC<PlanyoCalendarProps> = ({
 
     const initCalendar = async () => {
       try {
+        console.log('[Planyo] init', { calendarId, jsonpUrl });
+
         await loadScript('https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js');
         await loadScript('https://www.planyo.com/libs/planyonet-fc.js');
         await loadScript('https://www.planyo.com/libs/fullcalendar/locale/es.js');
-        
-        // Remove existing embed script to force re-initialization
-        const existingEmbed = document.querySelector('script[src="https://www.planyo.com/embed-schedule.js"]');
-        if (existingEmbed) {
-          existingEmbed.remove();
-        }
-        
-        // Add embed script fresh
+
+        // Force embed script to execute (SPA navigation + React StrictMode)
         const embedScript = document.createElement('script');
-        embedScript.src = 'https://www.planyo.com/embed-schedule.js';
+        embedScript.src = `https://www.planyo.com/embed-schedule.js?ts=${Date.now()}`;
+        embedScript.onload = () => console.log('[Planyo] embed loaded', calendarId);
+        embedScript.onerror = () => console.error('[Planyo] embed failed to load');
         document.head.appendChild(embedScript);
       } catch (error) {
         console.error('Error loading Planyo scripts:', error);
@@ -116,15 +114,8 @@ const PlanyoCalendar: React.FC<PlanyoCalendarProps> = ({
     initCalendar();
 
     return () => {
-      // Clean up this calendar instance on unmount
-      if ((document as any).cp_instances) {
-        const idx = (document as any).cp_instances.findIndex(
-          (instance: any) => instance.element_id === calendarId
-        );
-        if (idx >= 0) {
-          (document as any).cp_instances.splice(idx, 1);
-        }
-      }
+      // NOTE: Avoid aggressive cleanup here because React 18 StrictMode mounts/unmounts twice in dev,
+      // and Planyo's embed script can execute async.
     };
   }, [calendarId, jsonpUrl]);
 
@@ -140,7 +131,7 @@ const PlanyoCalendar: React.FC<PlanyoCalendarProps> = ({
         <CardContent className="space-y-6">
           {/* Planyo Calendar Container */}
           <div ref={containerRef}>
-            <div id={calendarId} className="cp_calendar cp_units_30"></div>
+            <div id={calendarId} className="cp_calendar cp_units_30 w-full min-h-[520px]"></div>
             <a 
               title="Calendar powered by Planyo" 
               href="http://www.planyo.net" 
