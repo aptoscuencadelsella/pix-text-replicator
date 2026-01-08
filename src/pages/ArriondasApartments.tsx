@@ -3,7 +3,7 @@ import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Header from "../components/Header";
 import ImageCarousel from "../components/ImageCarousel";
-import BookingCalendar from "../components/BookingCalendar";
+import PlanyoCalendar from "../components/PlanyoCalendar";
 import BookingReviews from "../components/BookingReviews";
 import arriondasBedroom1 from "@/assets/arriondas-bedroom1.jpg";
 import arriondasBedroom2 from "@/assets/arriondas-bedroom2.jpg";
@@ -113,9 +113,10 @@ const ArriondasApartments = () => {
 
           {/* Booking Calendar */}
           <div id="booking-section" className="max-w-4xl mx-auto mb-12">
-            <BookingCalendar 
+            <PlanyoCalendar 
               apartmentName="Apartamento Rio Sella I"
-              apartmentLocation="Arriondas"
+              calendarId="cpcal_planyonet_arriondas"
+              jsonpUrl="https://www.planyo.net/fetch-calendar.php?eh=799335aa9de25f21479cec6f5994609a8c15a4f7&ih=f00675cecb9d3f82a8353f876bdf561859c7d72b&callback=?"
             />
           </div>
 
