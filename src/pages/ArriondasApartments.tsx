@@ -115,7 +115,7 @@ const ArriondasApartments = () => {
           <div id="booking-section" className="max-w-4xl mx-auto mb-12">
             <PlanyoCalendar 
               apartmentName="Apartamento Rio Sella I"
-              calendarId="cpcal_planyonet_arriondas"
+              calendarId="cpcal_planyonet"
               jsonpUrl="https://www.planyo.net/fetch-calendar.php?eh=799335aa9de25f21479cec6f5994609a8c15a4f7&ih=f00675cecb9d3f82a8353f876bdf561859c7d72b&callback=?"
             />
           </div>
