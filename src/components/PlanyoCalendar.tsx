@@ -12,7 +12,7 @@ const PlanyoCalendar: React.FC<PlanyoCalendarProps> = ({
   apartmentName, 
   jsonpUrl 
 }) => {
-  // Build the full HTML that Planyo expects, exactly as they provide it
+  // Build the full HTML that Planyo expects, with optimized script loading
   const iframeSrcDoc = useMemo(() => {
     return `
 <!DOCTYPE html>
@@ -20,6 +20,11 @@ const PlanyoCalendar: React.FC<PlanyoCalendarProps> = ({
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Preload critical resources -->
+  <link rel="preload" href="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" as="script">
+  <link rel="preload" href="https://www.planyo.com/libs/planyonet-fc.js" as="script">
+  <link rel="preload" href="https://www.planyo.com/embed-schedule.js" as="script">
+  <!-- CSS -->
   <link href="https://www.planyo.com/libs/fullcalendar-scheduler/lib/fullcalendar.min.css" rel="stylesheet" />
   <link href="https://www.planyo.com/libs/fullcalendar-scheduler/scheduler.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://www.planyo.com/planyonet/planyo.net.css" type="text/css" />
@@ -36,17 +41,28 @@ const PlanyoCalendar: React.FC<PlanyoCalendarProps> = ({
     .cp_pb {
       display: none;
     }
+    .loading-indicator {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 300px;
+      color: #666;
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
-  <div id="cpcal_planyonet" class="cp_calendar cp_units_30"></div>
+  <div id="cpcal_planyonet" class="cp_calendar cp_units_30">
+    <div class="loading-indicator">Cargando calendario...</div>
+  </div>
   <a title="Calendar powered by Planyo" href="http://www.planyo.net" target="_blank" class="cp_pb">calendar</a>
   <div id="cp_fetch_cpcal_planyonet" class="cp_fetching" style="position:absolute;left:200px;top:10px;display:none;z-index:999;">
     <img src="https://www.planyo.com/images/hourglass.gif" />
   </div>
 
   <script>
-    if(!document.cp_instances) document.cp_instances = new Array();
+    // Config first (sync)
+    if(!document.cp_instances) document.cp_instances = [];
     document.cp_instances.push({
       'all_views': 'custMonth',
       'def_view': 'custMonth',
@@ -74,24 +90,28 @@ const PlanyoCalendar: React.FC<PlanyoCalendarProps> = ({
     document.cp_s_weeks = "weeks";
     document.cp_s_agenda = "agenda";
 
-    var scr0 = document.createElement('script');
-    scr0.onload = function () {
-      var scr1 = document.createElement('script');
-      scr1.onload = function () {
-        var scr2 = document.createElement('script');
-        scr2.onload = function() {
-          var scr3 = document.createElement('script');
-          scr3.src = "https://www.planyo.com/embed-schedule.js";
-          document.head.appendChild(scr3);
-        };
-        scr2.src = "https://www.planyo.com/libs/fullcalendar/locale/es.js";
-        document.head.appendChild(scr2);
-      };
-      scr1.src = "https://www.planyo.com/libs/planyonet-fc.js";
-      document.head.appendChild(scr1);
-    };
-    scr0.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js";
-    document.head.appendChild(scr0);
+    // Parallel script loading with Promise.all for speed
+    function loadScript(src) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = src;
+        s.onload = resolve;
+        s.onerror = reject;
+        document.head.appendChild(s);
+      });
+    }
+
+    // Load jQuery first (required), then others in parallel
+    loadScript('https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+      .then(function() {
+        return Promise.all([
+          loadScript('https://www.planyo.com/libs/planyonet-fc.js'),
+          loadScript('https://www.planyo.com/libs/fullcalendar/locale/es.js')
+        ]);
+      })
+      .then(function() {
+        return loadScript('https://www.planyo.com/embed-schedule.js');
+      });
   </script>
 </body>
 </html>
