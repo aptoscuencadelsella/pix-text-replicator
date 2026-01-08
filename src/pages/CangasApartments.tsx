@@ -3,7 +3,7 @@ import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Header from "../components/Header";
 import ImageCarousel from "../components/ImageCarousel";
-import BookingCalendar from "../components/BookingCalendar";
+import PlanyoCalendar from "../components/PlanyoCalendar";
 import BookingReviews from "../components/BookingReviews";
 import cangasImage from "@/assets/cangas-de-onis.jpg";
 import cangasBedroomSingle from "@/assets/cangas-bedroom-single.jpg";
@@ -112,12 +112,11 @@ const CangasApartments = () => {
 
           {/* Booking Calendar */}
           <div id="booking-section" className="max-w-4xl mx-auto mb-12">
-            <div data-tockify-component="calendar" data-tockify-calendar="cangas"></div>
-            <script
-              data-cfasync="false"
-              data-tockify-script="embed"
-              src="https://public.tockify.com/browser/embed.js"
-            ></script>
+            <PlanyoCalendar 
+              apartmentName="Apartamento Rio Sella II"
+              calendarId="cpcal_planyonet_cangas"
+              jsonpUrl="https://www.planyo.net/fetch-calendar.php?eh=474e755f89693fda38e3fc8a3f790f164f7f6ddd&ih=5a9b0c04906e75d955c203115470385c530b2f68&callback=?"
+            />
           </div>
 
           {/* Booking Reviews */}
