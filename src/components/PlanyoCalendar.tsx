@@ -14,12 +14,8 @@ const PlanyoCalendar: React.FC<PlanyoCalendarProps> = ({
   jsonpUrl 
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const scriptsLoadedRef = useRef(false);
 
   useEffect(() => {
-    if (scriptsLoadedRef.current) return;
-    scriptsLoadedRef.current = true;
-
     // Add CSS links
     const cssLinks = [
       'https://www.planyo.com/libs/fullcalendar-scheduler/lib/fullcalendar.min.css',
@@ -36,12 +32,17 @@ const PlanyoCalendar: React.FC<PlanyoCalendarProps> = ({
       }
     });
 
-    // Initialize Planyo configuration
+    // Initialize Planyo configuration for this specific calendar
     if (!(document as any).cp_instances) {
       (document as any).cp_instances = [];
     }
+
+    // Check if this calendar instance already exists
+    const existingIndex = (document as any).cp_instances.findIndex(
+      (instance: any) => instance.element_id === calendarId
+    );
     
-    (document as any).cp_instances.push({
+    const calendarConfig = {
       'all_views': 'custMonth',
       'def_view': 'custMonth',
       'time_unit': 1440,
@@ -56,7 +57,13 @@ const PlanyoCalendar: React.FC<PlanyoCalendarProps> = ({
       'element_id': calendarId,
       'fetching_id': `cp_fetch_${calendarId}`,
       'lng': 'es'
-    });
+    };
+
+    if (existingIndex >= 0) {
+      (document as any).cp_instances[existingIndex] = calendarConfig;
+    } else {
+      (document as any).cp_instances.push(calendarConfig);
+    }
 
     (document as any).cp_time_format = 'HH:mm';
     (document as any).cp_title_format = 'dddd, MMMM Do, YYYY';
@@ -72,7 +79,8 @@ const PlanyoCalendar: React.FC<PlanyoCalendarProps> = ({
     // Load scripts in order
     const loadScript = (src: string): Promise<void> => {
       return new Promise((resolve, reject) => {
-        if (document.querySelector(`script[src="${src}"]`)) {
+        const existingScript = document.querySelector(`script[src="${src}"]`);
+        if (existingScript) {
           resolve();
           return;
         }
@@ -84,21 +92,39 @@ const PlanyoCalendar: React.FC<PlanyoCalendarProps> = ({
       });
     };
 
-    const loadScripts = async () => {
+    const initCalendar = async () => {
       try {
         await loadScript('https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js');
         await loadScript('https://www.planyo.com/libs/planyonet-fc.js');
         await loadScript('https://www.planyo.com/libs/fullcalendar/locale/es.js');
-        await loadScript('https://www.planyo.com/embed-schedule.js');
+        
+        // Remove existing embed script to force re-initialization
+        const existingEmbed = document.querySelector('script[src="https://www.planyo.com/embed-schedule.js"]');
+        if (existingEmbed) {
+          existingEmbed.remove();
+        }
+        
+        // Add embed script fresh
+        const embedScript = document.createElement('script');
+        embedScript.src = 'https://www.planyo.com/embed-schedule.js';
+        document.head.appendChild(embedScript);
       } catch (error) {
         console.error('Error loading Planyo scripts:', error);
       }
     };
 
-    loadScripts();
+    initCalendar();
 
     return () => {
-      // Cleanup if needed
+      // Clean up this calendar instance on unmount
+      if ((document as any).cp_instances) {
+        const idx = (document as any).cp_instances.findIndex(
+          (instance: any) => instance.element_id === calendarId
+        );
+        if (idx >= 0) {
+          (document as any).cp_instances.splice(idx, 1);
+        }
+      }
     };
   }, [calendarId, jsonpUrl]);
 
