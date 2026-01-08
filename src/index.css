@@ -153,3 +153,48 @@ All colors MUST be HSL.
 .animate-fade-in-up {
   animation: fade-in-up 0.6s ease-out both;
 }
+
+/* Planyo / FullCalendar visual alignment with the site theme */
+@layer components {
+  .cp_calendar {
+    width: 100%;
+  }
+
+  .cp_calendar .fc {
+    font-family: inherit;
+    color: hsl(var(--foreground));
+  }
+
+  .cp_calendar .fc .fc-toolbar-title {
+    font-weight: 700;
+    color: hsl(var(--foreground));
+  }
+
+  .cp_calendar .fc .fc-button {
+    background: hsl(var(--secondary));
+    border: 1px solid hsl(var(--secondary));
+    color: hsl(var(--secondary-foreground));
+    border-radius: calc(var(--radius) - 2px);
+    box-shadow: none;
+    text-transform: none;
+  }
+
+  .cp_calendar .fc .fc-button:hover {
+    background: hsl(var(--accent));
+    border-color: hsl(var(--accent));
+  }
+
+  .cp_calendar .fc .fc-button:disabled {
+    opacity: 0.6;
+  }
+
+  .cp_calendar .fc .fc-scrollgrid,
+  .cp_calendar .fc table {
+    border-color: hsl(var(--border));
+  }
+
+  .cp_calendar .fc th,
+  .cp_calendar .fc td {
+    border-color: hsl(var(--border));
+  }
+}
