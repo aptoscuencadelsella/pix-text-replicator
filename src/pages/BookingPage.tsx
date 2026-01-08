@@ -3,7 +3,7 @@ import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Header from "../components/Header";
 import ImageCarousel from "../components/ImageCarousel";
-import BookingCalendar from "../components/BookingCalendar";
+import PlanyoCalendar from "../components/PlanyoCalendar";
 
 // Import Cangas images
 import cangasLivingRoom from "@/assets/cangas-living-room.jpg";
@@ -31,6 +31,7 @@ const BookingPage = () => {
     cangas: {
       name: "Apartamento Rio Sella II",
       location: "Cangas de Onís",
+      jsonpUrl: "https://www.planyo.net/fetch-calendar.php?eh=474e755f89693fda38e3fc8a3f790f164f7f6ddd&ih=5a9b0c04906e75d955c203115470385c530b2f68&callback=?",
       images: [
         cangasLivingRoom,
         cangasKitchenDining,
@@ -54,6 +55,7 @@ const BookingPage = () => {
     arriondas: {
       name: "Apartamento Rio Sella I",
       location: "Arriondas",
+      jsonpUrl: "https://www.planyo.net/fetch-calendar.php?eh=799335aa9de25f21479cec6f5994609a8c15a4f7&ih=f00675cecb9d3f82a8353f876bdf561859c7d72b&callback=?",
       images: [
         arriondasBedroom1, 
         arriondasBedroom2,
@@ -142,9 +144,9 @@ const BookingPage = () => {
 
             {/* Calendario de Reservas */}
             <div className="max-w-4xl mx-auto mt-8">
-              <BookingCalendar 
+              <PlanyoCalendar 
                 apartmentName={currentApartment.name}
-                apartmentLocation={currentApartment.location}
+                jsonpUrl={currentApartment.jsonpUrl}
               />
             </div>
 
