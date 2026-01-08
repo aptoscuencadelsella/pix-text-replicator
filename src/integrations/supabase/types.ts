@@ -65,6 +65,38 @@ export type Database = {
         }
         Relationships: []
       }
+      reservation_guest_details: {
+        Row: {
+          created_at: string
+          guest_email: string | null
+          guest_name: string | null
+          id: string
+          reservation_id: string
+        }
+        Insert: {
+          created_at?: string
+          guest_email?: string | null
+          guest_name?: string | null
+          id?: string
+          reservation_id: string
+        }
+        Update: {
+          created_at?: string
+          guest_email?: string | null
+          guest_name?: string | null
+          id?: string
+          reservation_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "reservation_guest_details_reservation_id_fkey"
+            columns: ["reservation_id"]
+            isOneToOne: true
+            referencedRelation: "reservations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       reservations: {
         Row: {
           apartment_location: string
@@ -74,8 +106,6 @@ export type Database = {
           check_out_date: string
           created_at: string
           external_booking_id: string | null
-          guest_email: string | null
-          guest_name: string | null
           id: string
           notes: string | null
           status: string
@@ -90,8 +120,6 @@ export type Database = {
           check_out_date: string
           created_at?: string
           external_booking_id?: string | null
-          guest_email?: string | null
-          guest_name?: string | null
           id?: string
           notes?: string | null
           status?: string
@@ -106,8 +134,6 @@ export type Database = {
           check_out_date?: string
           created_at?: string
           external_booking_id?: string | null
-          guest_email?: string | null
-          guest_name?: string | null
           id?: string
           notes?: string | null
           status?: string
