@@ -63,25 +63,6 @@ const PlanyoCalendar: React.FC<PlanyoCalendarProps> = ({
         gap: 4px;
       }
     }
-    /* Available days in green */
-    .fc .fc-daygrid-day {
-      background-color: #dcfce7 !important; /* light green */
-    }
-    .fc .fc-daygrid-day:hover {
-      background-color: #bbf7d0 !important; /* slightly darker green on hover */
-    }
-    /* Keep booked/unavailable days in red (Planyo uses these classes) */
-    .fc .fc-daygrid-day.fc-day-past,
-    .fc .fc-daygrid-day.cp_unavailable,
-    .fc .fc-daygrid-day.cp_booked,
-    .fc .fc-daygrid-day.cp_reserved {
-      background-color: #fecaca !important; /* light red */
-    }
-    /* Today marker */
-    .fc .fc-daygrid-day.fc-day-today {
-      background-color: #a7f3d0 !important; /* brighter green for today */
-      border: 2px solid #22c55e !important;
-    }
   </style>
 </head>
 <body>
