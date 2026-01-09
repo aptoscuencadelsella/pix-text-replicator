@@ -29,11 +29,12 @@ const PlanyoCalendar: React.FC<PlanyoCalendarProps> = ({
   <link href="https://www.planyo.com/libs/fullcalendar-scheduler/scheduler.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://www.planyo.com/planyonet/planyo.net.css" type="text/css" />
   <style>
-    body {
+    html, body {
       margin: 0;
       padding: 8px;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background: transparent;
+      overflow: hidden;
     }
     .cp_calendar {
       width: 100%;
@@ -41,20 +42,31 @@ const PlanyoCalendar: React.FC<PlanyoCalendarProps> = ({
     .cp_pb {
       display: none;
     }
-    .loading-indicator {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 300px;
-      color: #666;
-      font-size: 14px;
+    /* FullCalendar mobile text adjustments */
+    .fc .fc-toolbar-title {
+      font-size: 1rem !important;
+    }
+    .fc .fc-button {
+      font-size: 0.75rem !important;
+      padding: 0.25em 0.5em !important;
+    }
+    @media (max-width: 480px) {
+      .fc .fc-toolbar-title {
+        font-size: 0.85rem !important;
+      }
+      .fc .fc-button {
+        font-size: 0.65rem !important;
+        padding: 0.2em 0.4em !important;
+      }
+      .fc .fc-toolbar {
+        flex-wrap: wrap;
+        gap: 4px;
+      }
     }
   </style>
 </head>
 <body>
-  <div id="cpcal_planyonet" class="cp_calendar cp_units_30">
-    <div class="loading-indicator">Cargando calendario...</div>
-  </div>
+  <div id="cpcal_planyonet" class="cp_calendar cp_units_30"></div>
   <a title="Calendar powered by Planyo" href="http://www.planyo.net" target="_blank" class="cp_pb">calendar</a>
   <div id="cp_fetch_cpcal_planyonet" class="cp_fetching" style="position:absolute;left:200px;top:10px;display:none;z-index:999;">
     <img src="https://www.planyo.com/images/hourglass.gif" />
