@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, Phone, Mail, MapPin, Send } from "lucide-react";
+import { ArrowLeft, Phone, Mail, MapPin, Send, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -8,6 +8,8 @@ import { useState } from "react";
 import Header from "../components/Header";
 import naranjoRealistic from "@/assets/naranjo-bulnes-realistic.jpg";
 import { z } from "zod";
+import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const contactSchema = z.object({
   nombre: z.string()
@@ -35,6 +37,8 @@ const contactSchema = z.object({
 });
 
 const Contacto = () => {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     nombre: '',
     email: '',
@@ -53,7 +57,7 @@ const Contacto = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Clear previous errors
@@ -73,16 +77,41 @@ const Contacto = () => {
       return;
     }
     
-    // If validation passes, proceed with mailto
-    const subject = encodeURIComponent(formData.asunto || 'Consulta desde la web');
-    const body = encodeURIComponent(
-      `Nombre: ${formData.nombre}\n` +
-      `Email: ${formData.email}\n` +
-      `Teléfono: ${formData.telefono}\n\n` +
-      `Mensaje:\n${formData.mensaje}`
-    );
+    setIsSubmitting(true);
     
-    window.location.href = `mailto:info@cuencadelsella.com?subject=${subject}&body=${body}`;
+    try {
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: formData
+      });
+      
+      if (error) {
+        throw error;
+      }
+      
+      toast({
+        title: "¡Mensaje enviado!",
+        description: "Hemos recibido tu consulta. Te responderemos lo antes posible.",
+      });
+      
+      // Reset form
+      setFormData({
+        nombre: '',
+        email: '',
+        telefono: '',
+        asunto: '',
+        mensaje: ''
+      });
+      
+    } catch (error: any) {
+      console.error("Error sending contact form:", error);
+      toast({
+        title: "Error al enviar",
+        description: "No se pudo enviar el mensaje. Por favor, inténtalo de nuevo o contacta directamente por teléfono.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -274,10 +303,20 @@ const Contacto = () => {
                   <Button 
                     type="submit"
                     size="lg"
-                    className="w-full bg-nature-green hover:bg-nature-forest text-white border-none font-semibold py-3 text-lg shadow-nature transition-all duration-300 hover:shadow-xl hover:scale-105"
+                    disabled={isSubmitting}
+                    className="w-full bg-nature-green hover:bg-nature-forest text-white border-none font-semibold py-3 text-lg shadow-nature transition-all duration-300 hover:shadow-xl hover:scale-105 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
                   >
-                    <Send className="w-5 h-5 mr-2" />
-                    ENVIAR MENSAJE
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                        ENVIANDO...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-5 h-5 mr-2" />
+                        ENVIAR MENSAJE
+                      </>
+                    )}
                   </Button>
                 </form>
               </div>
