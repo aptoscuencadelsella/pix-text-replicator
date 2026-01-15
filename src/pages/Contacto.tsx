@@ -6,7 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import Header from "../components/Header";
-import naranjoRealistic from "@/assets/naranjo-bulnes-realistic.jpg";
+import contactPicosHero from "@/assets/contact-picos-hero.jpg";
 import { z } from "zod";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
@@ -135,8 +135,8 @@ const Contacto = () => {
           {/* Hero Image */}
           <div className="relative h-[400px] lg:h-[500px] overflow-hidden rounded-lg shadow-card-nature mb-12">
             <img
-              src={naranjoRealistic}
-              alt="Contacto Cuenca del Sella"
+              src={contactPicosHero}
+              alt="Vista panorámica de los Picos de Europa - Contacto Cuenca del Sella"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
