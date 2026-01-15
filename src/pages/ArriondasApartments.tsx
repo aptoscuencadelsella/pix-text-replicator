@@ -163,7 +163,7 @@ const ArriondasApartments = () => {
               { name: "Calidad-precio", score: 8.9 },
               { name: "Ubicación", score: 9.5 }
             ]}
-            bookingUrl="https://www.booking.com/hotel/es/apartamento-rio-sella.es.html#tab-reviews"
+            bookingUrl="https://www.booking.com/reviews/es/hotel/apartamento-rio-sella.es.html"
           />
 
           {/* Additional Information */}
