@@ -162,7 +162,7 @@ const CangasApartments = () => {
               { name: "Calidad-precio", score: 9.0 },
               { name: "Ubicación", score: 10 }
             ]}
-            bookingUrl="https://www.booking.com/hotel/es/apartamento-rio-sella-2.es.html"
+            bookingUrl="https://www.booking.com/hotel/es/apartamento-rio-sella-2.es.html#tab-reviews"
           />
 
           {/* Additional Information */}
