@@ -17,6 +17,39 @@ interface ContactEmailRequest {
   mensaje: string;
 }
 
+// HTML escape function to prevent XSS/injection attacks
+const escapeHtml = (str: string): string => {
+  if (!str) return '';
+  const htmlEscapeMap: Record<string, string> = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;',
+  };
+  return str.replace(/[&<>"']/g, (char) => htmlEscapeMap[char] || char);
+};
+
+// Server-side validation schema
+const validateInput = (data: ContactEmailRequest): { valid: boolean; error?: string } => {
+  if (!data.nombre || data.nombre.trim().length < 2 || data.nombre.length > 100) {
+    return { valid: false, error: 'Nombre inválido' };
+  }
+  if (!data.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email) || data.email.length > 255) {
+    return { valid: false, error: 'Email inválido' };
+  }
+  if (data.telefono && data.telefono.length > 20) {
+    return { valid: false, error: 'Teléfono inválido' };
+  }
+  if (data.asunto && data.asunto.length > 200) {
+    return { valid: false, error: 'Asunto demasiado largo' };
+  }
+  if (!data.mensaje || data.mensaje.trim().length < 10 || data.mensaje.length > 2000) {
+    return { valid: false, error: 'Mensaje inválido' };
+  }
+  return { valid: true };
+};
+
 const handler = async (req: Request): Promise<Response> => {
   console.log("send-contact-email function called");
   
@@ -26,15 +59,36 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
-    const { nombre, email, telefono, asunto, mensaje }: ContactEmailRequest = await req.json();
+    const rawData = await req.json();
+    const { nombre, email, telefono, asunto, mensaje }: ContactEmailRequest = rawData;
     
-    console.log("Processing contact form:", { nombre, email, asunto });
+    // Server-side validation
+    const validation = validateInput({ nombre, email, telefono, asunto, mensaje });
+    if (!validation.valid) {
+      console.log("Validation failed:", validation.error);
+      return new Response(
+        JSON.stringify({ error: validation.error }),
+        {
+          status: 400,
+          headers: { "Content-Type": "application/json", ...corsHeaders },
+        }
+      );
+    }
+    
+    console.log("Processing contact form for:", escapeHtml(nombre));
+
+    // Sanitize all user inputs before embedding in HTML
+    const safeNombre = escapeHtml(nombre);
+    const safeEmail = escapeHtml(email);
+    const safeTelefono = escapeHtml(telefono || '');
+    const safeAsunto = escapeHtml(asunto || '');
+    const safeMensaje = escapeHtml(mensaje);
 
     // Send notification email to the business
     const notificationEmail = await resend.emails.send({
       from: "Cuenca del Sella <onboarding@resend.dev>",
       to: ["info@cuencadelsella.com"],
-      subject: asunto || `Nueva consulta de ${nombre}`,
+      subject: safeAsunto || `Nueva consulta de ${safeNombre}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
           <h1 style="color: #2d5a3d; border-bottom: 2px solid #2d5a3d; padding-bottom: 10px;">
@@ -42,15 +96,15 @@ const handler = async (req: Request): Promise<Response> => {
           </h1>
           
           <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
-            <p style="margin: 10px 0;"><strong>Nombre:</strong> ${nombre}</p>
-            <p style="margin: 10px 0;"><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
-            <p style="margin: 10px 0;"><strong>Teléfono:</strong> ${telefono || 'No proporcionado'}</p>
-            <p style="margin: 10px 0;"><strong>Asunto:</strong> ${asunto || 'Sin asunto'}</p>
+            <p style="margin: 10px 0;"><strong>Nombre:</strong> ${safeNombre}</p>
+            <p style="margin: 10px 0;"><strong>Email:</strong> <a href="mailto:${safeEmail}">${safeEmail}</a></p>
+            <p style="margin: 10px 0;"><strong>Teléfono:</strong> ${safeTelefono || 'No proporcionado'}</p>
+            <p style="margin: 10px 0;"><strong>Asunto:</strong> ${safeAsunto || 'Sin asunto'}</p>
           </div>
           
           <div style="background-color: #fff; border-left: 4px solid #2d5a3d; padding: 15px; margin: 20px 0;">
             <h3 style="color: #2d5a3d; margin-top: 0;">Mensaje:</h3>
-            <p style="white-space: pre-wrap; line-height: 1.6;">${mensaje}</p>
+            <p style="white-space: pre-wrap; line-height: 1.6;">${safeMensaje}</p>
           </div>
           
           <p style="color: #666; font-size: 12px; margin-top: 30px;">
@@ -60,7 +114,7 @@ const handler = async (req: Request): Promise<Response> => {
       `,
     });
 
-    console.log("Notification email sent:", notificationEmail);
+    console.log("Notification email sent successfully");
 
     // Send confirmation email to the user
     const confirmationEmail = await resend.emails.send({
@@ -70,7 +124,7 @@ const handler = async (req: Request): Promise<Response> => {
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
           <h1 style="color: #2d5a3d; text-align: center;">
-            ¡Gracias por contactarnos, ${nombre}!
+            ¡Gracias por contactarnos, ${safeNombre}!
           </h1>
           
           <p style="font-size: 16px; line-height: 1.6; color: #333;">
@@ -79,8 +133,8 @@ const handler = async (req: Request): Promise<Response> => {
           
           <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <h3 style="color: #2d5a3d; margin-top: 0;">Resumen de tu consulta:</h3>
-            <p style="margin: 5px 0;"><strong>Asunto:</strong> ${asunto || 'Consulta general'}</p>
-            <p style="white-space: pre-wrap; color: #555;">${mensaje}</p>
+            <p style="margin: 5px 0;"><strong>Asunto:</strong> ${safeAsunto || 'Consulta general'}</p>
+            <p style="white-space: pre-wrap; color: #555;">${safeMensaje}</p>
           </div>
           
           <p style="font-size: 16px; line-height: 1.6; color: #333;">
@@ -100,7 +154,7 @@ const handler = async (req: Request): Promise<Response> => {
       `,
     });
 
-    console.log("Confirmation email sent:", confirmationEmail);
+    console.log("Confirmation email sent successfully");
 
     return new Response(
       JSON.stringify({ 
