@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { X } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const COOKIE_CONSENT_KEY = "cookie_consent";
 
@@ -11,11 +12,12 @@ interface CookiePreferences {
 }
 
 export const CookieConsent = () => {
+  const { t } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
   const [preferences, setPreferences] = useState<CookiePreferences>({
     necessary: true,
-    analytics: true, // Analytics marcadas por defecto
+    analytics: true,
   });
 
   useEffect(() => {
@@ -30,12 +32,10 @@ export const CookieConsent = () => {
 
   const applyAnalytics = (enabled: boolean) => {
     if (enabled && typeof window !== "undefined") {
-      // Habilitar Google Analytics
       window.gtag?.("consent", "update", {
         analytics_storage: "granted",
       });
     } else if (typeof window !== "undefined") {
-      // Deshabilitar Google Analytics
       window.gtag?.("consent", "update", {
         analytics_storage: "denied",
       });
@@ -69,14 +69,14 @@ export const CookieConsent = () => {
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-center gap-4">
           <div className="flex-1">
-            <h3 className="font-semibold text-gray-900 mb-1">🍪 Utilizamos cookies</h3>
+            <h3 className="font-semibold text-gray-900 mb-1">🍪 {t("cookies.title")}</h3>
             <p className="text-sm text-gray-600">
-              Usamos cookies para mejorar tu experiencia y analizar el tráfico de nuestra web.{" "}
+              {t("cookies.description")}{" "}
               <button
                 onClick={() => setShowDetails(!showDetails)}
                 className="text-primary hover:underline font-medium"
               >
-                {showDetails ? "Ocultar detalles" : "Más información"}
+                {showDetails ? t("cookies.hideDetails") : t("cookies.moreInfo")}
               </button>
             </p>
 
@@ -91,10 +91,10 @@ export const CookieConsent = () => {
                   />
                   <div>
                     <label htmlFor="necessary" className="font-medium text-gray-900">
-                      Cookies necesarias
+                      {t("cookies.necessary")}
                     </label>
                     <p className="text-sm text-gray-500">
-                      Esenciales para el funcionamiento del sitio. No se pueden desactivar.
+                      {t("cookies.necessaryDesc")}
                     </p>
                   </div>
                 </div>
@@ -110,10 +110,10 @@ export const CookieConsent = () => {
                   />
                   <div>
                     <label htmlFor="analytics" className="font-medium text-gray-900">
-                      Cookies analíticas
+                      {t("cookies.analytics")}
                     </label>
                     <p className="text-sm text-gray-500">
-                      Nos ayudan a entender cómo usas nuestra web para mejorarla (Google Analytics).
+                      {t("cookies.analyticsDesc")}
                     </p>
                   </div>
                 </div>
@@ -125,19 +125,19 @@ export const CookieConsent = () => {
             {showDetails ? (
               <>
                 <Button variant="outline" onClick={rejectOptional} size="sm">
-                  Rechazar opcionales
+                  {t("cookies.rejectOptional")}
                 </Button>
                 <Button onClick={acceptSelected} size="sm">
-                  Guardar preferencias
+                  {t("cookies.savePreferences")}
                 </Button>
               </>
             ) : (
               <>
                 <Button variant="outline" onClick={() => setShowDetails(true)} size="sm">
-                  Configurar
+                  {t("cookies.configure")}
                 </Button>
                 <Button onClick={acceptAll} size="sm">
-                  Aceptar todas
+                  {t("cookies.acceptAll")}
                 </Button>
               </>
             )}
@@ -146,7 +146,7 @@ export const CookieConsent = () => {
           <button
             onClick={rejectOptional}
             className="absolute top-2 right-2 md:static p-1 text-gray-400 hover:text-gray-600"
-            aria-label="Cerrar"
+            aria-label={t("common.close")}
           >
             <X className="h-5 w-5" />
           </button>
