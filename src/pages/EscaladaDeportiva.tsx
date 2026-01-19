@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -186,6 +187,7 @@ export default function EscaladaDeportiva() {
             </div>
           </section>
         </main>
+        <Footer />
       </div>
     </>
   );

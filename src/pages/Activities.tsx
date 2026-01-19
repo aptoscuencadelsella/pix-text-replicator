@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import ImageCarousel from "../components/ImageCarousel";
 import activitiesImage from "@/assets/actividades-cuenca.jpg";
 import canoeing from "@/assets/activity-canoeing.jpg";
@@ -96,6 +97,7 @@ const Activities = () => {
 
         </div>
       </main>
+      <Footer />
     </div>
   );
 };

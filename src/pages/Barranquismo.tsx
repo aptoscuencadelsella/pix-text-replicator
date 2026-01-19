@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import barranquismoImage from "@/assets/barranquismo-asturias.jpg";
 
 const Barranquismo = () => {
@@ -336,6 +337,7 @@ const Barranquismo = () => {
 
         </div>
       </main>
+      <Footer />
     </div>
   );
 };

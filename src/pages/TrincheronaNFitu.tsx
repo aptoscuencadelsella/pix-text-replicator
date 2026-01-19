@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import { ArrowLeft, MapPin, Clock, Mountain, Eye, AlertTriangle, TreePine } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -276,6 +277,7 @@ export default function TrincheronaNFitu() {
             </div>
           </div>
         </main>
+        <Footer />
       </div>
     </>
   );
