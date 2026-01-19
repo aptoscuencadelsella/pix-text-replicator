@@ -9,6 +9,42 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type",
 };
 
+// Rate limiting configuration
+const RATE_LIMIT_WINDOW_MS = 60 * 1000; // 1 minute
+const MAX_REQUESTS_PER_WINDOW = 3; // Max 3 requests per minute per IP
+const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+
+// Clean up expired rate limit entries periodically
+const cleanupRateLimits = () => {
+  const now = Date.now();
+  for (const [key, value] of rateLimitMap.entries()) {
+    if (now > value.resetTime) {
+      rateLimitMap.delete(key);
+    }
+  }
+};
+
+// Check and update rate limit for an IP
+const checkRateLimit = (ip: string): { allowed: boolean; retryAfter?: number } => {
+  cleanupRateLimits();
+  const now = Date.now();
+  const record = rateLimitMap.get(ip);
+
+  if (!record || now > record.resetTime) {
+    // New window
+    rateLimitMap.set(ip, { count: 1, resetTime: now + RATE_LIMIT_WINDOW_MS });
+    return { allowed: true };
+  }
+
+  if (record.count >= MAX_REQUESTS_PER_WINDOW) {
+    const retryAfter = Math.ceil((record.resetTime - now) / 1000);
+    return { allowed: false, retryAfter };
+  }
+
+  record.count++;
+  return { allowed: true };
+};
+
 interface ContactEmailRequest {
   nombre: string;
   email: string;
@@ -58,6 +94,30 @@ const handler = async (req: Request): Promise<Response> => {
     return new Response(null, { headers: corsHeaders });
   }
 
+  // Extract client IP for rate limiting
+  const clientIP = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() 
+    || req.headers.get("x-real-ip") 
+    || "unknown";
+  
+  // Check rate limit
+  const rateLimitResult = checkRateLimit(clientIP);
+  if (!rateLimitResult.allowed) {
+    console.log(`Rate limit exceeded for IP: ${clientIP}`);
+    return new Response(
+      JSON.stringify({ 
+        error: "Demasiadas solicitudes. Por favor, espere un momento antes de intentarlo de nuevo." 
+      }),
+      {
+        status: 429,
+        headers: { 
+          "Content-Type": "application/json", 
+          "Retry-After": String(rateLimitResult.retryAfter || 60),
+          ...corsHeaders 
+        },
+      }
+    );
+  }
+
   try {
     const rawData = await req.json();
     const { nombre, email, telefono, asunto, mensaje }: ContactEmailRequest = rawData;
@@ -75,7 +135,10 @@ const handler = async (req: Request): Promise<Response> => {
       );
     }
     
-    console.log("Processing contact form for:", escapeHtml(nombre));
+    console.log("Processing contact form submission", { 
+      timestamp: new Date().toISOString(),
+      ip: clientIP 
+    });
 
     // Sanitize all user inputs before embedding in HTML
     const safeNombre = escapeHtml(nombre);
@@ -172,7 +235,7 @@ const handler = async (req: Request): Promise<Response> => {
   } catch (error: any) {
     console.error("Error in send-contact-email function:", error);
     return new Response(
-      JSON.stringify({ error: error.message }),
+      JSON.stringify({ error: "Error al procesar la solicitud" }),
       {
         status: 500,
         headers: { "Content-Type": "application/json", ...corsHeaders },
