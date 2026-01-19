@@ -2,3 +2,6 @@ project_id = "zrotjwlerjlowtxmzabz"
 
 [functions.send-contact-email]
 verify_jwt = false
+
+[functions.sync-ical-calendars]
+verify_jwt = false
