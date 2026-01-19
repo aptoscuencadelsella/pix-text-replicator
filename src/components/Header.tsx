@@ -2,8 +2,11 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { LanguageSwitcher } from "./LanguageSwitcher";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Header = () => {
+  const { t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -20,7 +23,7 @@ const Header = () => {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center justify-end space-x-8">
           <Link to="/" className="text-foreground hover:text-primary transition-colors font-medium">
-            INICIO
+            {t("nav.home").toUpperCase()}
           </Link>
           <Link to="/actividades-cuenca" className="text-foreground hover:text-primary transition-colors font-medium">
             OCIO
@@ -32,8 +35,9 @@ const Header = () => {
             AP ARRIONDAS
           </Link>
           <Link to="/contacto" className="text-foreground hover:text-primary transition-colors font-medium">
-            CONTACTO
+            {t("nav.contact").toUpperCase()}
           </Link>
+          <LanguageSwitcher />
         </div>
 
         {/* Mobile Navigation */}
@@ -42,18 +46,21 @@ const Header = () => {
             CUENCA DEL SELLA
           </Link>
           
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={toggleMenu}
-            className="p-2 hover:bg-muted"
-          >
-            {isMenuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
-          </Button>
+          <div className="flex items-center gap-2">
+            <LanguageSwitcher />
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={toggleMenu}
+              className="p-2 hover:bg-muted"
+            >
+              {isMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </Button>
+          </div>
         </div>
 
         {/* Mobile Menu Overlay */}
@@ -65,7 +72,7 @@ const Header = () => {
                 className="block py-3 px-4 text-foreground hover:text-primary hover:bg-muted rounded-lg transition-all font-medium"
                 onClick={closeMenu}
               >
-                INICIO
+                {t("nav.home").toUpperCase()}
               </Link>
               <Link 
                 to="/actividades-cuenca" 
@@ -79,21 +86,21 @@ const Header = () => {
                 className="block py-3 px-4 text-foreground hover:text-primary hover:bg-muted rounded-lg transition-all font-medium"
                 onClick={closeMenu}
               >
-                APARTAMENTOS CANGAS
+                {t("nav.apartments").toUpperCase()} CANGAS
               </Link>
               <Link 
                 to="/arriondas-apartaments" 
                 className="block py-3 px-4 text-foreground hover:text-primary hover:bg-muted rounded-lg transition-all font-medium"
                 onClick={closeMenu}
               >
-                APARTAMENTOS ARRIONDAS
+                {t("nav.apartments").toUpperCase()} ARRIONDAS
               </Link>
               <Link 
                 to="/contacto" 
                 className="block py-3 px-4 text-foreground hover:text-primary hover:bg-muted rounded-lg transition-all font-medium"
                 onClick={closeMenu}
               >
-                CONTACTO
+                {t("nav.contact").toUpperCase()}
               </Link>
             </div>
           </div>
