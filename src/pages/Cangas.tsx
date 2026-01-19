@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import puenteRomano from "@/assets/puente-romano-cangas.jpg";
 import cangasNocturna from "@/assets/cangas-nocturna.png";
 
@@ -255,6 +256,7 @@ const Cangas = () => {
 
         </div>
       </main>
+      <Footer />
     </div>
   );
 };

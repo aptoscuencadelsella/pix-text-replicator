@@ -10,6 +10,7 @@ import { toast } from 'sonner';
 import { Loader2, ArrowLeft, Eye, EyeOff } from 'lucide-react';
 import { z } from 'zod';
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 import SEOHead from '@/components/SEOHead';
 import { Helmet } from 'react-helmet';
 
@@ -250,6 +251,7 @@ export default function Auth() {
             </div>
           </div>
         </main>
+        <Footer />
       </div>
     </>
   );

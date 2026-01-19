@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import contactPicosHero from "@/assets/contact-picos-hero.jpg";
 import { z } from "zod";
 import { useToast } from "@/hooks/use-toast";
@@ -326,6 +327,7 @@ const Contacto = () => {
 
         </div>
       </main>
+      <Footer />
     </div>
   );
 };

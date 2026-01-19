@@ -1,4 +1,5 @@
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import HeroSection from "../components/HeroSection";
 import ApartmentGrid from "../components/ApartmentGrid";
 import ContactSection from "../components/ContactSection";
@@ -79,6 +80,7 @@ const Index = () => {
       </section>
       
       <ContactSection />
+      <Footer />
     </div>
   );
 };

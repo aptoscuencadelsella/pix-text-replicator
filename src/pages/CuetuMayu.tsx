@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import { ArrowLeft, MapPin, Clock, Mountain, Users, AlertTriangle } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -227,6 +228,7 @@ export default function CuetuMayu() {
             </div>
           </div>
         </main>
+        <Footer />
       </div>
     </>
   );

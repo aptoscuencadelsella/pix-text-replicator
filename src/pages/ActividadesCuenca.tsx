@@ -3,6 +3,7 @@ import { ArrowLeft, MapPin, Clock, Users, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import cuencaSellaSinChaleco from "@/assets/cuenca-sella-sin-chaleco.jpg";
 import canoeingImage from "@/assets/activity-canoeing.jpg";
 import hikingImage from "@/assets/activity-hiking.jpg";
@@ -291,6 +292,7 @@ const ActividadesCuenca = () => {
 
         </div>
       </main>
+      <Footer />
     </div>
   );
 };

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import ImageCarousel from "../components/ImageCarousel";
 import lagosImage from "@/assets/lagos-covadonga.jpg";
 import basilicaNew from "@/assets/basilica-covadonga-lateral-new.jpg";
@@ -277,6 +278,7 @@ const Covadonga = () => {
 
         </div>
       </main>
+      <Footer />
     </div>
   );
 };
